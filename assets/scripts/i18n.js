@@ -1,8 +1,4 @@
-/**
- * ICHU — i18n: alternancia ES/EN en tiempo de ejecución.
- * El diccionario mapea el texto exacto en español a su versión en inglés.
- * Las cadenas sin traducción permanecen intactas (fallback seguro).
- */
+/* Switch between Spanish and English using exact text matches and preserve untranslated text */
 (async () => {
   'use strict';
   if (!(await window.ICHU_PARTIALS_READY)) return;
@@ -10,7 +6,7 @@
   const LANG_KEY = 'ichu-lang';
 
   const DICT = {
-    // --- Marca / global -----------------------------------------------------
+    // Brand and shared text
     'ICHU - Inicio': 'ICHU - Home',
     'Saltar al contenido': 'Skip to content',
     'Tecnología para la ganadería inteligente · Perú': 'Technology for smart livestock farming · Peru',
@@ -29,7 +25,7 @@
     'Redes sociales': 'Social media',
     'Sitio web': 'Website',
 
-    // --- Navegación ----------------------------------------------------------
+    // Navigation
     'Inicio': 'Home',
     'Conoce ICHU +': 'Meet ICHU +',
     'Quiénes somos': 'About us',
@@ -51,7 +47,7 @@
     'Enlaces del sitio': 'Site links',
     'Volver al inicio': 'Back to home',
 
-    // --- Página: Cómo funciona -----------------------------------------------
+    // Product walkthrough page
     'Cómo funciona — ICHU · Paso a paso': 'How it works — ICHU · Step by step',
     'ICHU · Cómo funciona': 'ICHU · How it works',
     'Del collar a la decisión, en tres pasos.': 'From collar to decision, in three steps.',
@@ -65,7 +61,7 @@
     'Las pantallas de la app llegarán muy pronto.': 'The app screens are coming very soon.',
     'Estamos preparando el recorrido paso a paso de ICHU con datos reales del campo: la ficha del ejemplar, las alertas y el mapa de pastoreo.': 'We are preparing ICHU\'s step-by-step walkthrough with real field data: the animal record, alerts and the grazing map.',
 
-    // --- Página: Web y Media ---------------------------------------------------
+    // Media page
     'Web y Media — ICHU · Videos informativos': 'Web & Media — ICHU · Informative videos',
     'ICHU · Web y Media': 'ICHU · Web & Media',
     'Videos informativos de ICHU.': 'ICHU informative videos.',
@@ -84,7 +80,7 @@
     'Visitas y jornadas de campo reales': 'Real field visits and farm days',
     'Tips sanitarios y de manejo': 'Health & handling tips',
 
-    // --- Portada ---------------------------------------------------------------
+    // Home page
     'ICHU — Tecnología para la Ganadería Inteligente': 'ICHU — Technology for Smart Livestock Farming',
     'Plataforma ganadera para todos': 'A livestock platform for everyone',
     'Cada animal tiene una': 'Every animal has a',
@@ -97,7 +93,7 @@
     'Solicitar demostración para mi hato': 'Request a demo for my herd',
     'Solicitar demostración para profesionales': 'Request a demo for professionals',
 
-    // --- Estadísticas ------------------------------------------------------------
+    // Statistics
     'ICHU en números': 'ICHU in numbers',
     'variables vitales monitoreadas por animal: temperatura, actividad y ubicación.': 'vital variables monitored per animal: temperature, activity and location.',
     'etapas de trazabilidad cubiertas, de la identificación al seguimiento final.': 'traceability stages covered, from identification to final follow-up.',
@@ -109,7 +105,7 @@
     'Inventario vivo': 'Live inventory',
     'Animal': 'Animal',
 
-    // --- Quiénes somos -------------------------------------------------------------
+    // Company introduction
     'Desde 2026 · Perú': 'Since 2026 · Peru',
     'Somos una empresa peruana que innova la ganadería con tecnología cercana, útil y pensada para la realidad del campo.': 'We are a Peruvian company innovating livestock farming with close, useful technology designed for the reality of the countryside.',
     'Desde 2026 desarrollamos ICHU: una plataforma que reúne la información de cada ejemplar, las señales del hato y el acompañamiento veterinario para tomar decisiones oportunas y cuidar mejor cada producción.': 'Since 2026 we have been developing ICHU: a platform that brings together each animal\'s information, herd signals and veterinary support to make timely decisions and better protect every production.',
@@ -119,7 +115,7 @@
     'Collar inteligente ICHU': 'ICHU smart collar',
     'Collar inteligente ICHU para el monitoreo del ganado': 'ICHU smart collar for livestock monitoring',
 
-    // --- El problema -----------------------------------------------------------------
+    // Field challenges
     'Diagnóstico del campo': 'Field diagnosis',
     'El campo tiene información.': 'The field has information.',
     'El reto es convertirla en decisiones.': 'The challenge is turning it into decisions.',
@@ -137,7 +133,7 @@
     'Coordinación del equipo': 'Team coordination',
     'Dificultad para alinear lo que observa el personal de campo, lo que registra el administrador y las pautas que indica el especialista veterinario.': 'Difficulty aligning what field staff observe, what the manager logs and the guidelines given by the veterinary specialist.',
 
-    // --- ¿Qué es ICHU? ------------------------------------------------------------------
+    // Product overview
     '¿Qué es ICHU?': 'What is ICHU?',
     'Una nueva forma de entender la ganadería.': 'A new way to understand livestock farming.',
     'La ganadería no es una hoja de cálculo estática: es un ciclo biológico vivo. ICHU organiza los hitos fundamentales de la vida de cada ejemplar para preservar su memoria productiva y sanitaria desde sus primeros días.': 'Livestock farming is not a static spreadsheet: it is a living biological cycle. ICHU organizes the key milestones of each animal\'s life to preserve its productive and health memory from its first days.',
@@ -160,7 +156,7 @@
     'Comprobación de recuperación y continuidad productiva.': 'Recovery check and productive continuity.',
     'Ganadero': 'Rancher',
 
-    // --- Ganaderos / Veterinarios (splits) ------------------------------------------------
+    // Farmer and veterinarian sections
     'Para quienes están todos los días en el campo.': 'For those who are out in the field every day.',
     'Diseñado para simplificar la jornada de trabajo. Un espacio claro para tener el control de su ganado en la palma de la mano.': 'Designed to simplify the workday. A clear space to keep your herd under control in the palm of your hand.',
     'Control de tu hato': 'Your herd under control',
@@ -228,7 +224,7 @@
     'Hoy, 07:30 am': 'Today, 07:30 am',
     'Ayer, 04:15 pm': 'Yesterday, 04:15 pm',
 
-    // --- Alertas ---------------------------------------------------------------------------
+    // Alerts
     'Señales claras': 'Clear signals',
     'Alertas preventivas, no diagnósticos automáticos.': 'Preventive alerts, not automatic diagnoses.',
     'Las alertas de ICHU funcionan como un llamado de atención oportuno para que el ganadero o veterinario inspeccione al animal a tiempo.': 'ICHU alerts work as a timely call to attention so the farmer or veterinarian can inspect the animal in time.',
@@ -249,7 +245,7 @@
     'Nota de responsabilidad técnica:': 'Technical responsibility note:',
     'las alertas y métricas mostradas son herramientas de orientación conceptual. No constituyen un diagnóstico clínico automatizado ni sustituyen el juicio profesional del médico veterinario.': 'the alerts and metrics shown are conceptual orientation tools. They do not constitute an automated clinical diagnosis nor replace the professional judgment of the veterinarian.',
 
-    // --- Tecnología --------------------------------------------------------------------------
+    // Technology
     'Ingeniería para el campo': 'Engineering for the field',
     'Tecnología que observa.': 'Technology that observes.',
     'Personas que deciden.': 'People who decide.',
@@ -266,7 +262,7 @@
     'Más información para mejores decisiones veterinarias.': 'More information for better veterinary decisions.',
     'También se trata de entender el campo.': 'It is also about understanding the countryside.',
 
-    // --- Fuentes / confianza --------------------------------------------------------------------
+    // Institutional references
     'Contexto nacional y buenas prácticas': 'National context & good practices',
     'La gestión ganadera involucra compromisos sanitarios y normativas oficiales. ICHU busca facilitar la organización de información útil para la gestión productiva y veterinaria, dentro del marco de las obligaciones aplicables a cada actividad.': 'Livestock management involves health commitments and official regulations. ICHU seeks to facilitate the organization of useful information for productive and veterinary management, within the framework of the obligations applicable to each activity.',
     'Normativa sanitaria': 'Health regulations',
@@ -287,14 +283,14 @@
     'Perú · Tecnología ganadera & acompañamiento veterinario': 'Peru · Livestock technology & veterinary support',
     'ICHU — Todos los derechos reservados. Etapa de presentación y demostración de producto.': 'ICHU — All rights reserved. Product presentation and demonstration stage.',
 
-    // --- CTA final --------------------------------------------------------------------------------
+    // Final call to action
     'Conoce tu ganado.': 'Know your livestock.',
     'Entiende tu campo.': 'Understand your field.',
     'Decide mejor.': 'Decide better.',
     'El campo sabe. ICHU ayuda a convertir ese conocimiento en información clara y oportuna para proteger el fruto de tu trabajo.': 'The field knows. ICHU helps turn that knowledge into clear, timely information to protect the fruit of your work.',
     'ICHU es una plataforma pensada para ayudar a ganaderos y veterinarios a organizar y entender mejor la información de cada animal y del campo.': 'ICHU is a platform designed to help farmers and veterinarians better organize and understand the information of each animal and the field.',
 
-    // --- Contacto -----------------------------------------------------------------------------------
+    // Contact
     'Estamos construyendo una nueva forma de conectar tecnología, ganadería y acompañamiento veterinario. Déjanos tus datos para coordinar una presentación guiada.': 'We are building a new way to connect technology, livestock farming and veterinary support. Leave your details to arrange a guided presentation.',
     'Nombre *': 'First name *',
     'Apellidos *': 'Last name *',
@@ -315,7 +311,7 @@
     'Gracias por tu interés en ICHU. Se abrió WhatsApp con tu solicitud; si no se abrió automáticamente, escríbenos directo desde la barra superior.': 'Thank you for your interest in ICHU. WhatsApp opened with your request; if it did not open automatically, write to us directly from the top bar.',
     'Entendido, muchas gracias': 'Got it, thank you',
 
-    // --- Cadenas dinámicas (JS) -----------------------------------------------------------------------
+    // Text generated by JavaScript
     'Ingresa tu nombre.': 'Enter your first name.',
     'Ingresa tus apellidos.': 'Enter your last name.',
     'Ingresa un correo válido.': 'Enter a valid email.',
@@ -351,7 +347,7 @@
     'Ayuda': 'Help',
   };
 
-  // Inverso (en -> es) generado una sola vez.
+  // Build the reverse translation dictionary once
   const REV = {};
   for (const k in DICT) {
     if (Object.prototype.hasOwnProperty.call(DICT, k) && REV[DICT[k]] === undefined) REV[DICT[k]] = k;
@@ -360,7 +356,7 @@
   let lang = 'es';
   try {
     lang = localStorage.getItem(LANG_KEY) === 'en' ? 'en' : 'es';
-  } catch (e) { /* almacenamiento no disponible */ }
+  } catch (e) { /* Use Spanish when storage is unavailable */ }
 
   const SKIP_SEL = 'script,style,noscript,textarea,iframe,[data-i18n-skip]';
 
@@ -415,7 +411,7 @@
     const mappedTitle = lang === 'en' ? DICT[document.title] : REV[document.title];
     if (mappedTitle) document.title = mappedTitle;
     updateButton();
-    try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* sin persistencia */ }
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* Continue without saving the preference */ }
   }
 
   const btn = document.getElementById('langToggle');
@@ -423,12 +419,12 @@
     btn.addEventListener('click', () => apply(lang === 'es' ? 'en' : 'es'));
   }
 
-  // Estado inicial: html lang + botón; traduce si la preferencia guardada es inglés.
+  // Apply the saved language to the page and language button
   document.documentElement.lang = lang;
   if (lang === 'en') swap(document.body, 'es');
   updateButton();
 
-  // API mínima para cadenas generadas por JS (main.js).
+  // Expose translations for text generated by JavaScript
   window.ICHU_I18N = {
     get lang() { return lang; },
     t(text) {

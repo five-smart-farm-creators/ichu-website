@@ -6,20 +6,20 @@ Sitio estático de ICHU, una plataforma peruana de tecnología para la ganaderí
 
 ```text
 .
-├── index.html                 # Portada
-├── media.html                 # Web y Media
-├── como-funciona.html         # Recorrido paso a paso
+├── index.html                 # Home page
+├── media.html                 # Media page
+├── como-funciona.html         # Product walkthrough
 ├── assets/
-│   ├── images/                # Imágenes y recursos de marca
-│   ├── scripts/               # Carga de fragmentos, idioma e interacciones
-│   ├── styles/                # Estilos del sitio
-│   └── videos/                # Videos del producto
+│   ├── images/                # Images and brand assets
+│   ├── scripts/               # Shared fragments language and interactions
+│   ├── styles/                # Site styles
+│   └── videos/                # Product videos
 ├── partials/
-│   ├── _header.html           # Navegación y menú móvil compartidos
-│   └── _footer.html           # Pie compartido
-├── .editorconfig              # Codificación e indentación
-├── .gitattributes             # Normalización de texto y archivos binarios
-├── .gitignore                 # Archivos excluidos del repositorio
+│   ├── _header.html           # Shared header and mobile navigation
+│   └── _footer.html           # Shared footer
+├── .editorconfig              # Encoding and indentation
+├── .gitattributes             # Text and binary file normalization
+├── .gitignore                 # Files excluded from version control
 └── README.md
 ```
 

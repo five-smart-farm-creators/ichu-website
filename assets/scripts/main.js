@@ -1,12 +1,9 @@
-/**
- * ICHU — Interactividad: header, menú accesible, animaciones, contadores,
- * simulador de chat y formulario con envío por WhatsApp.
- */
+/* Shared navigation and page interactions */
 (async () => {
   'use strict';
   if (!(await window.ICHU_PARTIALS_READY)) return;
 
-  // IMPORTANTE: reemplaza por el número real de WhatsApp (código de país + número, sin "+" ni espacios).
+  // Replace with the actual WhatsApp number including the country code and digits only
   const WHATSAPP_NUMBER = '51900000000';
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -15,7 +12,7 @@
   const I18N = window.ICHU_I18N || { lang: 'es', t: (text) => text };
   const t = (text) => I18N.t(text);
 
-  /* 1. Navegación compartida y estado de página */
+  /* Shared navigation and current page state */
   const pageName = document.body.dataset.page || 'home';
   const siteTop = $('#siteTop');
   if (siteTop) siteTop.classList.toggle('solid', pageName !== 'home');
@@ -31,12 +28,12 @@
     if (group.dataset.pageGroup === pageName) group.classList.add('is-active');
   });
 
-  /* 2. Cabecera: transparente arriba, verde al bajar */
+  /* Header appearance while scrolling */
   window.addEventListener('scroll', () => {
     siteTop.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  /* 3. Menú móvil accesible */
+  /* Mobile navigation drawer */
   const menuToggle = $('#menuToggle');
   const drawer = $('#mobileDrawer');
   const drawerOverlay = $('#drawerOverlay');
@@ -68,7 +65,7 @@
   drawerOverlay.addEventListener('click', closeDrawer);
   $$('.drawer-link', drawer).forEach((link) => link.addEventListener('click', closeDrawer));
 
-  /* 4. Submenús de cabecera (Quiénes somos, Tecnología) */
+  /* Header submenus */
   const navDrops = $$('.nav-dropdown');
   navDrops.forEach((drop) => {
     const toggle = $('.nav-drop-toggle', drop);
@@ -96,7 +93,7 @@
     });
   }
 
-  /* 5. Modo día / noche */
+  /* Day and night themes */
   const whoVideo = $('#whoVideo');
   let whoVideoVisible = !('IntersectionObserver' in window);
   function syncWhoVideo(theme) {
@@ -120,12 +117,12 @@
     let theme = 'day';
     try {
       theme = document.documentElement.getAttribute('data-theme') === 'night' ? 'night' : 'day';
-    } catch (e) { /* por defecto día */ }
+    } catch (e) { /* Use the day theme as the default */ }
     applyTheme(theme);
     themeToggle.addEventListener('click', () => {
       theme = theme === 'night' ? 'day' : 'night';
       applyTheme(theme);
-      try { localStorage.setItem('ichu-theme', theme); } catch (e) { /* sin persistencia */ }
+      try { localStorage.setItem('ichu-theme', theme); } catch (e) { /* Continue without saving the preference */ }
     });
   }
   if (whoVideo && 'IntersectionObserver' in window) {
@@ -137,14 +134,14 @@
     whoVideoObserver.observe(videoSection);
   }
 
-  /* 6. El video principal respeta la preferencia de movimiento reducido */
+  /* Pause the hero video when reduced motion is preferred */
   const heroVideo = $('#heroVideo');
   if (heroVideo && prefersReduced) {
     heroVideo.removeAttribute('autoplay');
     heroVideo.pause();
   }
 
-  /* 7. Animaciones de aparición */
+  /* Reveal animations */
   const revealEls = $$('.reveal');
   if (prefersReduced || !('IntersectionObserver' in window)) {
     revealEls.forEach((el) => el.classList.add('in'));
@@ -159,7 +156,7 @@
     revealEls.forEach((el) => revealObserver.observe(el));
   }
 
-  /* 8. Contadores de estadísticas */
+  /* Statistics counters */
   const counters = $$('.stat-value[data-count]');
 
   function animateCounter(el) {
@@ -193,7 +190,7 @@
     counters.forEach(animateCounter);
   }
 
-  /* 9. Simulador de chat: muestra texto sin interpretarlo como HTML */
+  /* Render simulated chat messages as plain text */
   const phoneChat = $('#phoneChat');
   const phoneInput = $('#phoneInput');
   const phoneSend = $('#phoneSend');
@@ -275,7 +272,7 @@
     });
   });
 
-  /* 10. Formulario: validación y envío por WhatsApp */
+  /* Form validation and WhatsApp message preparation */
   const form = $('#demoForm');
   const modal = $('#demoModal');
   const closeModalBtn = $('#closeModal');
@@ -352,7 +349,7 @@
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
   if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-  /* 11. Tecla Escape cierra menú y modal */
+  /* Close the drawer and dialog with Escape */
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     if (modal && modal.classList.contains('open')) {
@@ -362,7 +359,7 @@
     }
   });
 
-  /* 12. Iconos y año del footer */
+  /* Initialize icons and the footer year */
   if (window.lucide && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
   }
