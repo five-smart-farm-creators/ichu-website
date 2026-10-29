@@ -1,0 +1,6 @@
+# Repositorio independiente administrado desde su propia carpeta.
+/Report-SmartFarm/
+
+# Archivos locales del sistema operativo.
+.DS_Store
+Thumbs.db
