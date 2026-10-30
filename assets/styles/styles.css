@@ -917,12 +917,13 @@ p { color: var(--ink-500); }
 
 .split-row {
   display: grid;
-  grid-template-columns: 1.02fr 0.98fr;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: center;
   padding: 4.5rem 0;
   border-top: 1px solid rgba(23, 37, 28, 0.14);
 }
+.split-row > * { min-width: 0; }
 .split-row:first-child { border-top: 0; padding-top: 3.5rem; }
 .split-row.reverse .split-text { order: 2; }
 .split-row.reverse .split-visual { order: 1; }
@@ -1866,7 +1867,7 @@ html[data-theme='night'] .media-link:hover {
   .problem-head { grid-template-columns: 1fr; align-items: start; }
   .problem-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .split-row { grid-template-columns: 1fr; gap: 2.5rem; }
+  .split-row { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
   .split-row.reverse .split-text { order: 0; }
   .split-row.reverse .split-visual { order: 1; }
 
