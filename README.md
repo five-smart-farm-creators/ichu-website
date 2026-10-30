@@ -1,69 +1,47 @@
-# ICHU — Website
+# ICHU Website
 
-Static website for ICHU, a Peruvian livestock technology platform. Built with semantic HTML, CSS, and vanilla JavaScript, with no build step.
+**English** · [Español](readme/README.es.md)
 
-## Structure
+The public website for ICHU, a Peruvian livestock technology platform. It introduces the product to farmers and veterinarians and lets visitors prepare a demonstration request through WhatsApp.
 
-```text
-.
-├── index.html                 # Home page
-├── media.html                 # Media page
-├── how-it-works.html          # Product walkthrough
-├── 404.html                   # Page not found
-├── assets/
-│   ├── images/                # Images and brand assets
-│   ├── scripts/               # Shared fragments language and interactions
-│   ├── styles/                # Site styles
-│   └── videos/                # Product videos
-├── partials/
-│   ├── _header.html           # Shared header and mobile navigation
-│   └── _footer.html           # Shared footer
-├── public/
-│   └── locales/
-│       ├── en.json            # English translation resources
-│       └── es.json            # Spanish translation resources
-├── .editorconfig              # Encoding and indentation
-├── .gitattributes             # Text and binary file normalization
-├── .gitignore                 # Files excluded from version control
-└── README.md
-```
-
-## Pages
-
-| File | Content |
-|---|---|
-| `index.html` | ICHU home page and product sections |
-| `media.html` | Platform walkthroughs and field stories |
-| `how-it-works.html` | Record, monitor, and decide |
-| `404.html` | Error recovery with links to working pages |
-
-Pages remain at the site root so static hosting can serve `index.html` directly. The shared header and footer are stored in `partials/` and loaded with `fetch` by `assets/scripts/partials.js`.
+![ICHU website home page](readme/website-preview.png)
 
 ## Features
 
-- Light and dark themes persisted in `localStorage`.
-- English and Spanish resources in `public/locales/en.json` and `public/locales/es.json`, managed by `assets/scripts/i18n.js`.
-- Responsive navigation, accessible submenus, and dismissal with Escape.
-- Demonstration request form and simulated chat.
-- Animations and counters that respect `prefers-reduced-motion`.
-- Collar video playback only when its section is visible in night mode.
+- Product information, technology overview, and media pages.
+- English and Spanish, with a saved language preference.
+- Responsive layouts, light and dark themes, and a custom 404 page.
+- A WhatsApp contact form and an illustrative chat.
+
+## Run locally
+
+```sh
+git clone https://github.com/five-smart-farm-creators/ichu-website.git
+cd ichu-website
+```
+
+Open the folder in VS Code, install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer), and select **Open with Live Server** on `index.html`. Any static HTTP server also works. HTTP is needed to load shared page fragments and translations.
+
+Built with HTML, CSS, and vanilla JavaScript. No package installation or build step is required.
+
+## Structure
+
+| Path | Content |
+| --- | --- |
+| `*.html` | Home, walkthrough, media, and 404 pages |
+| `assets/` | Styles, scripts, images, and videos |
+| `partials/` | Shared header and footer |
+| `public/locales/` | English and Spanish translations |
+| `readme/` | Spanish documentation and the preview image |
 
 ## Deployment
 
-Publish this folder as the root of the static website. The published directory must contain `index.html`, `assets/`, `partials/`, and `public/` at the same level. Locale files are loaded from `public/locales/`, resolved from the language controller URL so nested error paths do not change the resource location. This project has no build step that copies the contents of `public/` to the site root.
+Publish the repository root to static hosting, preserving its folders. Configure the host to serve `404.html` with HTTP status `404` for missing pages. The recovery page assumes hosting at the domain root.
 
-Configure the hosting service to serve `404.html` for unknown page URLs with an HTTP status of 404. The error page uses paths relative to the origin root, so its images and recovery links remain valid at nested unknown URLs. If the website is hosted under a subdirectory, update those root paths to include its deployment prefix. Directly opening `/404.html` previews the design but does not verify the status returned for a missing page.
+The contact form prepares a WhatsApp message; it does not store requests. Configure the team's contact number before publication.
 
-## Internationalization
+## Contributing
 
-English is the default language. Spanish is loaded when selected, and the saved preference is applied on subsequent visits. Both locale files use matching message keys and contain their language identifier, messages, and chat keywords. Keep message keys and interpolation placeholders consistent when adding or editing translations.
+Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
 
-The language controller loads and caches JSON resources, updates page text and metadata, and sets the HTML language attribute. Missing translations fall back to English and then to the English source text. If the selected locale cannot be loaded, the current language remains available and the next selection retries the request.
-
-The controller uses text nodes for translated content and preserves user entered text. Translation values must remain plain text. No additional internationalization dependency is required for the current feature set.
-
-The resource directory is a project convention. Its name is not prescribed by HTML or W3C. The implementation follows language declaration and fallback guidance from these primary sources:
-
-- https://www.w3.org/International/questions/qa-html-language-declarations.html
-- https://www.i18next.com/principles/fallback
-- https://github.com/i18next/i18next-http-backend
+Maintained by [Five Smart Farm Creators](https://github.com/five-smart-farm-creators). A project license has not yet been specified.
