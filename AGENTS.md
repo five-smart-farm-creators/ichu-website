@@ -34,7 +34,7 @@ ichu-website/
 ## Language and code style
 
 - Use English for identifiers, filenames, source UI text, comments, commits, and primary documentation. Exceptions are Spanish locale values and explicitly translated documents in `readme/`.
-- Keep English as the default UI language and preserve Spanish support. Update both locale files with matching keys and placeholders; preserve user entered text when switching languages.
+- Keep English as the default UI language and preserve Spanish support. Use nested semantic camelCase keys and keep both locale trees and placeholders in parity. Format dates and numbers with `Intl` rather than storing formatted values. Run `node tools/validate-locales.js` when changing translations or their references.
 - Match surrounding formatting and use two spaces for indentation and UTF-8. Use descriptive camelCase JavaScript names and kebab-case CSS classes and new asset filenames.
 - Keep behavior in JavaScript and styling in CSS. Prefer small functions with a clear purpose and reuse existing utilities and design tokens.
 - Write short, direct sentences. Use the existing term for each concept. Keep detailed change history in commits and PRs.
