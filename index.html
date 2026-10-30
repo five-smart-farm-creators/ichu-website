@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="home.pageTitle">ICHU — Technology for Smart Livestock Farming</title>
+  <meta name="description" content="Livestock technology connecting individual animal records, farm management, and veterinary support in Peru." data-i18n-content="home.metadata.description">
+  <meta name="author" content="ICHU">
+  <meta name="theme-color" content="#143527">
+  <link rel="canonical" href="https://ichu.pe/">
+
+  <!-- Open Graph and Twitter metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ICHU">
+  <meta property="og:url" content="https://ichu.pe/">
+  <meta property="og:title" content="ICHU — Technology for Smart Livestock Farming" data-i18n-content="home.metadata.openGraph.title">
+  <meta property="og:description" content="Individual animal records, preventive alerts, and clinical history for farmers and veterinarians in Peru." data-i18n-content="home.metadata.openGraph.description">
+  <meta property="og:image" content="https://ichu.pe/assets/images/ichu-social-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cattle in an Andean landscape representing ICHU" data-i18n-content="home.metadata.openGraph.imageAlt">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ICHU — Technology for Smart Livestock Farming" data-i18n-content="home.metadata.socialCard.title">
+  <meta name="twitter:description" content="Individual animal records, preventive alerts, and clinical history for farmers and veterinarians in Peru." data-i18n-content="home.metadata.socialCard.description">
+  <meta name="twitter:image" content="https://ichu.pe/assets/images/ichu-social-preview.jpg">
+  <meta name="twitter:image:alt" content="Cattle in an Andean landscape representing ICHU" data-i18n-content="home.metadata.socialCard.imageAlt">
+
+  <link rel="icon" type="image/png" href="assets/images/brand/ichu-monogram.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,wght@1,600&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script src="assets/scripts/theme-init.js"></script>
+
+  <link rel="stylesheet" href="assets/styles/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://ichu.pe/#organization",
+    "name": "ICHU",
+    "description": "Technology for smart livestock farming in Peru.",
+    "url": "https://ichu.pe/",
+    "logo": "https://ichu.pe/assets/images/brand/ichu-logo.png",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Peru"
+    }
+  }
+  </script>
+</head>
+<body data-page="home">
+
+  <a class="skip-link" href="#home" data-i18n="home.skipLink">Skip to content</a>
+
+  <div data-include="partials/_header.html"></div>
+
+  <main id="main">
+
+    <!-- Hero video with a green overlay -->
+    <section id="home" class="hero">
+      <video class="hero-bg hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/andes-cattle-hero-960.webp" aria-hidden="true" tabindex="-1">
+        <source src="assets/videos/running-cattle.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-content reveal">
+        <h1 class="hero-title">
+          <span data-i18n="home.hero.headline">Every animal has a</span> <em class="word-soft" data-i18n="home.hero.headlineEmphasis">story.</em>
+          <span class="text-gold"><strong class="ichu-mark">ICHU</strong> <span data-i18n="home.hero.headlineConclusion">helps tell it.</span></span>
+        </h1>
+        <p class="hero-lead" data-i18n="home.hero.introduction">
+          Technology designed for livestock that connects each animal's information, from the pasture to the veterinarian.
+        </p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-gold btn-lg">
+            <span data-i18n="home.hero.actionLabel">Request a demonstration</span>
+            <i data-lucide="send"></i>
+          </a>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg">
+            <span data-i18n="home.hero.actionLabel02">See how it works</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+        <p class="hero-proof">
+          <i data-lucide="circle-check"></i>
+          <span data-i18n="home.hero.supportingMessage">Information that supports the livestock and those who care for it.</span>
+        </p>
+      </div>
+
+      <a href="#statistics" class="hero-scroll" aria-label="Scroll to next section" data-i18n-aria-label="home.hero.accessibleName">
+        <i data-lucide="chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- Statistics over a background image -->
+    <section id="statistics" class="stats-band">
+      <img src="assets/images/andes-cattle-hero-960.webp" width="960" height="540" alt="" class="stats-bg" loading="lazy" decoding="async">
+      <div class="stats-overlay"></div>
+      <div class="container">
+        <div class="section-head center reveal">
+          <h2 data-i18n="home.statistics.heading">ICHU in numbers</h2>
+          <span class="rule"></span>
+        </div>
+        <div class="stats-grid">
+          <div class="stat reveal">
+            <span class="stat-value" data-count="3">0</span>
+            <span class="stat-label" data-i18n="home.statistics.metric01.metricDescription">vital variables monitored per animal: temperature, activity and location.</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-value" data-count="7">0</span>
+            <span class="stat-label" data-i18n="home.statistics.metric02.metricDescription">traceability stages covered, from identification to final follow-up.</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-value" data-count="24" data-suffix="/7">0</span>
+            <span class="stat-label" data-i18n="home.statistics.metric03.metricDescription">continuous herd monitoring with early alerts for activity and health.</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-value" data-count="1">0</span>
+            <span class="stat-label" data-i18n="home.statistics.metric04.metricDescription">a single file per animal, ready to share with your vet.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company introduction with image and text -->
+    <section id="about-us" class="who-section">
+      <svg class="frond frond-tr" aria-hidden="true"><use href="#leaf-frond"></use></svg>
+      <div class="container who-grid">
+        <figure class="who-photo reveal">
+          <img src="assets/images/smart-collar.webp" width="1200" height="896" alt="ICHU smart collar for livestock monitoring" loading="lazy" decoding="async" data-i18n-alt="home.about.alternativeText">
+          <video class="who-photo-video" id="who-video" muted loop playsinline preload="none" poster="assets/images/smart-collar.webp" aria-hidden="true" tabindex="-1">
+            <source src="assets/videos/cow-collar.mp4" type="video/mp4">
+          </video>
+          <figcaption class="photo-chip" data-i18n="home.about.imageCaption">ICHU smart collar</figcaption>
+        </figure>
+
+        <div class="who-content reveal">
+          <span class="kicker" data-i18n="home.about.eyebrow">Since 2026 · Peru</span>
+          <h2 data-i18n="home.about.heading">About us</h2>
+          <span class="rule"></span>
+          <p class="lead justified" data-i18n="home.about.description">We are a Peruvian company innovating livestock farming with close, useful technology designed for the reality of the countryside.</p>
+          <p class="justified" data-i18n="home.about.description02">Since 2026 we have been developing ICHU: a platform that brings together each animal's information, herd signals and veterinary support to make timely decisions and better protect every production.</p>
+          <ul class="mini-checks">
+            <li><i data-lucide="check"></i><span data-i18n="home.about.benefit01.listItem">Individual identification by collar</span></li>
+            <li><i data-lucide="check"></i><span data-i18n="home.about.benefit02.listItem">Close veterinary support</span></li>
+            <li><i data-lucide="check"></i><span data-i18n="home.about.benefit03.listItem">Timely, data-driven decisions</span></li>
+          </ul>
+          <a href="#how-it-works" class="btn btn-gold">
+            <span data-i18n="home.about.actionLabel">See how it works</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field challenges -->
+    <section class="problem-section">
+      <svg class="frond frond-bl" aria-hidden="true"><use href="#leaf-frond"></use></svg>
+      <div class="container">
+        <div class="problem-head reveal">
+          <div>
+            <span class="kicker" data-i18n="home.problem.eyebrow">Field diagnosis</span>
+            <h2><span data-i18n="home.problem.heading">The field has information.</span><br><span data-i18n="home.problem.heading02">The challenge is turning it into decisions.</span></h2>
+          </div>
+          <p class="problem-lead" data-i18n="home.problem.introduction">
+            Livestock work generates data every day. However, much of this knowledge is lost or stays fragmented.
+          </p>
+        </div>
+
+        <div class="problem-grid reveal">
+          <article class="problem-card">
+            <div class="problem-icon"><i data-lucide="book-open"></i></div>
+            <h3 data-i18n="home.problem.issue01.title">Manual, scattered records</h3>
+            <p data-i18n="home.problem.issue01.description">Field notebooks and loose notes that make it hard to rebuild each animal's complete, continuous history when it is urgently needed.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon"><i data-lucide="hourglass"></i></div>
+            <h3 data-i18n="home.problem.issue02.title">Late detection of changes</h3>
+            <p data-i18n="home.problem.issue02.description">A drop in grazing, a thermal variation or isolation in the paddock is often noticed when the problem has already advanced, raising costs and risks.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon"><i data-lucide="stethoscope"></i></div>
+            <h3 data-i18n="home.problem.issue03.title">Gap in veterinary visits</h3>
+            <p data-i18n="home.problem.issue03.description">When the veterinarian reaches the pen, they often have to assess without the prior log of symptoms, applied doses or exact dates.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon"><i data-lucide="map-pin"></i></div>
+            <h3 data-i18n="home.problem.issue04.title">Pasture & water control</h3>
+            <p data-i18n="home.problem.issue04.description">Supervising pasture rotation, water point availability and the location of animal groups across wide terrain requires constant time.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon"><i data-lucide="clipboard-list"></i></div>
+            <h3 data-i18n="home.problem.issue05.title">Cost & loss tracking</h3>
+            <p data-i18n="home.problem.issue05.description">Keeping a clear count of extra forage, treatments and losses is complex when there is no organized structure for logging.</p>
+          </article>
+          <article class="problem-card">
+            <div class="problem-icon"><i data-lucide="users"></i></div>
+            <h3 data-i18n="home.problem.issue06.title">Team coordination</h3>
+            <p data-i18n="home.problem.issue06.description">Difficulty aligning what field staff observe, what the manager logs and the guidelines given by the veterinary specialist.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product value flow and quotation -->
+    <section id="how-it-works" class="flow-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="kicker" data-i18n="home.productFlow.eyebrow">What is ICHU?</span>
+          <h2 data-i18n="home.productFlow.heading">A new way to understand livestock farming.</h2>
+          <span class="rule"></span>
+          <p class="section-lead" data-i18n="home.productFlow.introduction">ICHU is a platform designed to help farmers and veterinarians better organize and understand the information of each animal and the field.</p>
+        </div>
+
+        <div class="flow-steps reveal">
+          <div class="flow-step">
+            <div class="flow-icon"><i data-lucide="tag"></i></div>
+            <div class="flow-title" data-i18n="home.productFlow.step01.title">Animal</div>
+            <div class="flow-desc" data-i18n="home.productFlow.step01.description">Individually identified with its collar and traits.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-icon"><i data-lucide="activity"></i></div>
+            <div class="flow-title" data-i18n="home.productFlow.step02.title">Data</div>
+            <div class="flow-desc" data-i18n="home.productFlow.step02.description">Temperature, movement, forage and event signals.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-icon"><i data-lucide="user-check"></i></div>
+            <div class="flow-title" data-i18n="home.productFlow.step03.title">Farmer</div>
+            <div class="flow-desc" data-i18n="home.productFlow.step03.description">Check the herd's overall status and receive early alerts.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-icon"><i data-lucide="stethoscope"></i></div>
+            <div class="flow-title" data-i18n="home.productFlow.step04.title">Veterinarian</div>
+            <div class="flow-desc" data-i18n="home.productFlow.step04.description">Access the full clinical history before and during the visit.</div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-icon flow-icon-final"><i data-lucide="circle-check"></i></div>
+            <div class="flow-title" data-i18n="home.productFlow.step05.title">Decision</div>
+            <div class="flow-desc" data-i18n="home.productFlow.step05.description">Preventive, timely actions that protect production.</div>
+          </div>
+        </div>
+
+        <div class="quote-box reveal">
+          <i data-lucide="quote" class="quote-mark"></i>
+          <p class="quote-text" data-i18n="home.productFlow.quotation">ICHU does not replace the veterinarian. It gives them more information to work with.</p>
+          <p class="quote-sub" data-i18n="home.productFlow.context">Technology observes and collects patterns; professional judgment and livestock knowledge define the action.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits for farmers and veterinarians -->
+    <section class="dual-section">
+      <div class="container">
+
+        <div id="for-farmers" class="split-row reveal">
+          <div class="split-text">
+            <span class="kicker" data-i18n="home.audiences.farmers.eyebrow">For farmers</span>
+            <h2 data-i18n="home.audiences.farmers.heading">For those who are out in the field every day.</h2>
+            <p class="split-lead" data-i18n="home.audiences.farmers.introduction">Designed to simplify the workday. A clear space to keep your herd under control in the palm of your hand.</p>
+            <ul class="feature-list">
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.farmers.feature01.featureLabel">Individual record:</strong> <span data-i18n="home.audiences.farmers.feature01.text">clear identification of each animal by collar, lot, breed and age.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.farmers.feature02.featureLabel">Activity observation:</strong> <span data-i18n="home.audiences.farmers.feature02.text">know which animals are grazing normally and which show immobility.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.farmers.feature03.featureLabel">Direct alerts:</strong> <span data-i18n="home.audiences.farmers.feature03.text">notifications when an animal strays or registers abnormal temperatures.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.farmers.feature04.featureLabel">Supplies & water points management:</strong> <span data-i18n="home.audiences.farmers.feature04.text">quick logging of forage, water, expenses and loss records.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.farmers.feature05.featureLabel">Share with the veterinarian:</strong> <span data-i18n="home.audiences.farmers.feature05.text">send the animal's record with a single tap before the visit.</span></span></li>
+            </ul>
+            <a href="#contact" class="btn btn-gold">
+              <span data-i18n="home.audiences.farmers.actionLabel">Request a demo for my herd</span>
+            </a>
+          </div>
+
+          <div class="split-visual">
+            <figure class="split-photo">
+              <img src="assets/images/holstein-cow.webp" width="1200" height="638" alt="Holstein cow in the paddock" loading="lazy" decoding="async" data-i18n-alt="home.audiences.farmers.alternativeText">
+            </figure>
+            <div class="tablet">
+              <div class="tablet-screen">
+                <div class="tablet-head">
+                  <h3 data-i18n="home.audiences.farmers.title">Animal record · #042</h3>
+                  <span class="tablet-sub" data-i18n="home.audiences.farmers.metadata">Lot 03 - High Pasture · Age: 32 months</span>
+                </div>
+                <div class="tablet-stats">
+                  <div><strong data-locale-temperature="38.5">38.5 °C</strong><span data-i18n="home.audiences.farmers.text">Temperature</span></div>
+                  <div><strong class="ok" data-i18n="home.audiences.farmers.emphasizedLabel">Optimal</strong><span data-i18n="home.audiences.farmers.text02">Status</span></div>
+                  <div><strong>Sector A</strong><span data-i18n="home.audiences.farmers.text03">Location</span></div>
+                </div>
+                <div class="tablet-log"><span data-i18n="home.audiences.farmers.activity01.text">Forage supplementation</span><span data-i18n="home.audiences.farmers.activity01.text02">Today, 07:30 am</span></div>
+                <div class="tablet-log"><span data-i18n="home.audiences.farmers.activity02.text">Water trough check · Lot 3</span><span data-i18n="home.audiences.farmers.activity02.text02">Yesterday, 04:15 pm</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="for-veterinarians" class="split-row reverse reveal">
+          <div class="split-text">
+            <span class="kicker" data-i18n="home.audiences.veterinarians.eyebrow">For veterinarians</span>
+            <h2 data-i18n="home.audiences.veterinarians.heading">More information for better veterinary decisions.</h2>
+            <p class="split-lead" data-i18n="home.audiences.veterinarians.introduction">Access a reliable chronological history. Learn what happened to the animal in previous days, review trends and back your diagnoses with real contextual data.</p>
+            <ul class="feature-list">
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.veterinarians.feature01.featureLabel">Consolidated clinical history:</strong> <span data-i18n="home.audiences.veterinarians.feature01.text">previous treatments, administered vaccines, doses and exact visit dates.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.veterinarians.feature02.featureLabel">Vital variables evolution:</strong> <span data-i18n="home.audiences.veterinarians.feature02.text">body temperature curves and movement patterns from recent days.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.veterinarians.feature03.featureLabel">Technical observations log:</strong> <span data-i18n="home.audiences.veterinarians.feature03.text">logging of diagnoses, prescriptions and recommendations for the producer.</span></span></li>
+              <li><i data-lucide="check"></i><span><strong data-i18n="home.audiences.veterinarians.feature04.featureLabel">Post-treatment monitoring:</strong> <span data-i18n="home.audiences.veterinarians.feature04.text">check whether the animal regained its regular activity level.</span></span></li>
+            </ul>
+            <blockquote class="inline-quote" data-i18n="home.audiences.veterinarians.quotation">
+              The vet sees more context. The farmer gets better support.
+            </blockquote>
+            <a href="#contact" class="btn btn-gold">
+              <span data-i18n="home.audiences.veterinarians.actionLabel">Request a demo for professionals</span>
+            </a>
+          </div>
+
+          <div class="split-visual">
+            <figure class="split-photo">
+              <img src="assets/images/dairy-cow-calf.webp" width="1200" height="638" alt="Dairy cow with her calf on the farm" loading="lazy" decoding="async" data-i18n-alt="home.audiences.veterinarians.alternativeText">
+            </figure>
+            <div class="tablet tablet-vet">
+              <div class="tablet-screen">
+                <div class="tablet-head">
+                  <h3 data-i18n="home.audiences.veterinarians.title">Clinical record · Holstein cow #118</h3>
+                  <span class="tablet-sub" data-i18n="home.audiences.veterinarians.metadata">Medical visit log & progress tracking</span>
+                </div>
+                <div class="tablet-chart">
+                  <div class="tablet-chart-top">
+                    <span data-i18n="home.audiences.veterinarians.text">Thermal curve (last 5 days)</span>
+                    <strong data-locale-temperature-range="38.4,38.6">38.4 °C → 38.6 °C</strong>
+                  </div>
+                  <svg viewBox="0 0 280 40" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M5 30 Q 60 28, 100 24 T 170 10 T 230 20 T 275 25" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="170" cy="10" r="3.5"/>
+                  </svg>
+                </div>
+                <div class="tablet-log"><span data-i18n="home.audiences.veterinarians.activity01.text">Overall assessment: body condition score 3.5</span><span>Dr. M. Quispe</span></div>
+                <div class="tablet-log"><span data-i18n="home.audiences.veterinarians.activity02.text">Broad-spectrum antiparasitic application</span><span class="ok" data-i18n="home.audiences.veterinarians.activity02.text02">Dose completed</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Animal lifecycle timeline -->
+    <section class="story-section">
+      <div class="container">
+        <div class="story-intro reveal">
+          <figure class="story-photo">
+            <img src="assets/images/veterinarian-calf.webp" width="1200" height="800" alt="Veterinarian examining a calf with a stethoscope" loading="lazy" decoding="async" data-i18n-alt="home.animalLifecycle.alternativeText">
+          </figure>
+          <div class="story-text">
+            <span class="kicker" data-i18n="home.animalLifecycle.eyebrow">Traceability and welfare</span>
+            <h2 data-i18n="home.animalLifecycle.heading">Every animal, one continuous story.</h2>
+            <span class="rule"></span>
+            <p class="section-lead" data-i18n="home.animalLifecycle.introduction">Livestock farming is not a static spreadsheet: it is a living biological cycle. ICHU organizes the key milestones of each animal's life to preserve its productive and health memory from its first days.</p>
+          </div>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage01.stageLabel">Stage 01</span>
+            <h3 data-i18n="home.animalLifecycle.stage01.title">Identification</h3>
+            <p data-i18n="home.animalLifecycle.stage01.description">Collar assignment, genealogy, birth date and traits.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage02.stageLabel">Stage 02</span>
+            <h3 data-i18n="home.animalLifecycle.stage02.title">Activity</h3>
+            <p data-i18n="home.animalLifecycle.stage02.description">Observe grazing, movement and resting routines.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage03.stageLabel">Stage 03</span>
+            <h3 data-i18n="home.animalLifecycle.stage03.title">Feeding</h3>
+            <p data-i18n="home.animalLifecycle.stage03.description">Pasture rotation, mineral supplementation and water access.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage04.stageLabel">Stage 04</span>
+            <h3 data-i18n="home.animalLifecycle.stage04.title">Events</h3>
+            <p data-i18n="home.animalLifecycle.stage04.description">Log of heats, breedings, births, weanings or sudden changes.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage05.stageLabel">Stage 05</span>
+            <h3 data-i18n="home.animalLifecycle.stage05.title">Medical visit</h3>
+            <p data-i18n="home.animalLifecycle.stage05.description">On-site clinical review backed by data readings.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage06.stageLabel">Stage 06</span>
+            <h3 data-i18n="home.animalLifecycle.stage06.title">Treatment</h3>
+            <p data-i18n="home.animalLifecycle.stage06.description">Medication or vaccine application with dose logging.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="timeline-num" data-i18n="home.animalLifecycle.stage07.stageLabel">Stage 07</span>
+            <h3 data-i18n="home.animalLifecycle.stage07.title">Follow-up</h3>
+            <p data-i18n="home.animalLifecycle.stage07.description">Recovery check and productive continuity.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology and connected devices -->
+    <section id="technology" class="tech-section">
+      <svg class="frond frond-br" aria-hidden="true"><use href="#leaf-frond"></use></svg>
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="kicker light" data-i18n="home.technology.eyebrow">Engineering for the field</span>
+          <h2><span data-i18n="home.technology.heading">Technology that observes.</span><br><span data-i18n="home.technology.heading02">People who decide.</span></h2>
+          <span class="rule"></span>
+          <p class="section-lead" data-i18n="home.technology.introduction">ICHU is being designed to progressively connect with telemetry and Internet of Things (IoT) devices built to withstand the climate and conditions of our geography.</p>
+        </div>
+
+        <div class="tech-grid reveal">
+          <article class="tech-card">
+            <i data-lucide="thermometer"></i>
+            <h3 data-i18n="home.technology.title">Body temperature</h3>
+            <p data-i18n="home.technology.description">Monitoring thermal oscillations to early identify feverish episodes, heat stress or metabolic alterations before visible symptoms.</p>
+          </article>
+          <article class="tech-card">
+            <i data-lucide="activity"></i>
+            <h3 data-i18n="home.technology.title02">Movement & dynamics</h3>
+            <p data-i18n="home.technology.description02">Detection of physical activity levels, rumination, resting time or lethargy that may suggest discomfort, heat or onset of labor.</p>
+          </article>
+          <article class="tech-card">
+            <i data-lucide="navigation"></i>
+            <h3 data-i18n="home.technology.title03">Field location</h3>
+            <p data-i18n="home.technology.description03">Location by sectors and paddocks to prevent losses from straying, optimize rotational grazing and safeguard livestock safety.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Illustrative alerts -->
+    <section class="alerts-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="kicker" data-i18n="home.alerts.eyebrow">Clear signals</span>
+          <h2 data-i18n="home.alerts.heading">Preventive alerts, not automatic diagnoses.</h2>
+          <span class="rule"></span>
+          <p class="section-lead" data-i18n="home.alerts.introduction">ICHU alerts work as a timely call to attention so the farmer or veterinarian can inspect the animal in time.</p>
+        </div>
+
+        <div class="alerts-grid reveal">
+          <article class="alert-card">
+            <span class="alert-type" data-i18n="home.alerts.alert01.text">Activity</span>
+            <h3 data-i18n="home.alerts.alert01.title">Activity change detected</h3>
+            <p data-i18n="home.alerts.alert01.description">Cow #089 logged 45% less movement during the last 6 hours of her usual grazing.</p>
+            <span class="alert-meta" data-i18n="home.alerts.alert01.text02">Potrero B Sector · 25 min ago</span>
+          </article>
+          <article class="alert-card">
+            <span class="alert-type" data-i18n="home.alerts.alert02.text">Temperature</span>
+            <h3 data-i18n="home.alerts.alert02.title">Temperature out of range</h3>
+            <p data-i18n="home.alerts.alert02.description">Bull #014 logged 39.4 °C sustained across two consecutive readings.</p>
+            <span class="alert-meta" data-i18n="home.alerts.alert02.text02">Breeding Lot · 1 hour ago</span>
+          </article>
+          <article class="alert-card">
+            <span class="alert-type" data-i18n="home.alerts.alert03.text">Location</span>
+            <h3 data-i18n="home.alerts.alert03.title">Animal outside its usual zone</h3>
+            <p data-i18n="home.alerts.alert03.description">Group of 3 heifers detected near the east perimeter fence.</p>
+            <span class="alert-meta" data-i18n="home.alerts.alert03.text02">East Fence Gully · 12 min ago</span>
+          </article>
+          <article class="alert-card">
+            <span class="alert-type" data-i18n="home.alerts.alert04.text">Health</span>
+            <h3 data-i18n="home.alerts.alert04.title">Pending veterinary follow-up</h3>
+            <p data-i18n="home.alerts.alert04.description">Reminder of the second dose of treatment prescribed for Calf #201.</p>
+            <span class="alert-meta" data-i18n="home.alerts.alert04.text02">Scheduled for today · 02:00 pm</span>
+          </article>
+        </div>
+
+        <div class="disclaimer reveal">
+          <p><strong data-i18n="home.alerts.emphasizedLabel">Technical responsibility note:</strong> <span data-i18n="home.alerts.description">the alerts and metrics shown are conceptual orientation tools. They do not constitute an automated clinical diagnosis nor replace the professional judgment of the veterinarian.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Farm map and management -->
+    <section class="map-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="kicker" data-i18n="home.propertyManagement.eyebrow">Whole-property management</span>
+          <h2 data-i18n="home.propertyManagement.heading">It is also about understanding the countryside.</h2>
+          <span class="rule"></span>
+          <p class="section-lead" data-i18n="home.propertyManagement.introduction">The animal depends on its pastures, water and farm management. ICHU helps visualize the farm as an orderly operation.</p>
+        </div>
+
+        <div class="map-card reveal">
+          <div class="map-visual">
+            <picture>
+              <source media="(max-width: 700px)" srcset="assets/images/grazing-map-960.webp">
+              <img src="assets/images/grazing-map.webp" width="1600" height="1095" alt="Farm map with grazing paddocks, water points and pasture condition" loading="lazy" decoding="async" data-i18n-alt="home.propertyManagement.alternativeText">
+            </picture>
+          </div>
+
+          <div class="map-info">
+            <h3 data-i18n="home.propertyManagement.title">The whole farm in one view</h3>
+            <p data-i18n="home.propertyManagement.description">Manage forage rotation, plan water supplies and keep a live animal inventory without relying on loose sheets.</p>
+            <div class="map-features">
+              <div class="map-feature"><strong data-i18n="home.propertyManagement.emphasizedLabel">Water points</strong><p data-i18n="home.propertyManagement.description02">Water trough availability.</p></div>
+              <div class="map-feature"><strong data-i18n="home.propertyManagement.emphasizedLabel02">Pasture rotation</strong><p data-i18n="home.propertyManagement.description03">Paddock recovery.</p></div>
+              <div class="map-feature"><strong data-i18n="home.propertyManagement.emphasizedLabel03">Expenses & supplies</strong><p data-i18n="home.propertyManagement.description04">Forage & drug control.</p></div>
+              <div class="map-feature"><strong data-i18n="home.propertyManagement.emphasizedLabel04">Live inventory</strong><p data-i18n="home.propertyManagement.description05">Births & transfers.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Institutional references and Peruvian context -->
+    <section class="trust-section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="kicker" data-i18n="home.regulatoryContext.eyebrow">National context & good practices</span>
+          <h2 data-i18n="home.regulatoryContext.heading">Technology designed for our livestock.</h2>
+          <span class="rule"></span>
+          <p class="section-lead justified" data-i18n="home.regulatoryContext.introduction">Livestock management involves health commitments and official regulations. ICHU seeks to facilitate the organization of useful information for productive and veterinary management, within the framework of the obligations applicable to each activity.</p>
+        </div>
+
+        <div class="trust-grid reveal">
+          <article class="trust-card">
+            <span class="trust-name">MIDAGRI</span>
+            <p data-i18n="home.regulatoryContext.description">Ministry of Agrarian Development and Irrigation: livestock development policies, pastures and productive promotion.</p>
+            <a href="https://www.gob.pe/midagri" target="_blank" rel="noopener noreferrer" class="trust-link">
+              <span data-i18n="home.regulatoryContext.text">Institutional portal</span><i data-lucide="external-link"></i>
+            </a>
+          </article>
+          <article class="trust-card">
+            <span class="trust-name">SENASA</span>
+            <p data-i18n="home.regulatoryContext.description02">National Agricultural Health Service: official vaccination calendars, zoosanitary control and tagging.</p>
+            <a href="https://www.gob.pe/senasa" target="_blank" rel="noopener noreferrer" class="trust-link">
+              <span data-i18n="home.regulatoryContext.text02">Health regulations</span><i data-lucide="external-link"></i>
+            </a>
+          </article>
+          <article class="trust-card">
+            <span class="trust-name" data-i18n="home.regulatoryContext.text03">Producers Registry (PPA)</span>
+            <p data-i18n="home.regulatoryContext.description03">PPA (MIDAGRI): official registry for identification and access to State services.</p>
+            <a href="https://ppa.midagri.gob.pe" target="_blank" rel="noopener noreferrer" class="trust-link">
+              <span data-i18n="home.regulatoryContext.text04">PPA information</span><i data-lucide="external-link"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form and chat simulation -->
+    <section id="contact" class="contact-section">
+      <svg class="frond frond-tl" aria-hidden="true"><use href="#leaf-frond"></use></svg>
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="kicker light" data-i18n="home.contact.eyebrow">Early access & demonstrations</span>
+          <h2 data-i18n="home.contact.heading">Get to know ICHU before anyone else.</h2>
+          <span class="rule"></span>
+          <p class="section-lead" data-i18n="home.contact.introduction">We are building a new way to connect technology, livestock farming and veterinary support. Leave your details to arrange a guided presentation.</p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-card reveal">
+            <form id="demo-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name" data-i18n="home.contact.form.fields.firstName.fieldLabel">First name *</label>
+                  <input type="text" id="first-name" name="firstName" placeholder="E.g. Carlos" required autocomplete="given-name" data-i18n-placeholder="home.contact.form.fields.firstName.placeholder">
+                  <span class="field-error" id="err-first-name"></span>
+                </div>
+                <div class="form-group">
+                  <label for="last-name" data-i18n="home.contact.form.fields.lastName.fieldLabel">Last name *</label>
+                  <input type="text" id="last-name" name="lastName" placeholder="E.g. Quispe" required autocomplete="family-name" data-i18n-placeholder="home.contact.form.fields.lastName.placeholder">
+                  <span class="field-error" id="err-last-name"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" data-i18n="home.contact.form.fields.email.fieldLabel">Email *</label>
+                  <input type="email" id="email" name="email" placeholder="carlos@email.com" required autocomplete="email">
+                  <span class="field-error" id="err-email"></span>
+                </div>
+                <div class="form-group">
+                  <label for="phone-number" data-i18n="home.contact.form.fields.phone.fieldLabel">Phone / WhatsApp *</label>
+                  <input type="tel" id="phone-number" name="phoneNumber" placeholder="+51 987 654 321" required autocomplete="tel">
+                  <span class="field-error" id="err-phone-number"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="user-type" data-i18n="home.contact.form.fields.profile.fieldLabel">User type *</label>
+                <select id="user-type" name="userType" required>
+                  <option value="" disabled selected data-i18n="home.contact.form.optionLabel">Select your main profile</option>
+                  <option value="farmer" data-i18n="home.contact.form.profile.options.farmer">Rancher / Livestock producer</option>
+                  <option value="veterinarian" data-i18n="home.contact.form.profile.options.veterinarian">Veterinarian / Animal scientist</option>
+                  <option value="association" data-i18n="home.contact.form.profile.options.association">Association / Agrarian cooperative</option>
+                  <option value="other" data-i18n="home.contact.form.profile.options.other">Other interested party</option>
+                </select>
+                <span class="field-error" id="err-user-type"></span>
+              </div>
+              <div class="form-group">
+                <label for="message" data-i18n="home.contact.form.fields.message.fieldLabel">Message or inquiry (optional)</label>
+                <textarea id="message" name="message" rows="3" placeholder="Tell us about your herd or what you would like to learn in the demonstration..." data-i18n-placeholder="home.contact.form.fields.message.placeholder"></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold btn-lg btn-block">
+                <span data-i18n="home.contact.form.actionLabel">Request a demonstration</span>
+                <i data-lucide="send"></i>
+              </button>
+              <p class="form-hint" data-i18n="home.contact.form.description">On submit, WhatsApp will open with your request ready to send us. You can also write to us at the number in the top bar.</p>
+            </form>
+          </div>
+
+          <div class="phone-col reveal">
+            <div class="phone">
+              <div class="phone-screen">
+                <div class="phone-head">
+                  <span class="phone-avatar"><img src="assets/images/brand/ichu-logo.png" alt="ICHU logo" width="46" height="46" loading="lazy" data-i18n-alt="home.contact.alternativeText"></span>
+                  <div>
+                    <span class="phone-title" data-i18n="home.contact.text">ICHU — Live assistance</span>
+                    <span class="phone-status" data-i18n="home.contact.text02">Online for demonstrations</span>
+                  </div>
+                </div>
+                <div class="phone-chat" id="phone-chat">
+                  <div class="bubble in">
+                    <p data-i18n="home.contact.description">Hello! Welcome to ICHU. Would you like to schedule a demonstration for your livestock or learn about the clinical history?</p>
+                    <span class="bubble-time" data-locale-time="09:15">09:15 am</span>
+                  </div>
+                  <div class="bubble out">
+                    <p data-i18n="home.contact.description02">Hi, I have a cattle herd and I want to see how collars and temperature alerts are logged.</p>
+                    <span class="bubble-time" data-locale-time="09:16">09:16 am</span>
+                  </div>
+                  <div class="bubble in">
+                    <p data-i18n="home.contact.description03">Great! In the personalized demo we will show you how each animal's record works and how it connects with the veterinarian.</p>
+                    <span class="bubble-time" data-locale-time="09:16">09:16 am</span>
+                  </div>
+                </div>
+                <div class="phone-chips">
+                  <button type="button" class="chip" data-msg-key="home.contact.chat.suggestions.farmer.message" data-topic="farmer" data-i18n="home.contact.suggestionLabel">Farmer demo</button>
+                  <button type="button" class="chip" data-msg-key="home.contact.chat.suggestions.veterinarian.message" data-topic="veterinarian" data-i18n="home.contact.suggestionLabel02">I'm a veterinarian</button>
+                  <button type="button" class="chip" data-msg-key="home.contact.chat.suggestions.devices.message" data-topic="devices" data-i18n="home.contact.suggestionLabel03">IoT Sensors</button>
+                </div>
+                <div class="phone-inputbar">
+                  <input type="text" id="phone-input" placeholder="Simulation — use the form for real contact" aria-label="Test message" data-i18n-aria-label="home.contact.accessibility.chatInput" data-i18n-placeholder="home.contact.placeholder">
+                  <button type="button" id="phone-send" aria-label="Send test message" data-i18n-aria-label="home.contact.accessibility.sendChatMessage"><i data-lucide="send"></i></button>
+                </div>
+              </div>
+            </div>
+            <p class="phone-note" data-i18n="home.contact.description04">Illustrative simulation of ICHU assistance. Automatic replies do not replace the team's attention.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Final call to action -->
+    <section class="final-cta">
+      <picture class="cta-bg">
+        <source media="(max-width: 700px)" srcset="assets/images/andes-cattle-hero-960.webp">
+        <img src="assets/images/andes-cattle-hero.webp" width="1600" height="900" alt="" loading="lazy" decoding="async">
+      </picture>
+      <svg class="frond frond-tr" aria-hidden="true"><use href="#leaf-frond"></use></svg>
+      <svg class="frond frond-bl" aria-hidden="true"><use href="#leaf-frond"></use></svg>
+      <div class="container reveal">
+        <h2><span data-i18n="home.closingCta.heading">Know your livestock.</span><br><span data-i18n="home.closingCta.heading02">Understand your field.</span><br><span class="text-gold" data-i18n="home.closingCta.headlineConclusion">Decide better.</span></h2>
+        <p data-i18n="home.closingCta.description">The field knows. ICHU helps turn that knowledge into clear, timely information to protect the fruit of your work.</p>
+        <a href="#contact" class="btn btn-gold btn-lg">
+          <span data-i18n="home.closingCta.actionLabel">Request a demonstration</span>
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-include="partials/_footer.html"></div>
+
+  <!-- Confirmation dialog -->
+  <div class="modal-overlay" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-hidden="true">
+    <div class="modal-card">
+      <span class="modal-icon"><i data-lucide="circle-check"></i></span>
+      <h3 id="demo-modal-title" data-i18n="home.contact.submission.title">Your request is ready to send!</h3>
+      <p data-i18n="home.contact.submission.description">Thank you for your interest in ICHU. WhatsApp opened with your request; if it did not open automatically, write to us directly from the top bar.</p>
+      <button class="btn btn-gold" id="close-modal"><span data-i18n="home.contact.submission.actionLabel">Got it, thank you</span></button>
+    </div>
+  </div>
+
+  <script defer src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <script defer src="assets/scripts/partials.js"></script>
+  <script defer src="assets/scripts/i18n.js"></script>
+  <script defer src="assets/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,664 @@
+{
+  "language": "es",
+  "messages": {
+    "home": {
+      "pageTitle": "ICHU — Tecnología para la Ganadería Inteligente",
+      "skipLink": "Saltar al contenido",
+      "hero": {
+        "headline": "Cada animal tiene una",
+        "headlineEmphasis": "historia.",
+        "headlineConclusion": "ayuda a contarla.",
+        "introduction": "Tecnología pensada para la ganadería que conecta la información de cada ejemplar, del potrero al veterinario.",
+        "actionLabel": "Solicitar una demostración",
+        "actionLabel02": "Conocer cómo funciona",
+        "supportingMessage": "Información que acompaña al ganado y a quienes lo cuidan.",
+        "accessibleName": "Bajar a la siguiente sección"
+      },
+      "statistics": {
+        "heading": "ICHU en números",
+        "metric01": {
+          "metricDescription": "variables vitales monitoreadas por animal: temperatura, actividad y ubicación."
+        },
+        "metric02": {
+          "metricDescription": "etapas de trazabilidad cubiertas, de la identificación al seguimiento final."
+        },
+        "metric03": {
+          "metricDescription": "vigilancia continua del hato con alertas tempranas de actividad y salud."
+        },
+        "metric04": {
+          "metricDescription": "expediente único por ejemplar, listo para compartir con tu veterinario."
+        }
+      },
+      "about": {
+        "imageCaption": "Collar inteligente ICHU",
+        "eyebrow": "Desde 2026 · Perú",
+        "heading": "Quiénes somos",
+        "description": "Somos una empresa peruana que innova la ganadería con tecnología cercana, útil y pensada para la realidad del campo.",
+        "description02": "Desde 2026 desarrollamos ICHU: una plataforma que reúne la información de cada ejemplar, las señales del hato y el acompañamiento veterinario para tomar decisiones oportunas y cuidar mejor cada producción.",
+        "benefit01": {
+          "listItem": "Identificación individual por collar"
+        },
+        "benefit02": {
+          "listItem": "Acompañamiento veterinario cercano"
+        },
+        "benefit03": {
+          "listItem": "Decisiones oportunas y basadas en datos"
+        },
+        "actionLabel": "Conocer cómo funciona",
+        "alternativeText": "Collar inteligente ICHU para el monitoreo del ganado"
+      },
+      "problem": {
+        "eyebrow": "Diagnóstico del campo",
+        "heading": "El campo tiene información.",
+        "heading02": "El reto es convertirla en decisiones.",
+        "introduction": "La labor ganadera genera datos todos los días. Sin embargo, gran parte de este conocimiento se pierde o se queda fragmentado.",
+        "issue01": {
+          "title": "Registros manuales y dispersos",
+          "description": "Cuadernos de campo y notas sueltas que dificultan reconstruir el historial completo y continuo de cada animal cuando se necesita con urgencia."
+        },
+        "issue02": {
+          "title": "Detección tardía de cambios",
+          "description": "Un descenso en el pastoreo, una variación térmica o un aislamiento en el potrero suelen notarse cuando el problema ya ha avanzado, elevando costos y riesgos."
+        },
+        "issue03": {
+          "title": "Brecha en visitas veterinarias",
+          "description": "Cuando el médico veterinario llega al corral, muchas veces debe evaluar sin contar con la bitácora previa de síntomas, dosis aplicadas o fechas exactas."
+        },
+        "issue04": {
+          "title": "Control de pasturas y agua",
+          "description": "Supervisar la rotación de parcelas de pasto, la disponibilidad de aguadas y la ubicación de grupos de animales en terrenos amplios requiere tiempo constante."
+        },
+        "issue05": {
+          "title": "Seguimiento de costos y pérdidas",
+          "description": "Llevar un recuento claro de forraje adicional, tratamientos y mermas resulta complejo cuando no existe una estructura organizada para el registro."
+        },
+        "issue06": {
+          "title": "Coordinación del equipo",
+          "description": "Dificultad para alinear lo que observa el personal de campo, lo que registra el administrador y las pautas que indica el especialista veterinario."
+        }
+      },
+      "productFlow": {
+        "eyebrow": "¿Qué es ICHU?",
+        "heading": "Una nueva forma de entender la ganadería.",
+        "introduction": "ICHU es una plataforma pensada para ayudar a ganaderos y veterinarios a organizar y entender mejor la información de cada animal y del campo.",
+        "step01": {
+          "title": "Animal",
+          "description": "Identificado individualmente con su collar y características."
+        },
+        "step02": {
+          "title": "Datos",
+          "description": "Señales de temperatura, movimiento, forraje y eventos."
+        },
+        "step03": {
+          "title": "Ganadero",
+          "description": "Consulta el estado general del hato y recibe alertas tempranas."
+        },
+        "step04": {
+          "title": "Veterinario",
+          "description": "Accede al historial clínico completo antes y durante la visita."
+        },
+        "step05": {
+          "title": "Decisión",
+          "description": "Acciones preventivas y oportunas que protegen la producción."
+        },
+        "quotation": "ICHU no reemplaza al veterinario. Le da más información para trabajar.",
+        "context": "La tecnología observa y recopila patrones; el criterio profesional y el conocimiento ganadero definen la acción."
+      },
+      "audiences": {
+        "farmers": {
+          "eyebrow": "Para ganaderos",
+          "heading": "Para quienes están todos los días en el campo.",
+          "introduction": "Diseñado para simplificar la jornada de trabajo. Un espacio claro para tener el control de su ganado en la palma de la mano.",
+          "feature01": {
+            "featureLabel": "Registro individual:",
+            "text": "identificación clara de cada animal por collar, lote, raza y edad."
+          },
+          "feature02": {
+            "featureLabel": "Observación de actividad:",
+            "text": "conocer qué animales están pastando normalmente y cuáles muestran inmovilidad."
+          },
+          "feature03": {
+            "featureLabel": "Alertas directas:",
+            "text": "notificaciones cuando un animal se aparta o registra temperaturas anormales."
+          },
+          "feature04": {
+            "featureLabel": "Gestión de insumos y aguadas:",
+            "text": "anotación ágil de forraje, agua, gastos y registros de bajas."
+          },
+          "feature05": {
+            "featureLabel": "Compartir con el veterinario:",
+            "text": "enviar la ficha del animal con un solo toque previo a la visita."
+          },
+          "actionLabel": "Solicitar demostración para mi hato",
+          "title": "Ficha del ejemplar · #042",
+          "metadata": "Lote 03 - Pastizal Alto · Edad: 32 meses",
+          "text": "Temperatura",
+          "emphasizedLabel": "Óptimo",
+          "text02": "Estado",
+          "text03": "Ubicación",
+          "activity01": {
+            "text": "Suplementación de forraje",
+            "text02": "Hoy, 07:30 am"
+          },
+          "activity02": {
+            "text": "Revisión de bebedero · Lote 3",
+            "text02": "Ayer, 04:15 pm"
+          },
+          "alternativeText": "Vaca Holstein en el potrero"
+        },
+        "veterinarians": {
+          "eyebrow": "Para veterinarios",
+          "heading": "Más información para mejores decisiones veterinarias.",
+          "introduction": "Acceda a un historial cronológico fidedigno. Conozca qué ocurrió con el animal en los días previos, revise tendencias y respalde sus diagnósticos con datos contextuales reales.",
+          "feature01": {
+            "featureLabel": "Historial clínico consolidado:",
+            "text": "tratamientos previos, vacunas administradas, dosis y fechas exactas de visitas."
+          },
+          "feature02": {
+            "featureLabel": "Evolución de variables vitales:",
+            "text": "curvas de temperatura corporal y patrones de movimiento de los últimos días."
+          },
+          "feature03": {
+            "featureLabel": "Registro de observaciones técnicas:",
+            "text": "anotación de diagnósticos, recetas y recomendaciones para el productor."
+          },
+          "feature04": {
+            "featureLabel": "Monitoreo post-tratamiento:",
+            "text": "verificar si el animal recuperó su nivel de actividad regular."
+          },
+          "quotation": "El veterinario ve más contexto. El ganadero recibe mejor acompañamiento.",
+          "actionLabel": "Solicitar demostración para profesionales",
+          "title": "Ficha clínica · Vaca Holstein #118",
+          "metadata": "Registro de visita médica y seguimiento de evolución",
+          "text": "Curva térmica (últimos 5 días)",
+          "activity01": {
+            "text": "Evaluación general: condición corporal 3.5"
+          },
+          "activity02": {
+            "text": "Aplicación antiparasitario de amplio espectro",
+            "text02": "Dosis completada"
+          },
+          "alternativeText": "Vaca lechera con su ternero en el tambo"
+        }
+      },
+      "animalLifecycle": {
+        "eyebrow": "Trazabilidad y bienestar",
+        "heading": "Cada animal, una historia continua.",
+        "introduction": "La ganadería no es una hoja de cálculo estática: es un ciclo biológico vivo. ICHU organiza los hitos fundamentales de la vida de cada ejemplar para preservar su memoria productiva y sanitaria desde sus primeros días.",
+        "stage01": {
+          "stageLabel": "Etapa 01",
+          "title": "Identificación",
+          "description": "Asignación de collar, genealogía, fecha de nacimiento y características."
+        },
+        "stage02": {
+          "stageLabel": "Etapa 02",
+          "title": "Actividad",
+          "description": "Observación de rutinas de pastoreo, desplazamiento y descanso."
+        },
+        "stage03": {
+          "stageLabel": "Etapa 03",
+          "title": "Alimentación",
+          "description": "Rotación de pastos, suplementación mineral y acceso a agua."
+        },
+        "stage04": {
+          "stageLabel": "Etapa 04",
+          "title": "Eventos",
+          "description": "Registro de celos, servicios, partos, destetes o cambios repentinos."
+        },
+        "stage05": {
+          "stageLabel": "Etapa 05",
+          "title": "Visita médica",
+          "description": "Revisión clínica presencial respaldada con la lectura de datos."
+        },
+        "stage06": {
+          "stageLabel": "Etapa 06",
+          "title": "Tratamiento",
+          "description": "Aplicación de medicamentos o vacunas con registro de dosis."
+        },
+        "stage07": {
+          "stageLabel": "Etapa 07",
+          "title": "Seguimiento",
+          "description": "Comprobación de recuperación y continuidad productiva."
+        },
+        "alternativeText": "Veterinaria revisando la salud de un ternero con estetoscopio"
+      },
+      "technology": {
+        "eyebrow": "Ingeniería para el campo",
+        "heading": "Tecnología que observa.",
+        "heading02": "Personas que deciden.",
+        "introduction": "ICHU está siendo concebida para conectarse progresivamente con dispositivos de telemetría e Internet de las Cosas (IoT) diseñados para soportar el clima y las condiciones de nuestra geografía.",
+        "title": "Temperatura corporal",
+        "description": "Monitoreo de oscilaciones térmicas para identificar tempranamente cuadros febriles, estrés calórico o alteraciones metabólicas antes de síntomas visibles.",
+        "title02": "Movimiento & dinámica",
+        "description02": "Detección de índices de actividad física, rumiación, tiempo de descanso o letargo que puedan sugerir malestar, celo o inicio de parto.",
+        "title03": "Ubicación en terreno",
+        "description03": "Localización por sectores y potreros para prevenir pérdidas por extravío, optimizar el pastoreo rotativo y resguardar la seguridad del ganado."
+      },
+      "alerts": {
+        "eyebrow": "Señales claras",
+        "heading": "Alertas preventivas, no diagnósticos automáticos.",
+        "introduction": "Las alertas de ICHU funcionan como un llamado de atención oportuno para que el ganadero o veterinario inspeccione al animal a tiempo.",
+        "alert01": {
+          "text": "Actividad",
+          "title": "Cambio de actividad detectado",
+          "description": "Vaca #089 registró 45% menos desplazamiento durante las últimas 6 horas de pastoreo habitual.",
+          "text02": "Sector Potrero B · Hace 25 min"
+        },
+        "alert02": {
+          "text": "Temperatura",
+          "title": "Temperatura fuera de rango",
+          "description": "Toro #014 registró 39.4 °C de manera sostenida en dos lecturas consecutivas.",
+          "text02": "Lote Reproductores · Hace 1 hora"
+        },
+        "alert03": {
+          "text": "Ubicación",
+          "title": "Animal fuera de zona habitual",
+          "description": "Grupo de 3 vaquillonas detectadas próximas al cerco perimetral este.",
+          "text02": "Cerco Este Quebrada · Hace 12 min"
+        },
+        "alert04": {
+          "text": "Sanidad",
+          "title": "Seguimiento veterinario pendiente",
+          "description": "Recordatorio de segunda dosis de tratamiento prescrito para Ternero #201.",
+          "text02": "Programado para hoy · 02:00 pm"
+        },
+        "emphasizedLabel": "Nota de responsabilidad técnica:",
+        "description": "las alertas y métricas mostradas son herramientas de orientación conceptual. No constituyen un diagnóstico clínico automatizado ni sustituyen el juicio profesional del médico veterinario."
+      },
+      "propertyManagement": {
+        "eyebrow": "Manejo integral del predio",
+        "heading": "También se trata de entender el campo.",
+        "introduction": "El animal depende de sus pasturas, el agua y la administración del predio. ICHU ayuda a visualizar la finca como una operación ordenada.",
+        "title": "El campo en una sola vista",
+        "description": "Administre la rotación de forraje, planifique los suministros hídricos y mantenga un inventario vivo de animales sin depender de hojas sueltas.",
+        "emphasizedLabel": "Puntos de agua",
+        "description02": "Disponibilidad en bebederos.",
+        "emphasizedLabel02": "Rotación de pastos",
+        "description03": "Recuperación de canchas.",
+        "emphasizedLabel03": "Gastos & insumos",
+        "description04": "Control de forraje y fármacos.",
+        "emphasizedLabel04": "Inventario vivo",
+        "description05": "Nacimientos y traslados.",
+        "alternativeText": "Mapa del predio con lotes de pastoreo, puntos de agua y estado del pastizal"
+      },
+      "regulatoryContext": {
+        "eyebrow": "Contexto nacional y buenas prácticas",
+        "heading": "Tecnología pensada para nuestra ganadería.",
+        "introduction": "La gestión ganadera involucra compromisos sanitarios y normativas oficiales. ICHU busca facilitar la organización de información útil para la gestión productiva y veterinaria, dentro del marco de las obligaciones aplicables a cada actividad.",
+        "description": "Ministerio de Desarrollo Agrario y Riego: políticas de desarrollo pecuario, pastos y fomento productivo.",
+        "text": "Portal institucional",
+        "description02": "Servicio Nacional de Sanidad Agraria: calendarios de vacunación oficial, control zoosanitario y aretado.",
+        "text02": "Normativa sanitaria",
+        "text03": "Padrón de Productores (PPA)",
+        "description03": "PPA (MIDAGRI): registro oficial para la identificación y acceso a servicios del Estado.",
+        "text04": "Información PPA"
+      },
+      "contact": {
+        "eyebrow": "Acceso temprano & demostraciones",
+        "heading": "Conoce ICHU antes que nadie.",
+        "introduction": "Estamos construyendo una nueva forma de conectar tecnología, ganadería y acompañamiento veterinario. Déjanos tus datos para coordinar una presentación guiada.",
+        "form": {
+          "fields": {
+            "firstName": {
+              "fieldLabel": "Nombre *",
+              "placeholder": "Ej. Carlos"
+            },
+            "lastName": {
+              "fieldLabel": "Apellidos *",
+              "placeholder": "Ej. Quispe"
+            },
+            "email": {
+              "fieldLabel": "Correo electrónico *"
+            },
+            "phone": {
+              "fieldLabel": "Teléfono / WhatsApp *"
+            },
+            "profile": {
+              "fieldLabel": "Tipo de usuario *"
+            },
+            "message": {
+              "fieldLabel": "Mensaje o consulta (opcional)",
+              "placeholder": "Cuéntanos sobre tu hato o qué te gustaría conocer en la demostración..."
+            }
+          },
+          "optionLabel": "Selecciona tu perfil principal",
+          "profile": {
+            "options": {
+              "farmer": "Ganadero / Productor pecuario",
+              "veterinarian": "Médico veterinario / Zootecnista",
+              "association": "Asociación / Cooperativa agraria",
+              "other": "Otro interesado"
+            }
+          },
+          "actionLabel": "Solicitar una demostración",
+          "description": "Al enviar se abrirá WhatsApp con tu solicitud lista para enviarnos. También puedes escribirnos al número de la barra superior.",
+          "validation": {
+            "firstNameRequired": "Ingresa tu nombre.",
+            "lastNameRequired": "Ingresa tus apellidos.",
+            "emailInvalid": "Ingresa un correo válido.",
+            "phoneInvalid": "Ingresa un teléfono válido.",
+            "profileRequired": "Selecciona tu perfil."
+          }
+        },
+        "text": "ICHU — Asistencia en vivo",
+        "text02": "En línea para demostraciones",
+        "description": "¡Hola! Bienvenido a ICHU. ¿Te gustaría agendar una demostración para tu ganado o conocer el historial clínico?",
+        "description02": "Hola, tengo un hato ganadero y quiero ver cómo registran los collares y las alertas de temperatura.",
+        "description03": "¡Excelente! En la demo personalizada te mostraremos cómo opera la ficha de cada animal y cómo se conecta con el veterinario.",
+        "suggestionLabel": "Demo ganaderos",
+        "suggestionLabel02": "Soy veterinario",
+        "suggestionLabel03": "Sensores IoT",
+        "description04": "Simulación ilustrativa de la asistencia de ICHU. Las respuestas automáticas no reemplazan la atención del equipo.",
+        "submission": {
+          "title": "¡Solicitud lista para enviar!",
+          "description": "Gracias por tu interés en ICHU. Se abrió WhatsApp con tu solicitud; si no se abrió automáticamente, escríbenos directo desde la barra superior.",
+          "actionLabel": "Entendido, muchas gracias"
+        },
+        "alternativeText": "Logotipo ICHU",
+        "accessibility": {
+          "chatInput": "Mensaje de prueba",
+          "sendChatMessage": "Enviar mensaje de prueba"
+        },
+        "placeholder": "Simulación — usa el formulario para contacto real",
+        "chat": {
+          "typingIndicator": "ICHU está escribiendo...",
+          "responses": {
+            "farmer": "¡Excelente! En la demo te mostraremos cómo registrar tu ganado por collar, supervisar el pastoreo y recibir alertas de temperatura al instante.",
+            "veterinarian": "¡Perfecto! Podrás explorar el historial térmico, la bitácora de visitas y el registro de tratamientos.",
+            "devices": "Nuestros dispositivos están diseñados para telemetría en altitud y clima andino.",
+            "fallback": "¡Mensaje recibido! Agendemos tu demostración personalizada: deja tus datos en el formulario para coordinar.",
+            "formRequest": "Hola, soy {{name}}. Solicité una demostración desde el formulario.",
+            "formAcknowledgement": "¡Hola {{name}}! Registramos tu solicitud. Te contactaremos muy pronto."
+          },
+          "suggestions": {
+            "farmer": {
+              "message": "Quiero ver la demo para ganaderos"
+            },
+            "veterinarian": {
+              "message": "Soy veterinario y busco historial clínico"
+            },
+            "devices": {
+              "message": "¿Cómo funcionan los sensores en campo?"
+            }
+          }
+        },
+        "whatsapp": {
+          "introduction": "Hola ICHU, quiero solicitar una demostración.",
+          "fields": {
+            "name": "Nombre",
+            "email": "Correo",
+            "phone": "Teléfono",
+            "profile": "Perfil",
+            "message": "Mensaje"
+          }
+        }
+      },
+      "closingCta": {
+        "heading": "Conoce tu ganado.",
+        "heading02": "Entiende tu campo.",
+        "headlineConclusion": "Decide mejor.",
+        "description": "El campo sabe. ICHU ayuda a convertir ese conocimiento en información clara y oportuna para proteger el fruto de tu trabajo.",
+        "actionLabel": "Solicitar una demostración"
+      },
+      "metadata": {
+        "description": "Tecnología para la ganadería inteligente que conecta la información de cada ejemplar, la gestión del campo y el acompañamiento veterinario en el Perú.",
+        "openGraph": {
+          "title": "ICHU — Tecnología para la Ganadería Inteligente",
+          "description": "Información de cada ejemplar, alertas preventivas e historial clínico para ganaderos y veterinarios del Perú.",
+          "imageAlt": "Ganado en un paisaje andino, imagen de ICHU"
+        },
+        "socialCard": {
+          "title": "ICHU — Tecnología para la Ganadería Inteligente",
+          "description": "Información de cada ejemplar, alertas preventivas e historial clínico para ganaderos y veterinarios del Perú.",
+          "imageAlt": "Ganado en un paisaje andino, imagen de ICHU"
+        }
+      }
+    },
+    "howItWorks": {
+      "pageTitle": "Cómo funciona — ICHU · Paso a paso",
+      "skipLink": "Saltar al contenido",
+      "walkthrough": {
+        "eyebrow": "ICHU · Cómo funciona",
+        "title": "Del collar a la decisión, en tres pasos.",
+        "emphasizedLabel": "Registra",
+        "supportingText": "Collar y ficha por animal",
+        "emphasizedLabel02": "Supervisa",
+        "supportingText02": "Señales y alertas en vivo",
+        "emphasizedLabel03": "Decidir",
+        "supportingText03": "Con el veterinario, a tiempo",
+        "status": "Preparando el demo",
+        "title02": "Las pantallas de la app llegarán muy pronto.",
+        "description": "Estamos preparando el recorrido paso a paso de ICHU con datos reales del campo: la ficha del ejemplar, las alertas y el mapa de pastoreo.",
+        "actionLabel": "Solicitar una demostración",
+        "text": "Volver al inicio"
+      },
+      "metadata": {
+        "description": "Cómo funciona ICHU, paso a paso: del collar inteligente a la decisión oportuna junto al veterinario. Demostración en preparación.",
+        "openGraph": {
+          "title": "Cómo funciona — ICHU · Paso a paso",
+          "description": "Del collar a la decisión, en tres pasos: registra, supervisa y decide con ICHU.",
+          "imageAlt": "Ganado en un paisaje andino, imagen de ICHU"
+        },
+        "socialCard": {
+          "title": "Cómo funciona — ICHU · Paso a paso",
+          "description": "Del collar a la decisión, en tres pasos: registra, supervisa y decide con ICHU.",
+          "imageAlt": "Ganado en un paisaje andino, imagen de ICHU"
+        }
+      }
+    },
+    "media": {
+      "pageTitle": "Web y Media — ICHU · Videos informativos",
+      "skipLink": "Saltar al contenido",
+      "media": {
+        "eyebrow": "ICHU · Web y Media",
+        "heading": "Videos informativos de ICHU.",
+        "introduction": "Recorridos por la plataforma y desde el terreno: fichas digitales, pastoreo y acompañamiento veterinario contados en video.",
+        "story01": {
+          "imageCaption": "01 · Web",
+          "eyebrow": "Web · Recorrido del producto",
+          "title": "La plataforma, parte por parte.",
+          "description": "Descubre cómo ICHU convierte el registro diario en decisiones oportunas: de la ficha digital de cada ejemplar al mapa de pastoreo del hato completo.",
+          "benefit01": {
+            "listItem": "Ficha clínica y productiva por animal"
+          },
+          "benefit02": {
+            "listItem": "Mapa de lotes, aguadas y pastoreo"
+          },
+          "benefit03": {
+            "listItem": "Alertas tempranas en la app y el tablet"
+          },
+          "actionLabel": "Ver en YouTube",
+          "accessibleTitle": "Recorrido por la plataforma ICHU (video de ejemplo)"
+        },
+        "story02": {
+          "imageCaption": "02 · Medios",
+          "eyebrow": "Media · Historias del campo",
+          "title": "El campo, en imagen y en voz.",
+          "description": "Entrevistas, jornadas veterinarias y el día a día de quienes llevan su hato en ICHU. Historias reales desde el potrero.",
+          "benefit01": {
+            "listItem": "Entrevistas a ganaderos y veterinarios"
+          },
+          "benefit02": {
+            "listItem": "Visitas y jornadas de campo reales"
+          },
+          "benefit03": {
+            "listItem": "Tips sanitarios y de manejo"
+          },
+          "actionLabel": "Ver en YouTube",
+          "accessibleTitle": "Historias del campo con ICHU (video de ejemplo)"
+        }
+      },
+      "metadata": {
+        "description": "Videos informativos de ICHU: recorridos por la plataforma, historias del campo y el acompañamiento veterinario en el Perú.",
+        "openGraph": {
+          "title": "Web y Media — ICHU · Videos informativos",
+          "description": "Recorridos por la plataforma y desde el terreno: fichas digitales, pastoreo y acompañamiento veterinario contados en video.",
+          "imageAlt": "Ganado en un paisaje andino, imagen de ICHU"
+        },
+        "socialCard": {
+          "title": "Web y Media — ICHU · Videos informativos",
+          "description": "Recorridos por la plataforma y desde el terreno: fichas digitales, pastoreo y acompañamiento veterinario contados en video.",
+          "imageAlt": "Ganado en un paisaje andino, imagen de ICHU"
+        }
+      }
+    },
+    "notFound": {
+      "pageTitle": "Página no encontrada — ICHU",
+      "skipLink": "Saltar al contenido",
+      "content": {
+        "eyebrow": "Página no encontrada",
+        "heading": "No encontramos esta página.",
+        "description": "El enlace pudo haber cambiado o la dirección está incompleta. Volvamos a ICHU.",
+        "actionLabel": "Volver al inicio",
+        "linkLabel": "Contactar al equipo",
+        "alternativeText": "Ganado en un pastizal andino"
+      },
+      "metadata": {
+        "description": "No encontramos la página que solicitaste. Vuelve a ICHU o descubre cómo funciona nuestra plataforma ganadera."
+      }
+    },
+    "common": {
+      "header": {
+        "utilityBar": {
+          "context": "Tecnología para la ganadería inteligente · Perú"
+        },
+        "siteNavigation": {
+          "supportingText": "Plataforma ganadera para todos",
+          "accessibleName": "ICHU - Inicio",
+          "alternativeText": "Logotipo ICHU",
+          "accessibility": {
+            "openNavigation": "Abrir menú"
+          }
+        },
+        "primaryNavigation": {
+          "navItem01": {
+            "primaryLabel": "Inicio",
+            "secondaryLabel": "Conoce ICHU +",
+            "submenu01": {
+              "primaryLabel": "Quiénes somos",
+              "secondaryLabel": "Nuestro propósito",
+              "text": "Nuestro propósito",
+              "supportingText": "Quiénes somos",
+              "text02": "Web y Media",
+              "supportingText02": "Videos informativos",
+              "accessibleName": "Submenú de Quiénes somos"
+            }
+          },
+          "navItem02": {
+            "primaryLabel": "Ganaderos",
+            "secondaryLabel": "Control de tu hato",
+            "submenu02": {
+              "primaryLabel": "Tecnología",
+              "secondaryLabel": "Sensores IoT",
+              "text": "Sensores IoT",
+              "supportingText": "Tecnología",
+              "text02": "Cómo funciona",
+              "supportingText02": "Paso a paso",
+              "accessibleName": "Submenú de Tecnología"
+            }
+          },
+          "navItem03": {
+            "primaryLabel": "Veterinarios",
+            "secondaryLabel": "Historial clínico"
+          },
+          "navItem04": {
+            "primaryLabel": "Contacto",
+            "secondaryLabel": "Trabajemos juntos"
+          },
+          "accessibleName": "Navegación principal"
+        },
+        "mobileDrawer": {
+          "title": "Menú",
+          "actionLabel": "Solicitar una demostración",
+          "accessibleName": "Menú móvil",
+          "accessibility": {
+            "closeNavigation": "Cerrar menú"
+          }
+        },
+        "mobileNavigation": {
+          "linkLabel": "Inicio",
+          "linkLabel02": "Quiénes somos",
+          "linkLabel03": "Web y Media",
+          "linkLabel04": "Para ganaderos",
+          "linkLabel05": "Para veterinarios",
+          "linkLabel06": "Tecnología",
+          "linkLabel07": "Cómo funciona",
+          "linkLabel08": "Contacto",
+          "accessibleName": "Navegación móvil"
+        }
+      },
+      "footer": {
+        "pageFooter": {
+          "description": "Tecnología para la ganadería inteligente. Conectando al ganadero con información útil sobre cada animal y facilitando el trabajo veterinario en el Perú.",
+          "groupTitle": "Navegación",
+          "link01": {
+            "linkLabel": "Inicio",
+            "linkLabel02": "MIDAGRI Perú"
+          },
+          "link02": {
+            "linkLabel": "Web y Media",
+            "linkLabel02": "SENASA Sanidad Agraria"
+          },
+          "link03": {
+            "linkLabel": "Cómo funciona",
+            "linkLabel02": "Padrón de Productores (PPA)"
+          },
+          "link04": {
+            "linkLabel": "Para ganaderos"
+          },
+          "link05": {
+            "linkLabel": "Para veterinarios"
+          },
+          "link06": {
+            "linkLabel": "Tecnología"
+          },
+          "link07": {
+            "linkLabel": "Contacto"
+          },
+          "groupTitle02": "Fuentes de referencia",
+          "groupTitle03": "Identidad",
+          "description02": "Inspirado en el pasto andino",
+          "description03": "y la tradición ganadera del Perú. Diseñado para la realidad y el trabajo diario en el campo.",
+          "text": "ICHU — Todos los derechos reservados. Etapa de presentación y demostración de producto.",
+          "text02": "Perú · Tecnología ganadera & acompañamiento veterinario",
+          "alternativeText": "Logotipo ICHU",
+          "accessibleName": "Enlaces del sitio",
+          "accessibleName02": "Redes sociales",
+          "accessibleName03": "Sitio web"
+        }
+      },
+      "language": {
+        "switchToSpanish": "Cambiar idioma a español",
+        "switchToEnglish": "Cambiar idioma a inglés"
+      },
+      "theme": {
+        "switchToNight": "Cambiar a modo noche",
+        "switchToDay": "Cambiar a modo día"
+      }
+    }
+  },
+  "chatKeywords": {
+    "devices": [
+      "sensor",
+      "collar",
+      "iot",
+      "dispositivo"
+    ],
+    "veterinarian": [
+      "veterinario",
+      "salud",
+      "clínico",
+      "clinico",
+      "tratamiento",
+      "historial"
+    ],
+    "farmer": [
+      "ganadero",
+      "vaca",
+      "toro",
+      "hato",
+      "campo",
+      "pastoreo"
+    ]
+  }
+}
