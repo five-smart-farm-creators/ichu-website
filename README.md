@@ -48,7 +48,7 @@ Pages remain at the site root so static hosting can serve `index.html` directly.
 
 ## Deployment
 
-Publish this folder as the root of the static website. The published directory must contain `index.html`, `assets/`, `partials/`, and `public/` at the same level. Locale files are requested from `public/locales/` relative to the page URL. This project has no build step that copies the contents of `public/` to the site root.
+Publish this folder as the root of the static website. The published directory must contain `index.html`, `assets/`, `partials/`, and `public/` at the same level. Locale files are loaded from `public/locales/`, resolved from the language controller URL so nested error paths do not change the resource location. This project has no build step that copies the contents of `public/` to the site root.
 
 ## Internationalization
 

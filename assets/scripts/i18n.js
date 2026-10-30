@@ -4,7 +4,8 @@
 */
 window.ICHU_I18N_READY = (async () => {
   'use strict';
-  if (!(await window.ICHU_PARTIALS_READY)) return false;
+  const localeBaseURL = new URL('../../public/locales/', document.currentScript.src);
+  if (window.ICHU_PARTIALS_READY && !(await window.ICHU_PARTIALS_READY)) return false;
 
   const LANGUAGE_KEY = 'ichu-lang';
   const DEFAULT_LANGUAGE = 'en';
@@ -85,7 +86,7 @@ window.ICHU_I18N_READY = (async () => {
     // Reuse completed and pending requests for the same language
     if (locales.has(target)) return locales.get(target);
     if (!localeRequests.has(target)) {
-      const request = fetch(`public/locales/${target}.json`)
+      const request = fetch(new URL(`${target}.json`, localeBaseURL))
         .then(async (response) => {
           if (!response.ok) throw new Error(`Failed to load ${target} translations with status ${response.status}`);
           const locale = await response.json();
