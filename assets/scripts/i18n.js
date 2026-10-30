@@ -5,7 +5,7 @@
 window.ICHU_I18N_READY = (async () => {
   'use strict';
 
-  const localeBaseURL = new URL('../../public/locales/', document.currentScript.src);
+  const localeBaseURL = new URL('../../locales/', document.currentScript.src);
   if (window.ICHU_PARTIALS_READY && !(await window.ICHU_PARTIALS_READY)) return false;
 
   const LANGUAGE_KEY = 'ichu-lang';
