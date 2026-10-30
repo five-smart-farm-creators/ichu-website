@@ -848,18 +848,18 @@ p { color: var(--ink-500); }
   gap: 1px;
   background: var(--line-dark);
   border: 1px solid var(--line-dark);
-  counter-reset: diagnostico;
+  counter-reset: fieldChallenges;
 }
 .problem-card {
   position: relative;
-  counter-increment: diagnostico;
+  counter-increment: fieldChallenges;
   min-height: 250px;
   padding: 2.4rem;
   background: var(--cream-100);
   transition: background 0.3s ease;
 }
 .problem-card::before {
-  content: '0' counter(diagnostico);
+  content: '0' counter(fieldChallenges);
   position: absolute;
   top: 1.6rem;
   right: 2rem;

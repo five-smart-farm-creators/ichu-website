@@ -4,7 +4,7 @@
   async function loadPartial(placeholder) {
     const response = await fetch(placeholder.dataset.include);
     if (!response.ok) {
-      throw new Error(`No se pudo cargar ${placeholder.dataset.include}: ${response.status}`);
+      throw new Error(`Failed to load ${placeholder.dataset.include}: ${response.status}`);
     }
 
     const markup = await response.text();
@@ -15,7 +15,7 @@
   window.ICHU_PARTIALS_READY = Promise.all(placeholders.map(loadPartial))
     .then(() => true)
     .catch((error) => {
-      console.error('No se pudieron cargar los componentes compartidos de ICHU.', error);
+      console.error('Failed to load shared ICHU components.', error);
       return false;
     });
 })();

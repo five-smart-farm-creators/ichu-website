@@ -2,6 +2,7 @@
 (async () => {
   'use strict';
   if (!(await window.ICHU_PARTIALS_READY)) return;
+  if (!(await window.ICHU_I18N_READY)) return;
 
   // Replace with the actual WhatsApp number including the country code and digits only
   const WHATSAPP_NUMBER = '51900000000';
@@ -9,7 +10,7 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-  const I18N = window.ICHU_I18N || { lang: 'es', t: (text) => text };
+  const I18N = window.ICHU_I18N;
   const t = (text) => I18N.t(text);
 
   /* Shared navigation and current page state */
@@ -111,7 +112,7 @@
     const applyTheme = (theme) => {
       document.documentElement.setAttribute('data-theme', theme);
       themeToggle.setAttribute('aria-pressed', theme === 'night' ? 'true' : 'false');
-      themeToggle.setAttribute('aria-label', theme === 'night' ? t('Cambiar a modo día') : t('Cambiar a modo noche'));
+      themeToggle.setAttribute('aria-label', theme === 'night' ? t("Switch to day mode") : t("Switch to night mode"));
       syncWhoVideo(theme);
     };
     let theme = 'day';
@@ -119,6 +120,7 @@
       theme = document.documentElement.getAttribute('data-theme') === 'night' ? 'night' : 'day';
     } catch (e) { /* Use the day theme as the default */ }
     applyTheme(theme);
+    document.addEventListener('ichu:languagechange', () => applyTheme(theme));
     themeToggle.addEventListener('click', () => {
       theme = theme === 'night' ? 'day' : 'night';
       applyTheme(theme);
@@ -204,11 +206,16 @@
     return `${hours}:${minutes} ${now.getHours() >= 12 ? 'pm' : 'am'}`;
   }
 
-  function addBubble(text, type) {
+  function addBubble(text, type, values = {}) {
     const bubble = document.createElement('div');
     bubble.className = `bubble ${type}`;
     const p = document.createElement('p');
-    p.textContent = text;
+    if (type === 'out' && !Object.keys(values).length) {
+      p.setAttribute('data-i18n-skip', '');
+      p.textContent = text;
+    } else {
+      I18N.setText(p, text, values);
+    }
     const time = document.createElement('span');
     time.className = 'bubble-time';
     time.textContent = currentTime();
@@ -217,34 +224,33 @@
     phoneChat.scrollTop = phoneChat.scrollHeight;
   }
 
-  function reply(text) {
+  function reply(text, values = {}) {
     if (prefersReduced) {
-      addBubble(text, 'in');
+      addBubble(text, 'in', values);
       return;
     }
     const typing = document.createElement('div');
     typing.className = 'bubble in typing';
-    typing.textContent = t('ICHU está escribiendo...');
+    I18N.setText(typing, 'ICHU is typing...');
     phoneChat.appendChild(typing);
     phoneChat.scrollTop = phoneChat.scrollHeight;
     setTimeout(() => {
       typing.remove();
-      addBubble(text, 'in');
+      addBubble(text, 'in', values);
     }, 1100);
   }
 
   function botResponse(text) {
-    const lower = text.toLowerCase();
-    if (/(ganadero|vaca|toro|hato|campo|pastoreo)/.test(lower)) {
-      return t('¡Excelente! En la demo te mostraremos cómo registrar tu ganado por collar, supervisar el pastoreo y recibir alertas de temperatura al instante.');
+    if (I18N.matchesTopic(text, 'farmer')) {
+      return 'Great! In the demo we will show you how to register your livestock by collar, monitor grazing and receive temperature alerts instantly.';
     }
-    if (/(veterinario|salud|clínico|clinico|tratamiento|historial)/.test(lower)) {
-      return t('¡Perfecto! Podrás explorar el historial térmico, la bitácora de visitas y el registro de tratamientos.');
+    if (I18N.matchesTopic(text, 'veterinarian')) {
+      return 'Perfect! You will be able to explore the thermal history, the visit log and the treatment registry.';
     }
-    if (/(sensor|collar|iot|dispositivo)/.test(lower)) {
-      return t('Nuestros dispositivos están diseñados para telemetría en altitud y clima andino.');
+    if (I18N.matchesTopic(text, 'devices')) {
+      return 'Our devices are designed for high-altitude telemetry and Andean weather.';
     }
-    return t('¡Mensaje recibido! Agendemos tu demostración personalizada: deja tus datos en el formulario para coordinar.');
+    return "Message received! Let's schedule your personalized demonstration: leave your details in the form to coordinate.";
   }
 
   function handleUserMessage() {
@@ -267,7 +273,7 @@
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      addBubble(chip.dataset.msg, 'out');
+      addBubble(t(chip.dataset.msg), 'out');
       reply(botResponse(chip.dataset.msg));
     });
   });
@@ -282,17 +288,17 @@
     const errorEl = $(`#err-${id}`);
     input.classList.toggle('is-invalid', Boolean(message));
     input.setAttribute('aria-invalid', message ? 'true' : 'false');
-    if (errorEl) errorEl.textContent = message ? t(message) : '';
+    if (errorEl) I18N.setText(errorEl, message);
   }
 
   function validateForm(data) {
     let firstInvalid = null;
     const rules = {
-      nombre: data.nombre.trim() ? '' : 'Ingresa tu nombre.',
-      apellidos: data.apellidos.trim() ? '' : 'Ingresa tus apellidos.',
-      correo: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.correo.trim()) ? '' : 'Ingresa un correo válido.',
-      telefono: /^[+()\d\s-]{6,20}$/.test(data.telefono.trim()) ? '' : 'Ingresa un teléfono válido.',
-      tipoUsuario: data.tipoUsuario ? '' : 'Selecciona tu perfil.',
+      firstName: data.firstName.trim() ? '' : "Enter your first name.",
+      lastName: data.lastName.trim() ? '' : "Enter your last name.",
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim()) ? '' : "Enter a valid email.",
+      phoneNumber: /^[+()\d\s-]{6,20}$/.test(data.phoneNumber.trim()) ? '' : "Enter a valid phone number.",
+      userType: data.userType ? '' : "Select your profile.",
     };
     Object.entries(rules).forEach(([field, message]) => {
       setError(field, message);
@@ -312,13 +318,13 @@
       }
 
       const lines = [
-        t('Hola ICHU, quiero solicitar una demostración.'),
-        `${t('Nombre')}: ${data.nombre} ${data.apellidos}`,
-        `${t('Correo')}: ${data.correo}`,
-        `${t('Teléfono')}: ${data.telefono}`,
-        `${t('Perfil')}: ${data.tipoUsuario}`,
+        t("Hello ICHU, I would like to request a demonstration."),
+        `${t("Name")}: ${data.firstName} ${data.lastName}`,
+        `${t("Email")}: ${data.email}`,
+        `${t("Phone")}: ${data.phoneNumber}`,
+        `${t("Profile")}: ${t(data.userType)}`,
       ];
-      if (data.mensaje && data.mensaje.trim()) lines.push(`${t('Mensaje')}: ${data.mensaje.trim()}`);
+      if (data.message && data.message.trim()) lines.push(`${t("Message")}: ${data.message.trim()}`);
 
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
       window.open(waUrl, '_blank', 'noopener');
@@ -330,11 +336,11 @@
         closeModalBtn.focus();
       }
       form.reset();
-      addBubble(t('Hola, soy {n}. Solicité una demostración desde el formulario.').replace('{n}', data.nombre), 'out');
-      reply(t('¡Hola {n}! Registramos tu solicitud. Te contactaremos muy pronto.').replace('{n}', data.nombre));
+      addBubble('Hello, I am {n}. I requested a demonstration from the form.', 'out', { n: data.firstName });
+      reply('Hi {n}! We have registered your request. We will contact you very soon.', { n: data.firstName });
     });
 
-    ['nombre', 'apellidos', 'correo', 'telefono', 'tipoUsuario'].forEach((id) => {
+    ['firstName', 'lastName', 'email', 'phoneNumber', 'userType'].forEach((id) => {
       const input = $(`#${id}`);
       input.addEventListener('input', () => setError(id, ''));
     });
