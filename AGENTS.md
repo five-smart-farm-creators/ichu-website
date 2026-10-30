@@ -18,7 +18,7 @@ ichu-website/
 │   ├── images/
 │   └── videos/
 ├── partials/
-├── public/locales/
+├── locales/
 ├── readme/
 ├── README.md
 ├── CONTRIBUTING.md
@@ -26,15 +26,16 @@ ichu-website/
 ```
 
 - Keep this a static HTML, CSS, and vanilla JavaScript website. Introduce frameworks, dependencies, or build tooling only when the task calls for them.
+- Do not create new directories unless the user explicitly asks for them. Fit new files into the documented structure and reuse existing directories.
 - Keep page HTML at the root, scripts in `assets/scripts/`, styles in `assets/styles/`, and media in `assets/images/` or `assets/videos/`.
 - Reuse `partials/_header.html` and `partials/_footer.html` on regular pages. Preserve the independent recovery navigation on `404.html`.
-- Keep translations in `public/locales/en.json` and `public/locales/es.json`. Store Spanish documentation and its preview image in `readme/`.
+- Keep translations in `locales/en.json` and `locales/es.json`. Store Spanish documentation and its preview image in `readme/`.
 - Serve the repository root through HTTP for preview. No package installation or build command is currently required.
 
 ## Language and code style
 
 - Use English for identifiers, filenames, source UI text, comments, commits, and primary documentation. Exceptions are Spanish locale values and explicitly translated documents in `readme/`.
-- Keep English as the default UI language and preserve Spanish support. Use nested semantic camelCase keys and keep both locale trees and placeholders in parity. Format dates and numbers with `Intl` rather than storing formatted values. Run `node tools/validate-locales.js` when changing translations or their references.
+- Keep English as the default UI language and preserve Spanish support. Use nested semantic camelCase keys and keep both locale trees and placeholders in parity. Format dates and numbers with `Intl` rather than storing formatted values.
 - Match surrounding formatting and use two spaces for indentation and UTF-8. Use descriptive camelCase JavaScript names and kebab-case CSS classes and new asset filenames.
 - Keep behavior in JavaScript and styling in CSS. Prefer small functions with a clear purpose and reuse existing utilities and design tokens.
 - Write short, direct sentences. Use the existing term for each concept. Keep detailed change history in commits and PRs.

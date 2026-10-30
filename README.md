@@ -33,7 +33,7 @@ Built with HTML, CSS, and vanilla JavaScript. No package installation or build s
 | `*.html` | Home, walkthrough, media, and 404 pages |
 | `assets/` | Styles, scripts, images, and videos |
 | `partials/` | Shared header and footer |
-| `public/locales/` | English and Spanish translations |
+| `locales/` | English and Spanish translations |
 | `readme/` | Spanish documentation and the preview image |
 
 ## Deployment

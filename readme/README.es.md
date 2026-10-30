@@ -33,7 +33,7 @@ Desarrollado con HTML, CSS y JavaScript sin frameworks. No requiere instalar paq
 | `*.html` | Páginas de inicio, funcionamiento, contenido multimedia y 404 |
 | `assets/` | Estilos, scripts, imágenes y videos |
 | `partials/` | Cabecera y pie de página compartidos |
-| `public/locales/` | Traducciones en inglés y español |
+| `locales/` | Traducciones en inglés y español |
 | `readme/` | Documentación en español e imagen de vista previa |
 
 ## Publicación
