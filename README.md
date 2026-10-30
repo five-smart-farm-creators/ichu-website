@@ -1,6 +1,8 @@
 # ICHU Website
 
-[Contributing](CONTRIBUTING.md) · [Agent guidelines](AGENTS.md)
+[![HTML Living Standard](https://img.shields.io/badge/HTML-Living%20Standard-E34F26?style=flat&logo=html5&logoColor=white)](https://html.spec.whatwg.org/)
+[![CSS Modules](https://img.shields.io/badge/CSS-Modules-663399?style=flat&logo=css3&logoColor=white)](https://www.w3.org/Style/CSS/)
+[![JavaScript ES2020](https://img.shields.io/badge/JavaScript-ES2020-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://ecma-international.org/publications-and-standards/standards/ecma-262/)
 
 The public website for ICHU, a Peruvian livestock technology platform. It introduces the product to farmers and veterinarians and lets visitors prepare a demonstration request through WhatsApp.
 
