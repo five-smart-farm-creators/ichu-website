@@ -218,6 +218,7 @@
   const phoneInput = $('#phoneInput');
   const phoneSend = $('#phoneSend');
   const chips = $$('.chip');
+  const chatTopics = ['devices', 'veterinarian', 'farmer'];
 
   function addBubble(text, type, values = {}) {
     const bubble = document.createElement('div');
@@ -258,17 +259,11 @@
     }, 1100);
   }
 
-  function botResponse(text) {
-    if (I18N.matchesTopic(text, 'farmer')) {
-      return 'home.contact.chat.responses.farmer';
-    }
-    if (I18N.matchesTopic(text, 'veterinarian')) {
-      return 'home.contact.chat.responses.veterinarian';
-    }
-    if (I18N.matchesTopic(text, 'devices')) {
-      return 'home.contact.chat.responses.devices';
-    }
-    return 'home.contact.chat.responses.fallback';
+  function botResponse(text, selectedTopic) {
+    const topic = chatTopics.includes(selectedTopic)
+      ? selectedTopic
+      : chatTopics.find(candidate => I18N.matchesTopic(text, candidate));
+    return `home.contact.chat.responses.${topic || 'fallback'}`;
   }
 
   function handleUserMessage() {
@@ -293,7 +288,7 @@
     chip.addEventListener('click', () => {
       const message = t(chip.dataset.msgKey);
       addBubble(message, 'out');
-      reply(botResponse(message));
+      reply(botResponse(message, chip.dataset.topic));
     });
   });
 
