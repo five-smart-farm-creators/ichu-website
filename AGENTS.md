@@ -19,7 +19,6 @@ ichu-website/
 │   └── videos/
 ├── partials/
 ├── locales/
-├── readme/
 ├── README.md
 ├── CONTRIBUTING.md
 └── AGENTS.md
@@ -29,12 +28,12 @@ ichu-website/
 - Do not create new directories unless the user explicitly asks for them. Fit new files into the documented structure and reuse existing directories.
 - Keep page HTML at the root, scripts in `assets/scripts/`, styles in `assets/styles/`, and media in `assets/images/` or `assets/videos/`.
 - Reuse `partials/_header.html` and `partials/_footer.html` on regular pages. Preserve the independent recovery navigation on `404.html`.
-- Keep translations in `locales/en.json` and `locales/es.json`. Store Spanish documentation and its preview image in `readme/`.
+- Keep translations in `locales/en.json` and `locales/es.json`. Keep `README.md` and `CONTRIBUTING.md` in English only.
 - Serve the repository root through HTTP for preview. No package installation or build command is currently required.
 
 ## Language and code style
 
-- Use English for identifiers, filenames, source UI text, comments, commits, and primary documentation. Exceptions are Spanish locale values and explicitly translated documents in `readme/`.
+- Use English for identifiers, filenames, source UI text, comments, commits, and documentation. Spanish locale values are the exception.
 - Keep English as the default UI language and preserve Spanish support. Use nested semantic camelCase keys and keep both locale trees and placeholders in parity. Format dates and numbers with `Intl` rather than storing formatted values.
 - Match surrounding formatting and use two spaces for indentation and UTF-8. Use descriptive camelCase JavaScript names and kebab-case CSS classes and new asset filenames.
 - Keep behavior in JavaScript and styling in CSS. Prefer small functions with a clear purpose and reuse existing utilities and design tokens.
@@ -89,7 +88,7 @@ type(scope): description
 
 ## Verification and handoff
 
-- Review the diff and run `git diff --check`. For documentation changes, check relative links, images, commands, and consistency between language versions.
+- Review the diff and run `git diff --check`. For documentation changes, check relative links, images, and commands.
 - For code changes, preview affected pages over HTTP and check relevant browser errors, links, mobile layouts, themes, languages, and keyboard interactions. Use focused checks appropriate to the change.
 - No automated test suite, linter, or build is currently configured. Do not invent commands or claim checks that did not run.
 - Report the result, checks performed, remaining limitations, and commit or push status briefly.

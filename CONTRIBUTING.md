@@ -1,7 +1,5 @@
 # Contributing to ICHU Website
 
-**English** · [Español](readme/CONTRIBUTING.es.md)
-
 We welcome bug fixes, accessibility improvements, and documentation corrections. Keep contributions focused and discuss new features or large changes in an [issue](https://github.com/five-smart-farm-creators/ichu-website/issues) first. Follow the [README](README.md#run-locally) for local preview.
 
 ## Branches
@@ -82,7 +80,7 @@ For example, `fix(navigation): close the mobile menu`. Group files for one logic
 - Follow the structure, language, and comment rules in [AGENTS.md](AGENTS.md).
 - Preview affected pages through HTTP. Check relevant links, images, browser errors, mobile and desktop layouts, both themes and languages, and keyboard navigation.
 - Run `git diff --check` and inspect the staged diff. Document checks and limitations in the PR; no automated test suite is currently configured.
-- Update both documentation languages when changing these guides. Give respectful, specific feedback.
+- Keep these guides consistent with the project structure and workflow. Give respectful, specific feedback.
 
 ## Releases and hotfixes
 

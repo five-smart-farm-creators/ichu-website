@@ -1,7 +1,5 @@
 # ICHU Website
 
-**English** · [Español](readme/README.es.md)
-
 [Contributing](CONTRIBUTING.md) · [Agent guidelines](AGENTS.md)
 
 The public website for ICHU, a Peruvian livestock technology platform. It introduces the product to farmers and veterinarians and lets visitors prepare a demonstration request through WhatsApp.
@@ -34,7 +32,6 @@ Built with HTML, CSS, and vanilla JavaScript. No package installation or build s
 | `assets/` | Styles, scripts, images, and videos |
 | `partials/` | Shared header and footer |
 | `locales/` | English and Spanish translations |
-| `readme/` | Spanish documentation and the preview image |
 
 ## Deployment
 
