@@ -1,10 +1,13 @@
-/* Shared navigation and page interactions */
+// Initialize page interactions after shared markup and translations are ready
 (async () => {
   'use strict';
   if (!(await window.ICHU_PARTIALS_READY)) return;
   if (!(await window.ICHU_I18N_READY)) return;
 
-  // Replace with the actual WhatsApp number including the country code and digits only
+  /*
+    Use an international WhatsApp number with digits only
+    Replace the placeholder before enabling real contact requests
+  */
   const WHATSAPP_NUMBER = '51900000000';
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13,7 +16,7 @@
   const I18N = window.ICHU_I18N;
   const t = (text) => I18N.t(text);
 
-  /* Shared navigation and current page state */
+  // Keep section links local on the home page and point other pages back to it
   const pageName = document.body.dataset.page || 'home';
   const siteTop = $('#siteTop');
   if (siteTop) siteTop.classList.toggle('solid', pageName !== 'home');
@@ -29,12 +32,12 @@
     if (group.dataset.pageGroup === pageName) group.classList.add('is-active');
   });
 
-  /* Header appearance while scrolling */
+  // Collapse the utility bar once the page has scrolled
   window.addEventListener('scroll', () => {
     siteTop.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 
-  /* Mobile navigation drawer */
+  // Keep the drawer state consistent with its accessibility attributes
   const menuToggle = $('#menuToggle');
   const drawer = $('#mobileDrawer');
   const drawerOverlay = $('#drawerOverlay');
@@ -66,7 +69,7 @@
   drawerOverlay.addEventListener('click', closeDrawer);
   $$('.drawer-link', drawer).forEach((link) => link.addEventListener('click', closeDrawer));
 
-  /* Header submenus */
+  // Close open submenus when interaction moves outside the navigation
   const navDrops = $$('.nav-dropdown');
   navDrops.forEach((drop) => {
     const toggle = $('.nav-drop-toggle', drop);
@@ -94,7 +97,7 @@
     });
   }
 
-  /* Day and night themes */
+  // Keep video playback aligned with theme visibility and motion preferences
   const whoVideo = $('#whoVideo');
   let whoVideoVisible = !('IntersectionObserver' in window);
   function syncWhoVideo(theme) {
@@ -118,13 +121,17 @@
     let theme = 'day';
     try {
       theme = document.documentElement.getAttribute('data-theme') === 'night' ? 'night' : 'day';
-    } catch (e) { /* Use the day theme as the default */ }
+    } catch (e) {
+      // Keep the default theme if the current theme cannot be read
+    }
     applyTheme(theme);
     document.addEventListener('ichu:languagechange', () => applyTheme(theme));
     themeToggle.addEventListener('click', () => {
       theme = theme === 'night' ? 'day' : 'night';
       applyTheme(theme);
-      try { localStorage.setItem('ichu-theme', theme); } catch (e) { /* Continue without saving the preference */ }
+      try { localStorage.setItem('ichu-theme', theme); } catch (e) {
+        // Keep the selected theme active when storage is unavailable
+      }
     });
   }
   if (whoVideo && 'IntersectionObserver' in window) {
@@ -136,14 +143,14 @@
     whoVideoObserver.observe(videoSection);
   }
 
-  /* Pause the hero video when reduced motion is preferred */
+  // Respect reduced motion even when autoplay is declared in the markup
   const heroVideo = $('#heroVideo');
   if (heroVideo && prefersReduced) {
     heroVideo.removeAttribute('autoplay');
     heroVideo.pause();
   }
 
-  /* Reveal animations */
+  // Keep content visible when animations are disabled or observation is unavailable
   const revealEls = $$('.reveal');
   if (prefersReduced || !('IntersectionObserver' in window)) {
     revealEls.forEach((el) => el.classList.add('in'));
@@ -158,7 +165,7 @@
     revealEls.forEach((el) => revealObserver.observe(el));
   }
 
-  /* Statistics counters */
+  // Observe each counter only until its first animation
   const counters = $$('.stat-value[data-count]');
 
   function animateCounter(el) {
@@ -192,7 +199,7 @@
     counters.forEach(animateCounter);
   }
 
-  /* Render simulated chat messages as plain text */
+  // Keep the chat illustrative and render messages as plain text
   const phoneChat = $('#phoneChat');
   const phoneInput = $('#phoneInput');
   const phoneSend = $('#phoneSend');
@@ -210,6 +217,7 @@
     const bubble = document.createElement('div');
     bubble.className = `bubble ${type}`;
     const p = document.createElement('p');
+    // Preserve user input when the interface language changes
     if (type === 'out' && !Object.keys(values).length) {
       p.setAttribute('data-i18n-skip', '');
       p.textContent = text;
@@ -234,6 +242,7 @@
     I18N.setText(typing, 'ICHU is typing...');
     phoneChat.appendChild(typing);
     phoneChat.scrollTop = phoneChat.scrollHeight;
+    // Translate delayed replies when they appear using the current language
     setTimeout(() => {
       typing.remove();
       addBubble(text, 'in', values);
@@ -278,7 +287,10 @@
     });
   });
 
-  /* Form validation and WhatsApp message preparation */
+  /*
+    Validate the request before preparing the WhatsApp message
+    Opening WhatsApp does not confirm that a message was sent
+  */
   const form = $('#demoForm');
   const modal = $('#demoModal');
   const closeModalBtn = $('#closeModal');
@@ -326,6 +338,7 @@
       ];
       if (data.message && data.message.trim()) lines.push(`${t("Message")}: ${data.message.trim()}`);
 
+      // Encode the complete message to keep user input within the query value
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
       window.open(waUrl, '_blank', 'noopener');
 
@@ -355,7 +368,7 @@
   if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
   if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-  /* Close the drawer and dialog with Escape */
+  // Close the dialog before the drawer when handling Escape
   document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
     if (modal && modal.classList.contains('open')) {
@@ -365,7 +378,7 @@
     }
   });
 
-  /* Initialize icons and the footer year */
+  // Initialize icons and the year after the shared footer has loaded
   if (window.lucide && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
   }

@@ -12,6 +12,7 @@
   }
 
   const placeholders = [...document.querySelectorAll('[data-include]')];
+  // Share fragment readiness with translation and interaction scripts
   window.ICHU_PARTIALS_READY = Promise.all(placeholders.map(loadPartial))
     .then(() => true)
     .catch((error) => {

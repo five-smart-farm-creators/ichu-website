@@ -1,4 +1,7 @@
-/* Load locale resources and preserve English source text as a fallback */
+/*
+  Load locale resources separately from translation behavior
+  Preserve English source text when a translation or resource is unavailable
+*/
 window.ICHU_I18N_READY = (async () => {
   'use strict';
   if (!(await window.ICHU_PARTIALS_READY)) return false;
@@ -8,7 +11,9 @@ window.ICHU_I18N_READY = (async () => {
   const SUPPORTED_LANGUAGES = new Set(['en', 'es']);
   const locales = new Map();
   const localeRequests = new Map();
+  // Leave user input and animated counters outside page translation
   const SKIPPED_ELEMENTS = 'script,style,noscript,textarea,.stat-value,[data-i18n-skip],[contenteditable]';
+  // Retain English sources so repeated language changes do not translate prior translations
   const textSources = new WeakMap();
   const attributeSources = new WeakMap();
   let language = DEFAULT_LANGUAGE;
@@ -26,6 +31,7 @@ window.ICHU_I18N_READY = (async () => {
   }
 
   function setText(element, text, values = {}) {
+    // Remember the original message and its values for later language changes
     element.textContent = translate(text, values);
     if (element.firstChild) textSources.set(element.firstChild, { text, values });
   }
@@ -54,6 +60,7 @@ window.ICHU_I18N_READY = (async () => {
       }
     }
 
+    // Translate metadata and accessible labels along with visible page content
     const attributes = ['placeholder', 'alt', 'aria-label', 'title', 'content'];
     document.querySelectorAll('input[placeholder],textarea[placeholder],img[alt],[aria-label],[title],meta[content]').forEach((element) => {
       if (element.closest(SKIPPED_ELEMENTS)) return;
@@ -75,6 +82,7 @@ window.ICHU_I18N_READY = (async () => {
 
   async function loadLocale(target) {
     if (!SUPPORTED_LANGUAGES.has(target)) throw new Error('Unsupported language');
+    // Reuse completed and pending requests for the same language
     if (locales.has(target)) return locales.get(target);
     if (!localeRequests.has(target)) {
       const request = fetch(`public/locales/${target}.json`)
@@ -91,6 +99,7 @@ window.ICHU_I18N_READY = (async () => {
           return locale;
         })
         .catch((error) => {
+          // Remove failed requests so a later language selection can retry
           localeRequests.delete(target);
           console.error(`Failed to load ${target} translations.`, error);
           throw error;
@@ -115,16 +124,20 @@ window.ICHU_I18N_READY = (async () => {
       try {
         await loadLocale(target);
       } catch (error) {
+        // Keep the current language when the requested locale is unavailable
         return false;
       }
     }
+    // Ignore an older request when a newer language selection has started
     if (request !== changeRequest) return false;
     language = target;
     translatePage();
     updateButton();
     try {
       localStorage.setItem(LANGUAGE_KEY, language);
-    } catch (error) { /* Continue without saving the preference */ }
+    } catch (error) {
+      // Keep the current language active when storage is unavailable
+    }
     document.dispatchEvent(new CustomEvent('ichu:languagechange', { detail: { language } }));
     return true;
   }
@@ -151,10 +164,15 @@ window.ICHU_I18N_READY = (async () => {
   let savedLanguage = DEFAULT_LANGUAGE;
   try {
     if (localStorage.getItem(LANGUAGE_KEY) === 'es') savedLanguage = 'es';
-  } catch (error) { /* Use English when storage is unavailable */ }
+  } catch (error) {
+    // Keep English as the default when the saved preference cannot be read
+  }
+  // Load English first so missing translations can fall back to its resource
   try {
     await loadLocale(DEFAULT_LANGUAGE);
-  } catch (error) { /* Keep English source content available if locale loading fails */ }
+  } catch (error) {
+    // Keep English source text available when the fallback resource cannot be loaded
+  }
   await applyLanguage(savedLanguage);
   return true;
 })();
