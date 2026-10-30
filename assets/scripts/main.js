@@ -67,7 +67,7 @@
   menuToggle.addEventListener('click', openDrawer);
   closeDrawerBtn.addEventListener('click', closeDrawer);
   drawerOverlay.addEventListener('click', closeDrawer);
-  $$('.drawer-link', drawer).forEach((link) => link.addEventListener('click', closeDrawer));
+  $$('a[href]', drawer).forEach((link) => link.addEventListener('click', closeDrawer));
 
   // Close open submenus when interaction moves outside the navigation
   const navDrops = $$('.nav-dropdown');
