@@ -40,8 +40,6 @@ Built with HTML, CSS, and vanilla JavaScript. No package installation or build s
 
 Publish the repository root to static hosting, preserving its folders. Configure the host to serve `404.html` with HTTP status `404` for missing pages. The recovery page assumes hosting at the domain root.
 
-The contact form prepares a WhatsApp message; it does not store requests. Configure the team's contact number before publication.
-
 ## Contributing
 
 Follow [CONTRIBUTING.md](CONTRIBUTING.md) for Gitflow and contribution steps. Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
