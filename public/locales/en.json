@@ -1,334 +1,652 @@
 {
   "language": "en",
   "messages": {
-    "ICHU - Home": "ICHU - Home",
-    "Skip to content": "Skip to content",
-    "Technology for smart livestock farming · Peru": "Technology for smart livestock farming · Peru",
-    "Technology for smart livestock farming": "Technology for smart livestock farming",
-    "Open menu": "Open menu",
-    "Close menu": "Close menu",
-    "Menu": "Menu",
-    "Mobile menu": "Mobile menu",
-    "Main navigation": "Main navigation",
-    "Mobile navigation": "Mobile navigation",
-    "Scroll to next section": "Scroll to next section",
-    "Switch language to Spanish": "Switch language to Spanish",
-    "Switch language to English": "Switch language to English",
-    "Switch to night mode": "Switch to night mode",
-    "Switch to day mode": "Switch to day mode",
-    "Social media": "Social media",
-    "Website": "Website",
-    "Home": "Home",
-    "Meet ICHU +": "Meet ICHU +",
-    "About us": "About us",
-    "Our purpose": "Our purpose",
-    "Web & Media": "Web & Media",
-    "Informative videos": "Informative videos",
-    "Farmers": "Farmers",
-    "For farmers": "For farmers",
-    "Veterinarians": "Veterinarians",
-    "For veterinarians": "For veterinarians",
-    "Technology": "Technology",
-    "IoT Sensors": "IoT Sensors",
-    "How it works": "How it works",
-    "Step by step": "Step by step",
-    "Contact": "Contact",
-    "Let's work together": "Let's work together",
-    "About us submenu": "About us submenu",
-    "Technology submenu": "Technology submenu",
-    "Site links": "Site links",
-    "Back to home": "Back to home",
-    "How it works — ICHU · Step by step": "How it works — ICHU · Step by step",
-    "ICHU · How it works": "ICHU · How it works",
-    "From collar to decision, in three steps.": "From collar to decision, in three steps.",
-    "Record": "Record",
-    "Collar & record per animal": "Collar & record per animal",
-    "Monitor": "Monitor",
-    "Live signals & alerts": "Live signals & alerts",
-    "With the vet, on time": "With the vet, on time",
-    "Demo in preparation": "Demo in preparation",
-    "The app screens are coming very soon.": "The app screens are coming very soon.",
-    "We are preparing ICHU's step-by-step walkthrough with real field data: the animal record, alerts and the grazing map.": "We are preparing ICHU's step-by-step walkthrough with real field data: the animal record, alerts and the grazing map.",
-    "Web & Media — ICHU · Informative videos": "Web & Media — ICHU · Informative videos",
-    "ICHU · Web & Media": "ICHU · Web & Media",
-    "ICHU informative videos.": "ICHU informative videos.",
-    "Walkthroughs of the platform and from the field: digital records, grazing and veterinary support told through video.": "Walkthroughs of the platform and from the field: digital records, grazing and veterinary support told through video.",
-    "Web · Product walkthrough": "Web · Product walkthrough",
-    "The platform, piece by piece.": "The platform, piece by piece.",
-    "Discover how ICHU turns daily logging into timely decisions: from each animal's digital record to the grazing map of the whole herd.": "Discover how ICHU turns daily logging into timely decisions: from each animal's digital record to the grazing map of the whole herd.",
-    "Clinical & production record per animal": "Clinical & production record per animal",
-    "Map of paddocks, water points & grazing": "Map of paddocks, water points & grazing",
-    "Early alerts in the app and tablet": "Early alerts in the app and tablet",
-    "Watch on YouTube": "Watch on YouTube",
-    "Media · Field stories": "Media · Field stories",
-    "The countryside, in image and voice.": "The countryside, in image and voice.",
-    "Interviews, veterinary visits and the daily life of those who run their herd on ICHU. Real stories from the pasture.": "Interviews, veterinary visits and the daily life of those who run their herd on ICHU. Real stories from the pasture.",
-    "Interviews with farmers and veterinarians": "Interviews with farmers and veterinarians",
-    "Real field visits and farm days": "Real field visits and farm days",
-    "Health & handling tips": "Health & handling tips",
-    "ICHU — Technology for Smart Livestock Farming": "ICHU — Technology for Smart Livestock Farming",
-    "A livestock platform for everyone": "A livestock platform for everyone",
-    "Every animal has a": "Every animal has a",
-    "story.": "story.",
-    "helps tell it.": "helps tell it.",
-    "Information that supports the livestock and those who care for it.": "Information that supports the livestock and those who care for it.",
-    "Get to know ICHU before anyone else.": "Get to know ICHU before anyone else.",
-    "Technology designed for livestock that connects each animal's information, from the pasture to the veterinarian.": "Technology designed for livestock that connects each animal's information, from the pasture to the veterinarian.",
-    "Request a demonstration": "Request a demonstration",
-    "Request a demo for my herd": "Request a demo for my herd",
-    "Request a demo for professionals": "Request a demo for professionals",
-    "ICHU in numbers": "ICHU in numbers",
-    "vital variables monitored per animal: temperature, activity and location.": "vital variables monitored per animal: temperature, activity and location.",
-    "traceability stages covered, from identification to final follow-up.": "traceability stages covered, from identification to final follow-up.",
-    "Close veterinary support": "Close veterinary support",
-    "Data": "Data",
-    "Follow-up": "Follow-up",
-    "Decision": "Decision",
-    "Events": "Events",
-    "Live inventory": "Live inventory",
-    "Since 2026 · Peru": "Since 2026 · Peru",
-    "We are a Peruvian company innovating livestock farming with close, useful technology designed for the reality of the countryside.": "We are a Peruvian company innovating livestock farming with close, useful technology designed for the reality of the countryside.",
-    "Since 2026 we have been developing ICHU: a platform that brings together each animal's information, herd signals and veterinary support to make timely decisions and better protect every production.": "Since 2026 we have been developing ICHU: a platform that brings together each animal's information, herd signals and veterinary support to make timely decisions and better protect every production.",
-    "Individual identification by collar": "Individual identification by collar",
-    "Timely, data-driven decisions": "Timely, data-driven decisions",
-    "See how it works": "See how it works",
-    "ICHU smart collar": "ICHU smart collar",
-    "ICHU smart collar for livestock monitoring": "ICHU smart collar for livestock monitoring",
-    "Field diagnosis": "Field diagnosis",
-    "The field has information.": "The field has information.",
-    "The challenge is turning it into decisions.": "The challenge is turning it into decisions.",
-    "Livestock work generates data every day. However, much of this knowledge is lost or stays fragmented.": "Livestock work generates data every day. However, much of this knowledge is lost or stays fragmented.",
-    "Manual, scattered records": "Manual, scattered records",
-    "Field notebooks and loose notes that make it hard to rebuild each animal's complete, continuous history when it is urgently needed.": "Field notebooks and loose notes that make it hard to rebuild each animal's complete, continuous history when it is urgently needed.",
-    "Late detection of changes": "Late detection of changes",
-    "A drop in grazing, a thermal variation or isolation in the paddock is often noticed when the problem has already advanced, raising costs and risks.": "A drop in grazing, a thermal variation or isolation in the paddock is often noticed when the problem has already advanced, raising costs and risks.",
-    "Gap in veterinary visits": "Gap in veterinary visits",
-    "When the veterinarian reaches the pen, they often have to assess without the prior log of symptoms, applied doses or exact dates.": "When the veterinarian reaches the pen, they often have to assess without the prior log of symptoms, applied doses or exact dates.",
-    "Pasture & water control": "Pasture & water control",
-    "Supervising pasture rotation, water point availability and the location of animal groups across wide terrain requires constant time.": "Supervising pasture rotation, water point availability and the location of animal groups across wide terrain requires constant time.",
-    "Cost & loss tracking": "Cost & loss tracking",
-    "Keeping a clear count of extra forage, treatments and losses is complex when there is no organized structure for logging.": "Keeping a clear count of extra forage, treatments and losses is complex when there is no organized structure for logging.",
-    "Team coordination": "Team coordination",
-    "Difficulty aligning what field staff observe, what the manager logs and the guidelines given by the veterinary specialist.": "Difficulty aligning what field staff observe, what the manager logs and the guidelines given by the veterinary specialist.",
-    "What is ICHU?": "What is ICHU?",
-    "A new way to understand livestock farming.": "A new way to understand livestock farming.",
-    "Livestock farming is not a static spreadsheet: it is a living biological cycle. ICHU organizes the key milestones of each animal's life to preserve its productive and health memory from its first days.": "Livestock farming is not a static spreadsheet: it is a living biological cycle. ICHU organizes the key milestones of each animal's life to preserve its productive and health memory from its first days.",
-    "Stage 01": "Stage 01",
-    "Stage 02": "Stage 02",
-    "Stage 03": "Stage 03",
-    "Stage 04": "Stage 04",
-    "Stage 05": "Stage 05",
-    "Stage 06": "Stage 06",
-    "Stage 07": "Stage 07",
-    "Every animal, one continuous story.": "Every animal, one continuous story.",
-    "Individually identified with its collar and traits.": "Individually identified with its collar and traits.",
-    "Identification": "Identification",
-    "Collar assignment, genealogy, birth date and traits.": "Collar assignment, genealogy, birth date and traits.",
-    "Log of heats, breedings, births, weanings or sudden changes.": "Log of heats, breedings, births, weanings or sudden changes.",
-    "Treatment": "Treatment",
-    "Medication or vaccine application with dose logging.": "Medication or vaccine application with dose logging.",
-    "Overall assessment: body condition score 3.5": "Overall assessment: body condition score 3.5",
-    "Broad-spectrum antiparasitic application": "Broad-spectrum antiparasitic application",
-    "Recovery check and productive continuity.": "Recovery check and productive continuity.",
-    "Farmer": "Farmer",
-    "For those who are out in the field every day.": "For those who are out in the field every day.",
-    "Designed to simplify the workday. A clear space to keep your herd under control in the palm of your hand.": "Designed to simplify the workday. A clear space to keep your herd under control in the palm of your hand.",
-    "Your herd under control": "Your herd under control",
-    "Clinical history": "Clinical history",
-    "The animal depends on its pastures, water and farm management. ICHU helps visualize the farm as an orderly operation.": "The animal depends on its pastures, water and farm management. ICHU helps visualize the farm as an orderly operation.",
-    "The whole farm in one view": "The whole farm in one view",
-    "Water points": "Water points",
-    "Pasture rotation": "Pasture rotation",
-    "Forage supplementation": "Forage supplementation",
-    "Water trough availability.": "Water trough availability.",
-    "Paddock recovery.": "Paddock recovery.",
-    "Feeding": "Feeding",
-    "Births & transfers.": "Births & transfers.",
-    "Expenses & supplies": "Expenses & supplies",
-    "Supplies & water points management:": "Supplies & water points management:",
-    "Pasture rotation, mineral supplementation and water access.": "Pasture rotation, mineral supplementation and water access.",
-    "Forage & drug control.": "Forage & drug control.",
-    "quick logging of forage, water, expenses and loss records.": "quick logging of forage, water, expenses and loss records.",
-    "clear identification of each animal by collar, lot, breed and age.": "clear identification of each animal by collar, lot, breed and age.",
-    "a single file per animal, ready to share with your vet.": "a single file per animal, ready to share with your vet.",
-    "Farm map with grazing paddocks, water points and pasture condition": "Farm map with grazing paddocks, water points and pasture condition",
-    "Holstein cow in the paddock": "Holstein cow in the paddock",
-    "Dairy cow with her calf on the farm": "Dairy cow with her calf on the farm",
-    "The vet sees more context. The farmer gets better support.": "The vet sees more context. The farmer gets better support.",
-    "Access the full clinical history before and during the visit.": "Access the full clinical history before and during the visit.",
-    "Check the herd's overall status and receive early alerts.": "Check the herd's overall status and receive early alerts.",
-    "Share with the veterinarian:": "Share with the veterinarian:",
-    "send the animal's record with a single tap before the visit.": "send the animal's record with a single tap before the visit.",
-    "Consolidated clinical history:": "Consolidated clinical history:",
-    "previous treatments, administered vaccines, doses and exact visit dates.": "previous treatments, administered vaccines, doses and exact visit dates.",
-    "Direct alerts:": "Direct alerts:",
-    "notifications when an animal strays or registers abnormal temperatures.": "notifications when an animal strays or registers abnormal temperatures.",
-    "Medical visit": "Medical visit",
-    "On-site clinical review backed by data readings.": "On-site clinical review backed by data readings.",
-    "Activity observation:": "Activity observation:",
-    "check whether the animal regained its regular activity level.": "check whether the animal regained its regular activity level.",
-    "Observe grazing, movement and resting routines.": "Observe grazing, movement and resting routines.",
-    "Post-treatment monitoring:": "Post-treatment monitoring:",
-    "body temperature curves and movement patterns from recent days.": "body temperature curves and movement patterns from recent days.",
-    "Technical observations log:": "Technical observations log:",
-    "logging of diagnoses, prescriptions and recommendations for the producer.": "logging of diagnoses, prescriptions and recommendations for the producer.",
-    "Access a reliable chronological history. Learn what happened to the animal in previous days, review trends and back your diagnoses with real contextual data.": "Access a reliable chronological history. Learn what happened to the animal in previous days, review trends and back your diagnoses with real contextual data.",
-    "Individual record:": "Individual record:",
-    "continuous herd monitoring with early alerts for activity and health.": "continuous herd monitoring with early alerts for activity and health.",
-    "Preventive, timely actions that protect production.": "Preventive, timely actions that protect production.",
-    "Technology observes and collects patterns; professional judgment and livestock knowledge define the action.": "Technology observes and collects patterns; professional judgment and livestock knowledge define the action.",
-    "know which animals are grazing normally and which show immobility.": "know which animals are grazing normally and which show immobility.",
-    "Vital variables evolution:": "Vital variables evolution:",
-    "Whole-property management": "Whole-property management",
-    "Manage forage rotation, plan water supplies and keep a live animal inventory without relying on loose sheets.": "Manage forage rotation, plan water supplies and keep a live animal inventory without relying on loose sheets.",
-    "Early access & demonstrations": "Early access & demonstrations",
-    "Illustrative simulation of ICHU assistance. Automatic replies do not replace the team's attention.": "Illustrative simulation of ICHU assistance. Automatic replies do not replace the team's attention.",
-    "Animal record · #042": "Animal record · #042",
-    "Lot 03 - High Pasture · Age: 32 months": "Lot 03 - High Pasture · Age: 32 months",
-    "Temperature": "Temperature",
-    "Status": "Status",
-    "Location": "Location",
-    "Clinical record · Holstein cow #118": "Clinical record · Holstein cow #118",
-    "Medical visit log & progress tracking": "Medical visit log & progress tracking",
-    "Thermal curve (last 5 days)": "Thermal curve (last 5 days)",
-    "Optimal": "Optimal",
-    "Dose completed": "Dose completed",
-    "Water trough check · Lot 3": "Water trough check · Lot 3",
-    "Today, 07:30 am": "Today, 07:30 am",
-    "Yesterday, 04:15 pm": "Yesterday, 04:15 pm",
-    "Clear signals": "Clear signals",
-    "Preventive alerts, not automatic diagnoses.": "Preventive alerts, not automatic diagnoses.",
-    "ICHU alerts work as a timely call to attention so the farmer or veterinarian can inspect the animal in time.": "ICHU alerts work as a timely call to attention so the farmer or veterinarian can inspect the animal in time.",
-    "Activity": "Activity",
-    "Health": "Health",
-    "Activity change detected": "Activity change detected",
-    "Cow #089 logged 45% less movement during the last 6 hours of her usual grazing.": "Cow #089 logged 45% less movement during the last 6 hours of her usual grazing.",
-    "Potrero B Sector · 25 min ago": "Potrero B Sector · 25 min ago",
-    "Temperature out of range": "Temperature out of range",
-    "Bull #014 logged 39.4 °C sustained across two consecutive readings.": "Bull #014 logged 39.4 °C sustained across two consecutive readings.",
-    "Breeding Lot · 1 hour ago": "Breeding Lot · 1 hour ago",
-    "Animal outside its usual zone": "Animal outside its usual zone",
-    "Group of 3 heifers detected near the east perimeter fence.": "Group of 3 heifers detected near the east perimeter fence.",
-    "East Fence Gully · 12 min ago": "East Fence Gully · 12 min ago",
-    "Pending veterinary follow-up": "Pending veterinary follow-up",
-    "Reminder of the second dose of treatment prescribed for Calf #201.": "Reminder of the second dose of treatment prescribed for Calf #201.",
-    "Scheduled for today · 02:00 pm": "Scheduled for today · 02:00 pm",
-    "Technical responsibility note:": "Technical responsibility note:",
-    "the alerts and metrics shown are conceptual orientation tools. They do not constitute an automated clinical diagnosis nor replace the professional judgment of the veterinarian.": "the alerts and metrics shown are conceptual orientation tools. They do not constitute an automated clinical diagnosis nor replace the professional judgment of the veterinarian.",
-    "Engineering for the field": "Engineering for the field",
-    "Technology that observes.": "Technology that observes.",
-    "People who decide.": "People who decide.",
-    "ICHU is being designed to progressively connect with telemetry and Internet of Things (IoT) devices built to withstand the climate and conditions of our geography.": "ICHU is being designed to progressively connect with telemetry and Internet of Things (IoT) devices built to withstand the climate and conditions of our geography.",
-    "Body temperature": "Body temperature",
-    "Monitoring thermal oscillations to early identify feverish episodes, heat stress or metabolic alterations before visible symptoms.": "Monitoring thermal oscillations to early identify feverish episodes, heat stress or metabolic alterations before visible symptoms.",
-    "Movement & dynamics": "Movement & dynamics",
-    "Detection of physical activity levels, rumination, resting time or lethargy that may suggest discomfort, heat or onset of labor.": "Detection of physical activity levels, rumination, resting time or lethargy that may suggest discomfort, heat or onset of labor.",
-    "Field location": "Field location",
-    "Location by sectors and paddocks to prevent losses from straying, optimize rotational grazing and safeguard livestock safety.": "Location by sectors and paddocks to prevent losses from straying, optimize rotational grazing and safeguard livestock safety.",
-    "Temperature, movement, forage and event signals.": "Temperature, movement, forage and event signals.",
-    "Technology designed for our livestock.": "Technology designed for our livestock.",
-    "ICHU does not replace the veterinarian. It gives them more information to work with.": "ICHU does not replace the veterinarian. It gives them more information to work with.",
-    "More information for better veterinary decisions.": "More information for better veterinary decisions.",
-    "It is also about understanding the countryside.": "It is also about understanding the countryside.",
-    "National context & good practices": "National context & good practices",
-    "Livestock management involves health commitments and official regulations. ICHU seeks to facilitate the organization of useful information for productive and veterinary management, within the framework of the obligations applicable to each activity.": "Livestock management involves health commitments and official regulations. ICHU seeks to facilitate the organization of useful information for productive and veterinary management, within the framework of the obligations applicable to each activity.",
-    "Health regulations": "Health regulations",
-    "SENASA Agricultural Health": "SENASA Agricultural Health",
-    "National Agricultural Health Service: official vaccination calendars, zoosanitary control and tagging.": "National Agricultural Health Service: official vaccination calendars, zoosanitary control and tagging.",
-    "MIDAGRI Peru": "MIDAGRI Peru",
-    "Ministry of Agrarian Development and Irrigation: livestock development policies, pastures and productive promotion.": "Ministry of Agrarian Development and Irrigation: livestock development policies, pastures and productive promotion.",
-    "Institutional portal": "Institutional portal",
-    "PPA (MIDAGRI): official registry for identification and access to State services.": "PPA (MIDAGRI): official registry for identification and access to State services.",
-    "Producers Registry (PPA)": "Producers Registry (PPA)",
-    "PPA information": "PPA information",
-    "Reference sources": "Reference sources",
-    "Identity": "Identity",
-    "Inspired by the Andean grass": "Inspired by the Andean grass",
-    "and the livestock tradition of Peru. Designed for the reality and daily work of the countryside.": "and the livestock tradition of Peru. Designed for the reality and daily work of the countryside.",
-    "Technology for smart livestock farming. Connecting farmers with useful information about each animal and supporting veterinary work in Peru.": "Technology for smart livestock farming. Connecting farmers with useful information about each animal and supporting veterinary work in Peru.",
-    "Navigation": "Navigation",
-    "Peru · Livestock technology & veterinary support": "Peru · Livestock technology & veterinary support",
-    "ICHU — All rights reserved. Product presentation and demonstration stage.": "ICHU — All rights reserved. Product presentation and demonstration stage.",
-    "Know your livestock.": "Know your livestock.",
-    "Understand your field.": "Understand your field.",
-    "Decide better.": "Decide better.",
-    "The field knows. ICHU helps turn that knowledge into clear, timely information to protect the fruit of your work.": "The field knows. ICHU helps turn that knowledge into clear, timely information to protect the fruit of your work.",
-    "ICHU is a platform designed to help farmers and veterinarians better organize and understand the information of each animal and the field.": "ICHU is a platform designed to help farmers and veterinarians better organize and understand the information of each animal and the field.",
-    "We are building a new way to connect technology, livestock farming and veterinary support. Leave your details to arrange a guided presentation.": "We are building a new way to connect technology, livestock farming and veterinary support. Leave your details to arrange a guided presentation.",
-    "First name *": "First name *",
-    "Last name *": "Last name *",
-    "Email *": "Email *",
-    "Phone / WhatsApp *": "Phone / WhatsApp *",
-    "User type *": "User type *",
-    "Message or inquiry (optional)": "Message or inquiry (optional)",
-    "E.g. Carlos": "E.g. Carlos",
-    "E.g. Quispe": "E.g. Quispe",
-    "Select your main profile": "Select your main profile",
-    "Rancher / Livestock producer": "Rancher / Livestock producer",
-    "Veterinarian / Animal scientist": "Veterinarian / Animal scientist",
-    "Association / Agrarian cooperative": "Association / Agrarian cooperative",
-    "Other interested party": "Other interested party",
-    "Tell us about your herd or what you would like to learn in the demonstration...": "Tell us about your herd or what you would like to learn in the demonstration...",
-    "On submit, WhatsApp will open with your request ready to send us. You can also write to us at the number in the top bar.": "On submit, WhatsApp will open with your request ready to send us. You can also write to us at the number in the top bar.",
-    "Your request is ready to send!": "Your request is ready to send!",
-    "Thank you for your interest in ICHU. WhatsApp opened with your request; if it did not open automatically, write to us directly from the top bar.": "Thank you for your interest in ICHU. WhatsApp opened with your request; if it did not open automatically, write to us directly from the top bar.",
-    "Got it, thank you": "Got it, thank you",
-    "Enter your first name.": "Enter your first name.",
-    "Enter your last name.": "Enter your last name.",
-    "Enter a valid email.": "Enter a valid email.",
-    "Enter a valid phone number.": "Enter a valid phone number.",
-    "Select your profile.": "Select your profile.",
-    "Hello ICHU, I would like to request a demonstration.": "Hello ICHU, I would like to request a demonstration.",
-    "Name": "Name",
-    "Email": "Email",
-    "Phone": "Phone",
-    "Profile": "Profile",
-    "Message": "Message",
-    "ICHU is typing...": "ICHU is typing...",
-    "Great! In the demo we will show you how to register your livestock by collar, monitor grazing and receive temperature alerts instantly.": "Great! In the demo we will show you how to register your livestock by collar, monitor grazing and receive temperature alerts instantly.",
-    "Perfect! You will be able to explore the thermal history, the visit log and the treatment registry.": "Perfect! You will be able to explore the thermal history, the visit log and the treatment registry.",
-    "Our devices are designed for high-altitude telemetry and Andean weather.": "Our devices are designed for high-altitude telemetry and Andean weather.",
-    "Message received! Let's schedule your personalized demonstration: leave your details in the form to coordinate.": "Message received! Let's schedule your personalized demonstration: leave your details in the form to coordinate.",
-    "Hi {n}! We have registered your request. We will contact you very soon.": "Hi {n}! We have registered your request. We will contact you very soon.",
-    "Hello, I am {n}. I requested a demonstration from the form.": "Hello, I am {n}. I requested a demonstration from the form.",
-    "Farmer demo": "Farmer demo",
-    "I'm a veterinarian": "I'm a veterinarian",
-    "Simulation — use the form for real contact": "Simulation — use the form for real contact",
-    "Send test message": "Send test message",
-    "Test message": "Test message",
-    "ICHU — Live assistance": "ICHU — Live assistance",
-    "Online for demonstrations": "Online for demonstrations",
-    "Hello! Welcome to ICHU. Would you like to schedule a demonstration for your livestock or learn about the clinical history?": "Hello! Welcome to ICHU. Would you like to schedule a demonstration for your livestock or learn about the clinical history?",
-    "Hi, I have a cattle herd and I want to see how collars and temperature alerts are logged.": "Hi, I have a cattle herd and I want to see how collars and temperature alerts are logged.",
-    "Great! In the personalized demo we will show you how each animal's record works and how it connects with the veterinarian.": "Great! In the personalized demo we will show you how each animal's record works and how it connects with the veterinarian.",
-    "ICHU logo": "ICHU logo",
-    "Visual aid": "Visual aid",
-    "Help": "Help",
-    "Veterinarian": "Veterinarian",
-    "Livestock technology connecting individual animal records, farm management, and veterinary support in Peru.": "Livestock technology connecting individual animal records, farm management, and veterinary support in Peru.",
-    "Individual animal records, preventive alerts, and clinical history for farmers and veterinarians in Peru.": "Individual animal records, preventive alerts, and clinical history for farmers and veterinarians in Peru.",
-    "Cattle in an Andean landscape representing ICHU": "Cattle in an Andean landscape representing ICHU",
-    "Technology for smart livestock farming in Peru.": "Technology for smart livestock farming in Peru.",
-    "Peru": "Peru",
-    "How ICHU works, step by step, from the smart collar to timely decisions with a veterinarian. Demonstration in preparation.": "How ICHU works, step by step, from the smart collar to timely decisions with a veterinarian. Demonstration in preparation.",
-    "From collar to decision in three steps. Record, monitor, and decide with ICHU.": "From collar to decision in three steps. Record, monitor, and decide with ICHU.",
-    "ICHU informational videos featuring platform walkthroughs, field stories, and veterinary support in Peru.": "ICHU informational videos featuring platform walkthroughs, field stories, and veterinary support in Peru.",
-    "ICHU platform walkthrough sample video": "ICHU platform walkthrough sample video",
-    "Field stories with ICHU sample video": "Field stories with ICHU sample video",
-    "I would like to see the farmer demo": "I would like to see the farmer demo",
-    "I am a veterinarian looking for clinical history": "I am a veterinarian looking for clinical history",
-    "How do the sensors work in the field?": "How do the sensors work in the field?",
-    "Association": "Association",
-    "Other": "Other",
-    "Traceability and welfare": "Traceability and welfare",
-    "Page not found — ICHU": "Page not found — ICHU",
-    "The page you requested could not be found. Return to ICHU or explore how our livestock platform works.": "The page you requested could not be found. Return to ICHU or explore how our livestock platform works.",
-    "Page not found": "Page not found",
-    "We couldn't find this page.": "We couldn't find this page.",
-    "The link may have changed, or the address may be incomplete. Let's get you back to ICHU.": "The link may have changed, or the address may be incomplete. Let's get you back to ICHU.",
-    "Contact the team": "Contact the team",
-    "Useful links": "Useful links",
-    "Cattle in an Andean pasture": "Cattle in an Andean pasture"
+    "home": {
+      "pageTitle": "ICHU — Technology for Smart Livestock Farming",
+      "skipLink": "Skip to content",
+      "hero": {
+        "headline": "Every animal has a",
+        "headlineEmphasis": "story.",
+        "headlineConclusion": "helps tell it.",
+        "introduction": "Technology designed for livestock that connects each animal's information, from the pasture to the veterinarian.",
+        "actionLabel": "Request a demonstration",
+        "actionLabel02": "See how it works",
+        "supportingMessage": "Information that supports the livestock and those who care for it.",
+        "accessibleName": "Scroll to next section"
+      },
+      "statistics": {
+        "heading": "ICHU in numbers",
+        "metric01": {
+          "metricDescription": "vital variables monitored per animal: temperature, activity and location."
+        },
+        "metric02": {
+          "metricDescription": "traceability stages covered, from identification to final follow-up."
+        },
+        "metric03": {
+          "metricDescription": "continuous herd monitoring with early alerts for activity and health."
+        },
+        "metric04": {
+          "metricDescription": "a single file per animal, ready to share with your vet."
+        }
+      },
+      "about": {
+        "imageCaption": "ICHU smart collar",
+        "eyebrow": "Since 2026 · Peru",
+        "heading": "About us",
+        "description": "We are a Peruvian company innovating livestock farming with close, useful technology designed for the reality of the countryside.",
+        "description02": "Since 2026 we have been developing ICHU: a platform that brings together each animal's information, herd signals and veterinary support to make timely decisions and better protect every production.",
+        "benefit01": {
+          "listItem": "Individual identification by collar"
+        },
+        "benefit02": {
+          "listItem": "Close veterinary support"
+        },
+        "benefit03": {
+          "listItem": "Timely, data-driven decisions"
+        },
+        "actionLabel": "See how it works",
+        "alternativeText": "ICHU smart collar for livestock monitoring"
+      },
+      "problem": {
+        "eyebrow": "Field diagnosis",
+        "heading": "The field has information.",
+        "heading02": "The challenge is turning it into decisions.",
+        "introduction": "Livestock work generates data every day. However, much of this knowledge is lost or stays fragmented.",
+        "issue01": {
+          "title": "Manual, scattered records",
+          "description": "Field notebooks and loose notes that make it hard to rebuild each animal's complete, continuous history when it is urgently needed."
+        },
+        "issue02": {
+          "title": "Late detection of changes",
+          "description": "A drop in grazing, a thermal variation or isolation in the paddock is often noticed when the problem has already advanced, raising costs and risks."
+        },
+        "issue03": {
+          "title": "Gap in veterinary visits",
+          "description": "When the veterinarian reaches the pen, they often have to assess without the prior log of symptoms, applied doses or exact dates."
+        },
+        "issue04": {
+          "title": "Pasture & water control",
+          "description": "Supervising pasture rotation, water point availability and the location of animal groups across wide terrain requires constant time."
+        },
+        "issue05": {
+          "title": "Cost & loss tracking",
+          "description": "Keeping a clear count of extra forage, treatments and losses is complex when there is no organized structure for logging."
+        },
+        "issue06": {
+          "title": "Team coordination",
+          "description": "Difficulty aligning what field staff observe, what the manager logs and the guidelines given by the veterinary specialist."
+        }
+      },
+      "productFlow": {
+        "eyebrow": "What is ICHU?",
+        "heading": "A new way to understand livestock farming.",
+        "introduction": "ICHU is a platform designed to help farmers and veterinarians better organize and understand the information of each animal and the field.",
+        "step01": {
+          "title": "Animal",
+          "description": "Individually identified with its collar and traits."
+        },
+        "step02": {
+          "title": "Data",
+          "description": "Temperature, movement, forage and event signals."
+        },
+        "step03": {
+          "title": "Farmer",
+          "description": "Check the herd's overall status and receive early alerts."
+        },
+        "step04": {
+          "title": "Veterinarian",
+          "description": "Access the full clinical history before and during the visit."
+        },
+        "step05": {
+          "title": "Decision",
+          "description": "Preventive, timely actions that protect production."
+        },
+        "quotation": "ICHU does not replace the veterinarian. It gives them more information to work with.",
+        "context": "Technology observes and collects patterns; professional judgment and livestock knowledge define the action."
+      },
+      "audiences": {
+        "farmers": {
+          "eyebrow": "For farmers",
+          "heading": "For those who are out in the field every day.",
+          "introduction": "Designed to simplify the workday. A clear space to keep your herd under control in the palm of your hand.",
+          "feature01": {
+            "featureLabel": "Individual record:",
+            "text": "clear identification of each animal by collar, lot, breed and age."
+          },
+          "feature02": {
+            "featureLabel": "Activity observation:",
+            "text": "know which animals are grazing normally and which show immobility."
+          },
+          "feature03": {
+            "featureLabel": "Direct alerts:",
+            "text": "notifications when an animal strays or registers abnormal temperatures."
+          },
+          "feature04": {
+            "featureLabel": "Supplies & water points management:",
+            "text": "quick logging of forage, water, expenses and loss records."
+          },
+          "feature05": {
+            "featureLabel": "Share with the veterinarian:",
+            "text": "send the animal's record with a single tap before the visit."
+          },
+          "actionLabel": "Request a demo for my herd",
+          "title": "Animal record · #042",
+          "metadata": "Lot 03 - High Pasture · Age: 32 months",
+          "text": "Temperature",
+          "emphasizedLabel": "Optimal",
+          "text02": "Status",
+          "text03": "Location",
+          "activity01": {
+            "text": "Forage supplementation",
+            "text02": "Today, 07:30 am"
+          },
+          "activity02": {
+            "text": "Water trough check · Lot 3",
+            "text02": "Yesterday, 04:15 pm"
+          },
+          "alternativeText": "Holstein cow in the paddock"
+        },
+        "veterinarians": {
+          "eyebrow": "For veterinarians",
+          "heading": "More information for better veterinary decisions.",
+          "introduction": "Access a reliable chronological history. Learn what happened to the animal in previous days, review trends and back your diagnoses with real contextual data.",
+          "feature01": {
+            "featureLabel": "Consolidated clinical history:",
+            "text": "previous treatments, administered vaccines, doses and exact visit dates."
+          },
+          "feature02": {
+            "featureLabel": "Vital variables evolution:",
+            "text": "body temperature curves and movement patterns from recent days."
+          },
+          "feature03": {
+            "featureLabel": "Technical observations log:",
+            "text": "logging of diagnoses, prescriptions and recommendations for the producer."
+          },
+          "feature04": {
+            "featureLabel": "Post-treatment monitoring:",
+            "text": "check whether the animal regained its regular activity level."
+          },
+          "quotation": "The vet sees more context. The farmer gets better support.",
+          "actionLabel": "Request a demo for professionals",
+          "title": "Clinical record · Holstein cow #118",
+          "metadata": "Medical visit log & progress tracking",
+          "text": "Thermal curve (last 5 days)",
+          "activity01": {
+            "text": "Overall assessment: body condition score 3.5"
+          },
+          "activity02": {
+            "text": "Broad-spectrum antiparasitic application",
+            "text02": "Dose completed"
+          },
+          "alternativeText": "Dairy cow with her calf on the farm"
+        }
+      },
+      "animalLifecycle": {
+        "eyebrow": "Traceability and welfare",
+        "heading": "Every animal, one continuous story.",
+        "introduction": "Livestock farming is not a static spreadsheet: it is a living biological cycle. ICHU organizes the key milestones of each animal's life to preserve its productive and health memory from its first days.",
+        "stage01": {
+          "stageLabel": "Stage 01",
+          "title": "Identification",
+          "description": "Collar assignment, genealogy, birth date and traits."
+        },
+        "stage02": {
+          "stageLabel": "Stage 02",
+          "title": "Activity",
+          "description": "Observe grazing, movement and resting routines."
+        },
+        "stage03": {
+          "stageLabel": "Stage 03",
+          "title": "Feeding",
+          "description": "Pasture rotation, mineral supplementation and water access."
+        },
+        "stage04": {
+          "stageLabel": "Stage 04",
+          "title": "Events",
+          "description": "Log of heats, breedings, births, weanings or sudden changes."
+        },
+        "stage05": {
+          "stageLabel": "Stage 05",
+          "title": "Medical visit",
+          "description": "On-site clinical review backed by data readings."
+        },
+        "stage06": {
+          "stageLabel": "Stage 06",
+          "title": "Treatment",
+          "description": "Medication or vaccine application with dose logging."
+        },
+        "stage07": {
+          "stageLabel": "Stage 07",
+          "title": "Follow-up",
+          "description": "Recovery check and productive continuity."
+        },
+        "alternativeText": "Veterinarian examining a calf with a stethoscope"
+      },
+      "technology": {
+        "eyebrow": "Engineering for the field",
+        "heading": "Technology that observes.",
+        "heading02": "People who decide.",
+        "introduction": "ICHU is being designed to progressively connect with telemetry and Internet of Things (IoT) devices built to withstand the climate and conditions of our geography.",
+        "title": "Body temperature",
+        "description": "Monitoring thermal oscillations to early identify feverish episodes, heat stress or metabolic alterations before visible symptoms.",
+        "title02": "Movement & dynamics",
+        "description02": "Detection of physical activity levels, rumination, resting time or lethargy that may suggest discomfort, heat or onset of labor.",
+        "title03": "Field location",
+        "description03": "Location by sectors and paddocks to prevent losses from straying, optimize rotational grazing and safeguard livestock safety."
+      },
+      "alerts": {
+        "eyebrow": "Clear signals",
+        "heading": "Preventive alerts, not automatic diagnoses.",
+        "introduction": "ICHU alerts work as a timely call to attention so the farmer or veterinarian can inspect the animal in time.",
+        "alert01": {
+          "text": "Activity",
+          "title": "Activity change detected",
+          "description": "Cow #089 logged 45% less movement during the last 6 hours of her usual grazing.",
+          "text02": "Potrero B Sector · 25 min ago"
+        },
+        "alert02": {
+          "text": "Temperature",
+          "title": "Temperature out of range",
+          "description": "Bull #014 logged 39.4 °C sustained across two consecutive readings.",
+          "text02": "Breeding Lot · 1 hour ago"
+        },
+        "alert03": {
+          "text": "Location",
+          "title": "Animal outside its usual zone",
+          "description": "Group of 3 heifers detected near the east perimeter fence.",
+          "text02": "East Fence Gully · 12 min ago"
+        },
+        "alert04": {
+          "text": "Health",
+          "title": "Pending veterinary follow-up",
+          "description": "Reminder of the second dose of treatment prescribed for Calf #201.",
+          "text02": "Scheduled for today · 02:00 pm"
+        },
+        "emphasizedLabel": "Technical responsibility note:",
+        "description": "the alerts and metrics shown are conceptual orientation tools. They do not constitute an automated clinical diagnosis nor replace the professional judgment of the veterinarian."
+      },
+      "propertyManagement": {
+        "eyebrow": "Whole-property management",
+        "heading": "It is also about understanding the countryside.",
+        "introduction": "The animal depends on its pastures, water and farm management. ICHU helps visualize the farm as an orderly operation.",
+        "title": "The whole farm in one view",
+        "description": "Manage forage rotation, plan water supplies and keep a live animal inventory without relying on loose sheets.",
+        "emphasizedLabel": "Water points",
+        "description02": "Water trough availability.",
+        "emphasizedLabel02": "Pasture rotation",
+        "description03": "Paddock recovery.",
+        "emphasizedLabel03": "Expenses & supplies",
+        "description04": "Forage & drug control.",
+        "emphasizedLabel04": "Live inventory",
+        "description05": "Births & transfers.",
+        "alternativeText": "Farm map with grazing paddocks, water points and pasture condition"
+      },
+      "regulatoryContext": {
+        "eyebrow": "National context & good practices",
+        "heading": "Technology designed for our livestock.",
+        "introduction": "Livestock management involves health commitments and official regulations. ICHU seeks to facilitate the organization of useful information for productive and veterinary management, within the framework of the obligations applicable to each activity.",
+        "description": "Ministry of Agrarian Development and Irrigation: livestock development policies, pastures and productive promotion.",
+        "text": "Institutional portal",
+        "description02": "National Agricultural Health Service: official vaccination calendars, zoosanitary control and tagging.",
+        "text02": "Health regulations",
+        "text03": "Producers Registry (PPA)",
+        "description03": "PPA (MIDAGRI): official registry for identification and access to State services.",
+        "text04": "PPA information"
+      },
+      "contact": {
+        "eyebrow": "Early access & demonstrations",
+        "heading": "Get to know ICHU before anyone else.",
+        "introduction": "We are building a new way to connect technology, livestock farming and veterinary support. Leave your details to arrange a guided presentation.",
+        "form": {
+          "fields": {
+            "firstName": {
+              "fieldLabel": "First name *",
+              "placeholder": "E.g. Carlos"
+            },
+            "lastName": {
+              "fieldLabel": "Last name *",
+              "placeholder": "E.g. Quispe"
+            },
+            "email": {
+              "fieldLabel": "Email *"
+            },
+            "phone": {
+              "fieldLabel": "Phone / WhatsApp *"
+            },
+            "profile": {
+              "fieldLabel": "User type *"
+            },
+            "message": {
+              "fieldLabel": "Message or inquiry (optional)",
+              "placeholder": "Tell us about your herd or what you would like to learn in the demonstration..."
+            }
+          },
+          "optionLabel": "Select your main profile",
+          "profile": {
+            "options": {
+              "farmer": "Rancher / Livestock producer",
+              "veterinarian": "Veterinarian / Animal scientist",
+              "association": "Association / Agrarian cooperative",
+              "other": "Other interested party"
+            }
+          },
+          "actionLabel": "Request a demonstration",
+          "description": "On submit, WhatsApp will open with your request ready to send us. You can also write to us at the number in the top bar.",
+          "validation": {
+            "firstNameRequired": "Enter your first name.",
+            "lastNameRequired": "Enter your last name.",
+            "emailInvalid": "Enter a valid email.",
+            "phoneInvalid": "Enter a valid phone number.",
+            "profileRequired": "Select your profile."
+          }
+        },
+        "text": "ICHU — Live assistance",
+        "text02": "Online for demonstrations",
+        "description": "Hello! Welcome to ICHU. Would you like to schedule a demonstration for your livestock or learn about the clinical history?",
+        "description02": "Hi, I have a cattle herd and I want to see how collars and temperature alerts are logged.",
+        "description03": "Great! In the personalized demo we will show you how each animal's record works and how it connects with the veterinarian.",
+        "suggestionLabel": "Farmer demo",
+        "suggestionLabel02": "I'm a veterinarian",
+        "suggestionLabel03": "IoT Sensors",
+        "description04": "Illustrative simulation of ICHU assistance. Automatic replies do not replace the team's attention.",
+        "submission": {
+          "title": "Your request is ready to send!",
+          "description": "Thank you for your interest in ICHU. WhatsApp opened with your request; if it did not open automatically, write to us directly from the top bar.",
+          "actionLabel": "Got it, thank you"
+        },
+        "alternativeText": "ICHU logo",
+        "accessibility": {
+          "chatInput": "Test message",
+          "sendChatMessage": "Send test message"
+        },
+        "placeholder": "Simulation — use the form for real contact",
+        "chat": {
+          "typingIndicator": "ICHU is typing...",
+          "responses": {
+            "farmer": "Great! In the demo we will show you how to register your livestock by collar, monitor grazing and receive temperature alerts instantly.",
+            "veterinarian": "Perfect! You will be able to explore the thermal history, the visit log and the treatment registry.",
+            "devices": "Our devices are designed for high-altitude telemetry and Andean weather.",
+            "fallback": "Message received! Let's schedule your personalized demonstration: leave your details in the form to coordinate.",
+            "formRequest": "Hello, I am {{name}}. I requested a demonstration from the form.",
+            "formAcknowledgement": "Hi {{name}}! We have registered your request. We will contact you very soon."
+          },
+          "suggestions": {
+            "farmer": {
+              "message": "I would like to see the farmer demo"
+            },
+            "veterinarian": {
+              "message": "I am a veterinarian looking for clinical history"
+            },
+            "devices": {
+              "message": "How do the sensors work in the field?"
+            }
+          }
+        },
+        "whatsapp": {
+          "introduction": "Hello ICHU, I would like to request a demonstration.",
+          "fields": {
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "profile": "Profile",
+            "message": "Message"
+          }
+        }
+      },
+      "closingCta": {
+        "heading": "Know your livestock.",
+        "heading02": "Understand your field.",
+        "headlineConclusion": "Decide better.",
+        "description": "The field knows. ICHU helps turn that knowledge into clear, timely information to protect the fruit of your work.",
+        "actionLabel": "Request a demonstration"
+      },
+      "metadata": {
+        "description": "Livestock technology connecting individual animal records, farm management, and veterinary support in Peru.",
+        "openGraph": {
+          "title": "ICHU — Technology for Smart Livestock Farming",
+          "description": "Individual animal records, preventive alerts, and clinical history for farmers and veterinarians in Peru.",
+          "imageAlt": "Cattle in an Andean landscape representing ICHU"
+        },
+        "socialCard": {
+          "title": "ICHU — Technology for Smart Livestock Farming",
+          "description": "Individual animal records, preventive alerts, and clinical history for farmers and veterinarians in Peru.",
+          "imageAlt": "Cattle in an Andean landscape representing ICHU"
+        }
+      }
+    },
+    "howItWorks": {
+      "pageTitle": "How it works — ICHU · Step by step",
+      "skipLink": "Skip to content",
+      "walkthrough": {
+        "eyebrow": "ICHU · How it works",
+        "title": "From collar to decision, in three steps.",
+        "emphasizedLabel": "Record",
+        "supportingText": "Collar & record per animal",
+        "emphasizedLabel02": "Monitor",
+        "supportingText02": "Live signals & alerts",
+        "emphasizedLabel03": "Decide",
+        "supportingText03": "With the vet, on time",
+        "status": "Demo in preparation",
+        "title02": "The app screens are coming very soon.",
+        "description": "We are preparing ICHU's step-by-step walkthrough with real field data: the animal record, alerts and the grazing map.",
+        "actionLabel": "Request a demonstration",
+        "text": "Back to home"
+      },
+      "metadata": {
+        "description": "How ICHU works, step by step, from the smart collar to timely decisions with a veterinarian. Demonstration in preparation.",
+        "openGraph": {
+          "title": "How it works — ICHU · Step by step",
+          "description": "From collar to decision in three steps. Record, monitor, and decide with ICHU.",
+          "imageAlt": "Cattle in an Andean landscape representing ICHU"
+        },
+        "socialCard": {
+          "title": "How it works — ICHU · Step by step",
+          "description": "From collar to decision in three steps. Record, monitor, and decide with ICHU.",
+          "imageAlt": "Cattle in an Andean landscape representing ICHU"
+        }
+      }
+    },
+    "media": {
+      "pageTitle": "Web & Media — ICHU · Informative videos",
+      "skipLink": "Skip to content",
+      "media": {
+        "eyebrow": "ICHU · Web & Media",
+        "heading": "ICHU informative videos.",
+        "introduction": "Walkthroughs of the platform and from the field: digital records, grazing and veterinary support told through video.",
+        "story01": {
+          "imageCaption": "01 · Web",
+          "eyebrow": "Web · Product walkthrough",
+          "title": "The platform, piece by piece.",
+          "description": "Discover how ICHU turns daily logging into timely decisions: from each animal's digital record to the grazing map of the whole herd.",
+          "benefit01": {
+            "listItem": "Clinical & production record per animal"
+          },
+          "benefit02": {
+            "listItem": "Map of paddocks, water points & grazing"
+          },
+          "benefit03": {
+            "listItem": "Early alerts in the app and tablet"
+          },
+          "actionLabel": "Watch on YouTube",
+          "accessibleTitle": "ICHU platform walkthrough sample video"
+        },
+        "story02": {
+          "imageCaption": "02 · Media",
+          "eyebrow": "Media · Field stories",
+          "title": "The countryside, in image and voice.",
+          "description": "Interviews, veterinary visits and the daily life of those who run their herd on ICHU. Real stories from the pasture.",
+          "benefit01": {
+            "listItem": "Interviews with farmers and veterinarians"
+          },
+          "benefit02": {
+            "listItem": "Real field visits and farm days"
+          },
+          "benefit03": {
+            "listItem": "Health & handling tips"
+          },
+          "actionLabel": "Watch on YouTube",
+          "accessibleTitle": "Field stories with ICHU sample video"
+        }
+      },
+      "metadata": {
+        "description": "ICHU informational videos featuring platform walkthroughs, field stories, and veterinary support in Peru.",
+        "openGraph": {
+          "title": "Web & Media — ICHU · Informative videos",
+          "description": "Walkthroughs of the platform and from the field: digital records, grazing and veterinary support told through video.",
+          "imageAlt": "Cattle in an Andean landscape representing ICHU"
+        },
+        "socialCard": {
+          "title": "Web & Media — ICHU · Informative videos",
+          "description": "Walkthroughs of the platform and from the field: digital records, grazing and veterinary support told through video.",
+          "imageAlt": "Cattle in an Andean landscape representing ICHU"
+        }
+      }
+    },
+    "notFound": {
+      "pageTitle": "Page not found — ICHU",
+      "skipLink": "Skip to content",
+      "siteNavigation": {
+        "supportingText": "Technology for smart livestock farming",
+        "accessibleName": "ICHU - Home",
+        "alternativeText": "ICHU logo"
+      },
+      "content": {
+        "eyebrow": "Page not found",
+        "heading": "We couldn't find this page.",
+        "description": "The link may have changed, or the address may be incomplete. Let's get you back to ICHU.",
+        "actionLabel": "Back to home",
+        "linkLabel": "Contact the team",
+        "alternativeText": "Cattle in an Andean pasture"
+      },
+      "pageFooter": {
+        "description": "Technology for smart livestock farming · Peru",
+        "linkLabel": "How it works",
+        "linkLabel02": "Web & Media",
+        "accessibleName": "Useful links"
+      },
+      "metadata": {
+        "description": "The page you requested could not be found. Return to ICHU or explore how our livestock platform works."
+      }
+    },
+    "common": {
+      "header": {
+        "utilityBar": {
+          "context": "Technology for smart livestock farming · Peru"
+        },
+        "siteNavigation": {
+          "supportingText": "A livestock platform for everyone",
+          "accessibleName": "ICHU - Home",
+          "alternativeText": "ICHU logo",
+          "accessibility": {
+            "openNavigation": "Open menu"
+          }
+        },
+        "primaryNavigation": {
+          "navItem01": {
+            "primaryLabel": "Home",
+            "secondaryLabel": "Meet ICHU +",
+            "submenu01": {
+              "primaryLabel": "About us",
+              "secondaryLabel": "Our purpose",
+              "text": "Our purpose",
+              "supportingText": "About us",
+              "text02": "Web & Media",
+              "supportingText02": "Informative videos",
+              "accessibleName": "About us submenu"
+            }
+          },
+          "navItem02": {
+            "primaryLabel": "Farmers",
+            "secondaryLabel": "Your herd under control",
+            "submenu02": {
+              "primaryLabel": "Technology",
+              "secondaryLabel": "IoT Sensors",
+              "text": "IoT Sensors",
+              "supportingText": "Technology",
+              "text02": "How it works",
+              "supportingText02": "Step by step",
+              "accessibleName": "Technology submenu"
+            }
+          },
+          "navItem03": {
+            "primaryLabel": "Veterinarians",
+            "secondaryLabel": "Clinical history"
+          },
+          "navItem04": {
+            "primaryLabel": "Contact",
+            "secondaryLabel": "Let's work together"
+          },
+          "accessibleName": "Main navigation"
+        },
+        "mobileDrawer": {
+          "title": "Menu",
+          "actionLabel": "Request a demonstration",
+          "accessibleName": "Mobile menu",
+          "accessibility": {
+            "closeNavigation": "Close menu"
+          }
+        },
+        "mobileNavigation": {
+          "linkLabel": "Home",
+          "linkLabel02": "About us",
+          "linkLabel03": "Web & Media",
+          "linkLabel04": "For farmers",
+          "linkLabel05": "For veterinarians",
+          "linkLabel06": "Technology",
+          "linkLabel07": "How it works",
+          "linkLabel08": "Contact",
+          "accessibleName": "Mobile navigation"
+        }
+      },
+      "footer": {
+        "pageFooter": {
+          "description": "Technology for smart livestock farming. Connecting farmers with useful information about each animal and supporting veterinary work in Peru.",
+          "groupTitle": "Navigation",
+          "link01": {
+            "linkLabel": "Home",
+            "linkLabel02": "MIDAGRI Peru"
+          },
+          "link02": {
+            "linkLabel": "Web & Media",
+            "linkLabel02": "SENASA Agricultural Health"
+          },
+          "link03": {
+            "linkLabel": "How it works",
+            "linkLabel02": "Producers Registry (PPA)"
+          },
+          "link04": {
+            "linkLabel": "For farmers"
+          },
+          "link05": {
+            "linkLabel": "For veterinarians"
+          },
+          "link06": {
+            "linkLabel": "Technology"
+          },
+          "link07": {
+            "linkLabel": "Contact"
+          },
+          "groupTitle02": "Reference sources",
+          "groupTitle03": "Identity",
+          "description02": "Inspired by the Andean grass",
+          "description03": "and the livestock tradition of Peru. Designed for the reality and daily work of the countryside.",
+          "text": "ICHU — All rights reserved. Product presentation and demonstration stage.",
+          "text02": "Peru · Livestock technology & veterinary support",
+          "alternativeText": "ICHU logo",
+          "accessibleName": "Site links",
+          "accessibleName02": "Social media",
+          "accessibleName03": "Website"
+        }
+      },
+      "language": {
+        "switchToSpanish": "Switch language to Spanish",
+        "switchToEnglish": "Switch language to English"
+      },
+      "theme": {
+        "switchToNight": "Switch to night mode",
+        "switchToDay": "Switch to day mode"
+      }
+    }
   },
   "chatKeywords": {
     "farmer": [

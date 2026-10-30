@@ -14,7 +14,7 @@
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
   const I18N = window.ICHU_I18N;
-  const t = (text) => I18N.t(text);
+  const t = (key, values) => I18N.t(key, values);
 
   // Keep section links local on the home page and point other pages back to it
   const pageName = document.body.dataset.page || 'home';
@@ -115,7 +115,9 @@
     const applyTheme = (theme) => {
       document.documentElement.setAttribute('data-theme', theme);
       themeToggle.setAttribute('aria-pressed', theme === 'night' ? 'true' : 'false');
-      themeToggle.setAttribute('aria-label', theme === 'night' ? t("Switch to day mode") : t("Switch to night mode"));
+      themeToggle.setAttribute('aria-label', theme === 'night'
+        ? t('common.theme.switchToDay')
+        : t('common.theme.switchToNight'));
       syncWhoVideo(theme);
     };
     let theme = 'day';
@@ -171,8 +173,12 @@
   function animateCounter(el) {
     const target = parseInt(el.dataset.count, 10);
     const suffix = el.dataset.suffix || '';
+    const renderCount = value => {
+      el.dataset.currentCount = String(value);
+      el.textContent = `${I18N.formatNumber(value)}${suffix}`;
+    };
     if (prefersReduced) {
-      el.textContent = target + suffix;
+      renderCount(target);
       return;
     }
     const duration = 1400;
@@ -180,7 +186,7 @@
     function tick(now) {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(target * eased) + suffix;
+      renderCount(Math.round(target * eased));
       if (progress < 1) requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
@@ -198,20 +204,20 @@
   } else {
     counters.forEach(animateCounter);
   }
+  document.addEventListener('ichu:languagechange', () => {
+    counters.forEach((counter) => {
+      if (counter.dataset.currentCount !== undefined) {
+        const suffix = counter.dataset.suffix || '';
+        counter.textContent = `${I18N.formatNumber(Number(counter.dataset.currentCount))}${suffix}`;
+      }
+    });
+  });
 
   // Keep the chat illustrative and render messages as plain text
   const phoneChat = $('#phoneChat');
   const phoneInput = $('#phoneInput');
   const phoneSend = $('#phoneSend');
   const chips = $$('.chip');
-
-  function currentTime() {
-    const now = new Date();
-    let hours = now.getHours() % 12;
-    if (hours === 0) hours = 12;
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    return `${hours}:${minutes} ${now.getHours() >= 12 ? 'pm' : 'am'}`;
-  }
 
   function addBubble(text, type, values = {}) {
     const bubble = document.createElement('div');
@@ -224,9 +230,12 @@
     } else {
       I18N.setText(p, text, values);
     }
-    const time = document.createElement('span');
+    const now = new Date();
+    const time = document.createElement('time');
     time.className = 'bubble-time';
-    time.textContent = currentTime();
+    time.dateTime = now.toISOString();
+    time.dataset.localeTime = now.toISOString();
+    time.textContent = I18N.formatTime(now);
     bubble.append(p, time);
     phoneChat.appendChild(bubble);
     phoneChat.scrollTop = phoneChat.scrollHeight;
@@ -239,7 +248,7 @@
     }
     const typing = document.createElement('div');
     typing.className = 'bubble in typing';
-    I18N.setText(typing, 'ICHU is typing...');
+    I18N.setText(typing, 'home.contact.chat.typingIndicator');
     phoneChat.appendChild(typing);
     phoneChat.scrollTop = phoneChat.scrollHeight;
     // Translate delayed replies when they appear using the current language
@@ -251,15 +260,15 @@
 
   function botResponse(text) {
     if (I18N.matchesTopic(text, 'farmer')) {
-      return 'Great! In the demo we will show you how to register your livestock by collar, monitor grazing and receive temperature alerts instantly.';
+      return 'home.contact.chat.responses.farmer';
     }
     if (I18N.matchesTopic(text, 'veterinarian')) {
-      return 'Perfect! You will be able to explore the thermal history, the visit log and the treatment registry.';
+      return 'home.contact.chat.responses.veterinarian';
     }
     if (I18N.matchesTopic(text, 'devices')) {
-      return 'Our devices are designed for high-altitude telemetry and Andean weather.';
+      return 'home.contact.chat.responses.devices';
     }
-    return "Message received! Let's schedule your personalized demonstration: leave your details in the form to coordinate.";
+    return 'home.contact.chat.responses.fallback';
   }
 
   function handleUserMessage() {
@@ -282,8 +291,9 @@
 
   chips.forEach((chip) => {
     chip.addEventListener('click', () => {
-      addBubble(t(chip.dataset.msg), 'out');
-      reply(botResponse(chip.dataset.msg));
+      const message = t(chip.dataset.msgKey);
+      addBubble(message, 'out');
+      reply(botResponse(message));
     });
   });
 
@@ -300,17 +310,20 @@
     const errorEl = $(`#err-${id}`);
     input.classList.toggle('is-invalid', Boolean(message));
     input.setAttribute('aria-invalid', message ? 'true' : 'false');
-    if (errorEl) I18N.setText(errorEl, message);
+    if (errorEl) {
+      if (message) I18N.setText(errorEl, message);
+      else I18N.clearText(errorEl);
+    }
   }
 
   function validateForm(data) {
     let firstInvalid = null;
     const rules = {
-      firstName: data.firstName.trim() ? '' : "Enter your first name.",
-      lastName: data.lastName.trim() ? '' : "Enter your last name.",
-      email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim()) ? '' : "Enter a valid email.",
-      phoneNumber: /^[+()\d\s-]{6,20}$/.test(data.phoneNumber.trim()) ? '' : "Enter a valid phone number.",
-      userType: data.userType ? '' : "Select your profile.",
+      firstName: data.firstName.trim() ? '' : 'home.contact.form.validation.firstNameRequired',
+      lastName: data.lastName.trim() ? '' : 'home.contact.form.validation.lastNameRequired',
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim()) ? '' : 'home.contact.form.validation.emailInvalid',
+      phoneNumber: /^[+()\d\s-]{6,20}$/.test(data.phoneNumber.trim()) ? '' : 'home.contact.form.validation.phoneInvalid',
+      userType: data.userType ? '' : 'home.contact.form.validation.profileRequired',
     };
     Object.entries(rules).forEach(([field, message]) => {
       setError(field, message);
@@ -330,13 +343,15 @@
       }
 
       const lines = [
-        t("Hello ICHU, I would like to request a demonstration."),
-        `${t("Name")}: ${data.firstName} ${data.lastName}`,
-        `${t("Email")}: ${data.email}`,
-        `${t("Phone")}: ${data.phoneNumber}`,
-        `${t("Profile")}: ${t(data.userType)}`,
+        t('home.contact.whatsapp.introduction'),
+        `${t('home.contact.whatsapp.fields.name')}: ${data.firstName} ${data.lastName}`,
+        `${t('home.contact.whatsapp.fields.email')}: ${data.email}`,
+        `${t('home.contact.whatsapp.fields.phone')}: ${data.phoneNumber}`,
+        `${t('home.contact.whatsapp.fields.profile')}: ${t(`home.contact.form.profile.options.${data.userType}`)}`,
       ];
-      if (data.message && data.message.trim()) lines.push(`${t("Message")}: ${data.message.trim()}`);
+      if (data.message && data.message.trim()) {
+        lines.push(`${t('home.contact.whatsapp.fields.message')}: ${data.message.trim()}`);
+      }
 
       // Encode the complete message to keep user input within the query value
       const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
@@ -349,8 +364,8 @@
         closeModalBtn.focus();
       }
       form.reset();
-      addBubble('Hello, I am {n}. I requested a demonstration from the form.', 'out', { n: data.firstName });
-      reply('Hi {n}! We have registered your request. We will contact you very soon.', { n: data.firstName });
+      addBubble('home.contact.chat.responses.formRequest', 'out', { name: data.firstName });
+      reply('home.contact.chat.responses.formAcknowledgement', { name: data.firstName });
     });
 
     ['firstName', 'lastName', 'email', 'phoneNumber', 'userType'].forEach((id) => {

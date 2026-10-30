@@ -11,7 +11,9 @@
   function updateTheme() {
     document.documentElement.setAttribute('data-theme', theme);
     themeToggle.setAttribute('aria-pressed', String(theme === 'night'));
-    themeToggle.setAttribute('aria-label', translations.t(theme === 'night' ? 'Switch to day mode' : 'Switch to night mode'));
+    themeToggle.setAttribute('aria-label', translations.t(theme === 'night'
+      ? 'common.theme.switchToDay'
+      : 'common.theme.switchToNight'));
   }
 
   themeToggle.addEventListener('click', () => {

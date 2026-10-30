@@ -1,106 +1,242 @@
 /*
-  Load locale resources separately from translation behavior
-  Preserve English source text when a translation or resource is unavailable
+  Load locale resources and apply semantic translation keys
+  Keep the English source content available when a locale cannot be loaded
 */
 window.ICHU_I18N_READY = (async () => {
   'use strict';
+
   const localeBaseURL = new URL('../../public/locales/', document.currentScript.src);
   if (window.ICHU_PARTIALS_READY && !(await window.ICHU_PARTIALS_READY)) return false;
 
   const LANGUAGE_KEY = 'ichu-lang';
   const DEFAULT_LANGUAGE = 'en';
   const SUPPORTED_LANGUAGES = new Set(['en', 'es']);
+  const PLURAL_CATEGORIES = new Set(['zero', 'one', 'two', 'few', 'many', 'other']);
   const locales = new Map();
   const localeRequests = new Map();
-  // Leave user input and animated counters outside page translation
-  const SKIPPED_ELEMENTS = 'script,style,noscript,textarea,.stat-value,[data-i18n-skip],[contenteditable]';
-  // Retain English sources so repeated language changes do not translate prior translations
-  const textSources = new WeakMap();
-  const attributeSources = new WeakMap();
+  const originalText = new WeakMap();
+  const originalAttributes = new WeakMap();
+  const dynamicMessages = new WeakMap();
+  const dynamicElements = new Set();
   let language = DEFAULT_LANGUAGE;
   let changeRequest = 0;
 
-  function format(text, values = {}) {
-    return text.replace(/\{(\w+)\}/g, (placeholder, name) => (
-      Object.hasOwn(values, name) ? String(values[name]) : placeholder
-    ));
+  function isRecord(value) {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
   }
 
-  function translate(text, values = {}) {
-    const translated = locales.get(language)?.messages[text] ?? locales.get(DEFAULT_LANGUAGE)?.messages[text];
-    return format(typeof translated === 'string' ? translated : text, values);
+  function isPluralEntry(value) {
+    return isRecord(value)
+      && Object.keys(value).length > 0
+      && Object.keys(value).every(category => PLURAL_CATEGORIES.has(category))
+      && Object.hasOwn(value, 'other');
   }
 
-  function setText(element, text, values = {}) {
-    // Remember the original message and its values for later language changes
-    element.textContent = translate(text, values);
-    if (element.firstChild) textSources.set(element.firstChild, { text, values });
+  function collectMessages(value, prefix = '', output = new Map()) {
+    if (typeof value === 'string') {
+      output.set(prefix, value);
+      return output;
+    }
+    if (!isRecord(value)) throw new Error(`Invalid translation entry at ${prefix || 'messages'}`);
+
+    const keys = Object.keys(value);
+    const isPlural = keys.length > 0 && keys.every(category => PLURAL_CATEGORIES.has(category));
+    if (isPlural) {
+      if (!isPluralEntry(value)) throw new Error(`Invalid plural entry at ${prefix}`);
+      Object.entries(value).forEach(([category, message]) => {
+        if (typeof message !== 'string') throw new Error(`Invalid plural form at ${prefix}.${category}`);
+        output.set(`${prefix}.${category}`, message);
+      });
+      return output;
+    }
+    if (keys.length === 0) throw new Error(`Empty translation namespace at ${prefix || 'messages'}`);
+
+    Object.entries(value).forEach(([key, child]) => {
+      if (!/^[a-z][A-Za-z0-9]*$/.test(key)) throw new Error(`Invalid semantic translation key: ${key}`);
+      collectMessages(child, prefix ? `${prefix}.${key}` : key, output);
+    });
+    return output;
+  }
+
+  function getShape(messages) {
+    return [...collectMessages(messages).keys()].sort().join('\n');
+  }
+
+  function getPlaceholders(message) {
+    return [...message.matchAll(/\{\{\s*([\w.]+)\s*\}\}/g)]
+      .map(match => match[1])
+      .sort()
+      .join('|');
+  }
+
+  function validateLocale(locale, target) {
+    if (!isRecord(locale)
+      || locale.language !== target
+      || !isRecord(locale.messages)
+      || !isRecord(locale.chatKeywords)
+      || !Object.values(locale.chatKeywords).every(keywords => Array.isArray(keywords)
+        && keywords.every(keyword => typeof keyword === 'string'))) {
+      throw new Error(`Invalid ${target} translation resource`);
+    }
+    collectMessages(locale.messages);
+
+    if (target !== DEFAULT_LANGUAGE && locales.has(DEFAULT_LANGUAGE)) {
+      const sourceMessages = collectMessages(locales.get(DEFAULT_LANGUAGE).messages);
+      const targetMessages = collectMessages(locale.messages);
+      if (getShape(locale.messages) !== getShape(locales.get(DEFAULT_LANGUAGE).messages)) {
+        throw new Error(`${target} translations do not match the English key structure`);
+      }
+      sourceMessages.forEach((source, key) => {
+        if (getPlaceholders(source) !== getPlaceholders(targetMessages.get(key))) {
+          throw new Error(`Placeholder mismatch in ${target} translation: ${key}`);
+        }
+      });
+      if (JSON.stringify(Object.keys(locale.chatKeywords).sort())
+        !== JSON.stringify(Object.keys(locales.get(DEFAULT_LANGUAGE).chatKeywords).sort())) {
+        throw new Error(`${target} chat topics do not match the English resource`);
+      }
+    }
+  }
+
+  function findEntry(resource, key) {
+    return key.split('.').reduce((value, segment) => value?.[segment], resource?.messages);
+  }
+
+  function localeTag(target) {
+    return target === 'es' ? 'es-PE' : 'en-US';
+  }
+
+  function formatMessage(message, values) {
+    return message.replace(/\{\{\s*([\w.]+)\s*\}\}/g, (placeholder, name) => {
+      const value = name.split('.').reduce((current, segment) => current?.[segment], values);
+      return value === undefined ? placeholder : String(value);
+    });
+  }
+
+  function translate(key, values = {}) {
+    const activeEntry = findEntry(locales.get(language), key);
+    const sourceEntry = findEntry(locales.get(DEFAULT_LANGUAGE), key);
+    const entry = activeEntry ?? sourceEntry;
+    const entryLanguage = activeEntry === undefined ? DEFAULT_LANGUAGE : language;
+    if (entry === undefined) {
+      console.error(`Missing translation key: ${key}`);
+      return key;
+    }
+
+    let message = entry;
+    if (isPluralEntry(entry)) {
+      if (!Object.hasOwn(values, 'count') || !Number.isFinite(Number(values.count))) {
+        throw new TypeError(`Plural translation requires a numeric count: ${key}`);
+      }
+      const category = new Intl.PluralRules(localeTag(entryLanguage)).select(Number(values.count));
+      message = entry[category] ?? entry.other;
+    }
+    return formatMessage(message, values);
+  }
+
+  function renderStaticText(element) {
+    const source = originalText.get(element);
+    if (!source) return;
+    const key = element.dataset.i18n;
+    const entry = findEntry(locales.get(language), key) ?? findEntry(locales.get(DEFAULT_LANGUAGE), key);
+    if (entry !== undefined) {
+      element.textContent = translate(key);
+    } else {
+      element.textContent = source;
+    }
+  }
+
+  function formatTime(value) {
+    let date;
+    if (value instanceof Date) {
+      date = value;
+    } else if (typeof value === 'string' && /^\d{2}:\d{2}$/.test(value)) {
+      const [hours, minutes] = value.split(':').map(Number);
+      date = new Date(2000, 0, 1, hours, minutes);
+    } else {
+      date = new Date(value);
+    }
+    return new Intl.DateTimeFormat(localeTag(language), { hour: 'numeric', minute: '2-digit' }).format(date);
+  }
+
+  function formatNumber(value, options = {}) {
+    return new Intl.NumberFormat(localeTag(language), options).format(value);
+  }
+
+  function applyLocaleFormatting() {
+    document.querySelectorAll('[data-locale-time]').forEach((element) => {
+      element.textContent = formatTime(element.dataset.localeTime);
+    });
+    const temperatureFormat = new Intl.NumberFormat(localeTag(language), {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
+    document.querySelectorAll('[data-locale-temperature]').forEach((element) => {
+      const value = Number(element.dataset.localeTemperature);
+      if (Number.isFinite(value)) element.textContent = `${temperatureFormat.format(value)} °C`;
+    });
+    document.querySelectorAll('[data-locale-temperature-range]').forEach((element) => {
+      const values = element.dataset.localeTemperatureRange.split(',').map(Number);
+      if (values.length === 2 && values.every(Number.isFinite)) {
+        element.textContent = `${temperatureFormat.format(values[0])} °C → ${temperatureFormat.format(values[1])} °C`;
+      }
+    });
   }
 
   function translatePage() {
-    const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        return node.parentElement?.closest(SKIPPED_ELEMENTS)
-          ? NodeFilter.FILTER_REJECT
-          : NodeFilter.FILTER_ACCEPT;
-      },
+    document.querySelectorAll('[data-i18n]').forEach((element) => {
+      if (dynamicMessages.has(element)) return;
+      if (!originalText.has(element)) originalText.set(element, element.textContent);
+      renderStaticText(element);
     });
 
-    while (walker.nextNode()) {
-      const node = walker.currentNode;
-      let source = textSources.get(node);
-      if (!source) {
-        source = { text: node.nodeValue, values: {} };
-        textSources.set(node, source);
-      }
-      const trimmed = source.text.trim();
-      if (trimmed) {
-        const leading = source.text.slice(0, source.text.indexOf(trimmed));
-        const trailing = source.text.slice(source.text.indexOf(trimmed) + trimmed.length);
-        node.nodeValue = leading + translate(trimmed, source.values) + trailing;
-      }
-    }
-
-    // Translate metadata and accessible labels along with visible page content
-    const attributes = ['placeholder', 'alt', 'aria-label', 'title', 'content'];
-    document.querySelectorAll('input[placeholder],textarea[placeholder],img[alt],[aria-label],[title],meta[content]').forEach((element) => {
-      if (element.closest(SKIPPED_ELEMENTS)) return;
-      let sources = attributeSources.get(element);
-      if (!sources) {
-        sources = new Map();
-        attributeSources.set(element, sources);
-      }
-      attributes.forEach((attribute) => {
-        if (!element.hasAttribute(attribute)) return;
-        if (!sources.has(attribute)) sources.set(attribute, element.getAttribute(attribute));
-        element.setAttribute(attribute, translate(sources.get(attribute)));
+    const attributeBindings = [
+      ['alt', 'data-i18n-alt'],
+      ['aria-label', 'data-i18n-aria-label'],
+      ['title', 'data-i18n-title'],
+      ['placeholder', 'data-i18n-placeholder'],
+      ['content', 'data-i18n-content'],
+    ];
+    attributeBindings.forEach(([attribute, marker]) => {
+      document.querySelectorAll(`[${marker}]`).forEach((element) => {
+        let sourceAttributes = originalAttributes.get(element);
+        if (!sourceAttributes) {
+          sourceAttributes = new Map();
+          originalAttributes.set(element, sourceAttributes);
+        }
+        if (!sourceAttributes.has(attribute)) sourceAttributes.set(attribute, element.getAttribute(attribute));
+        element.setAttribute(attribute, translate(element.getAttribute(marker)));
       });
     });
 
-    document.documentElement.lang = language;
+    dynamicElements.forEach((element) => {
+      if (!element.isConnected) {
+        dynamicElements.delete(element);
+        return;
+      }
+      const { key, values } = dynamicMessages.get(element);
+      element.textContent = translate(key, values);
+    });
+
+    applyLocaleFormatting();
+    document.documentElement.lang = language === 'es' ? 'es-PE' : 'en';
     document.querySelector('meta[property="og:locale"]')?.setAttribute('content', language === 'es' ? 'es_PE' : 'en_US');
   }
 
   async function loadLocale(target) {
     if (!SUPPORTED_LANGUAGES.has(target)) throw new Error('Unsupported language');
-    // Reuse completed and pending requests for the same language
     if (locales.has(target)) return locales.get(target);
+
     if (!localeRequests.has(target)) {
       const request = fetch(new URL(`${target}.json`, localeBaseURL))
         .then(async (response) => {
-          if (!response.ok) throw new Error(`Failed to load ${target} translations with status ${response.status}`);
+          if (!response.ok) throw new Error(`Failed to load ${target} translations: ${response.status}`);
           const locale = await response.json();
-          if (locale.language !== target || !locale.messages || typeof locale.messages !== 'object' || Array.isArray(locale.messages)
-            || !Object.values(locale.messages).every(value => typeof value === 'string')
-            || !locale.chatKeywords || typeof locale.chatKeywords !== 'object' || Array.isArray(locale.chatKeywords)
-            || !Object.values(locale.chatKeywords).every(keywords => Array.isArray(keywords) && keywords.every(value => typeof value === 'string'))) {
-            throw new Error(`Invalid ${target} translation data`);
-          }
+          validateLocale(locale, target);
           locales.set(target, locale);
           return locale;
         })
         .catch((error) => {
-          // Remove failed requests so a later language selection can retry
           localeRequests.delete(target);
           console.error(`Failed to load ${target} translations.`, error);
           throw error;
@@ -110,11 +246,13 @@ window.ICHU_I18N_READY = (async () => {
     return localeRequests.get(target);
   }
 
-  function updateButton() {
+  function updateLanguageButton() {
     const button = document.getElementById('langToggle');
     if (!button) return;
     button.querySelector('.lang-code').textContent = language.toUpperCase();
-    button.setAttribute('aria-label', translate(language === 'en' ? 'Switch language to Spanish' : 'Switch language to English'));
+    button.setAttribute('aria-label', translate(language === 'en'
+      ? 'common.language.switchToSpanish'
+      : 'common.language.switchToEnglish'));
     button.setAttribute('aria-pressed', String(language === 'es'));
   }
 
@@ -125,19 +263,17 @@ window.ICHU_I18N_READY = (async () => {
       try {
         await loadLocale(target);
       } catch (error) {
-        // Keep the current language when the requested locale is unavailable
         return false;
       }
     }
-    // Ignore an older request when a newer language selection has started
     if (request !== changeRequest) return false;
     language = target;
     translatePage();
-    updateButton();
+    updateLanguageButton();
     try {
       localStorage.setItem(LANGUAGE_KEY, language);
     } catch (error) {
-      // Keep the current language active when storage is unavailable
+      // Keep the selected language active when storage is unavailable
     }
     document.dispatchEvent(new CustomEvent('ichu:languagechange', { detail: { language } }));
     return true;
@@ -146,7 +282,18 @@ window.ICHU_I18N_READY = (async () => {
   window.ICHU_I18N = {
     get lang() { return language; },
     t: translate,
-    setText,
+    setText(element, key, values = {}) {
+      dynamicMessages.set(element, { key, values });
+      dynamicElements.add(element);
+      element.textContent = translate(key, values);
+    },
+    clearText(element) {
+      dynamicMessages.delete(element);
+      dynamicElements.delete(element);
+      element.textContent = '';
+    },
+    formatTime,
+    formatNumber,
     matchesTopic(text, topic) {
       const keywords = [
         ...(locales.get(DEFAULT_LANGUAGE)?.chatKeywords[topic] || []),
@@ -168,11 +315,11 @@ window.ICHU_I18N_READY = (async () => {
   } catch (error) {
     // Keep English as the default when the saved preference cannot be read
   }
-  // Load English first so missing translations can fall back to its resource
+
   try {
     await loadLocale(DEFAULT_LANGUAGE);
   } catch (error) {
-    // Keep English source text available when the fallback resource cannot be loaded
+    // Keep the source language available when its resource cannot be loaded
   }
   await applyLanguage(savedLanguage);
   return true;
