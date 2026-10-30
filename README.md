@@ -8,7 +8,7 @@ Static website for ICHU, a Peruvian livestock technology platform. Built with se
 .
 ├── index.html                 # Home page
 ├── media.html                 # Media page
-├── como-funciona.html         # Product walkthrough
+├── how-it-works.html          # Product walkthrough
 ├── assets/
 │   ├── images/                # Images and brand assets
 │   ├── scripts/               # Shared fragments language and interactions
@@ -29,7 +29,7 @@ Static website for ICHU, a Peruvian livestock technology platform. Built with se
 |---|---|
 | `index.html` | ICHU home page and product sections |
 | `media.html` | Platform walkthroughs and field stories |
-| `como-funciona.html` | Record, monitor, and decide |
+| `how-it-works.html` | Record, monitor, and decide |
 
 Pages remain at the site root so static hosting can serve `index.html` directly. The shared header and footer are stored in `partials/` and loaded with `fetch` by `assets/scripts/partials.js`.
 
