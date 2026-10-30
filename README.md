@@ -6,7 +6,7 @@
 
 The public website for ICHU, a Peruvian livestock technology platform. It introduces the product to farmers and veterinarians and lets visitors prepare a demonstration request through WhatsApp.
 
-![ICHU website home page](readme/website-preview.png)
+![ICHU website home page](assets/images/website-preview.png)
 
 ## Features
 
