@@ -1,8 +1,8 @@
-# ICHU — Landing Page
+# ICHU — Website
 
-Sitio estático de ICHU, una plataforma peruana de tecnología para la ganadería. Usa HTML semántico, CSS y JavaScript nativos, sin proceso de compilación.
+Static website for ICHU, a Peruvian livestock technology platform. Built with semantic HTML, CSS, and vanilla JavaScript, with no build step.
 
-## Estructura
+## Structure
 
 ```text
 .
@@ -23,25 +23,25 @@ Sitio estático de ICHU, una plataforma peruana de tecnología para la ganaderí
 └── README.md
 ```
 
-## Páginas
+## Pages
 
-| Archivo | Contenido |
+| File | Content |
 |---|---|
-| `index.html` | Portada y secciones de ICHU |
-| `media.html` | Recorridos de la plataforma e historias de campo |
-| `como-funciona.html` | Registro, supervisión y decisión |
+| `index.html` | ICHU home page and product sections |
+| `media.html` | Platform walkthroughs and field stories |
+| `como-funciona.html` | Record, monitor, and decide |
 
-Las páginas se mantienen en la raíz de publicación para que el alojamiento estático pueda servir `index.html` directamente. La cabecera y el pie se mantienen en `partials/` y se cargan con `fetch` desde `assets/scripts/partials.js`.
+Pages remain at the site root so static hosting can serve `index.html` directly. The shared header and footer are stored in `partials/` and loaded with `fetch` by `assets/scripts/partials.js`.
 
-## Funcionalidades
+## Features
 
-- Tema claro y oscuro persistido en `localStorage`.
-- Idiomas español e inglés mediante el diccionario de `assets/scripts/i18n.js`.
-- Menú responsive, submenús accesibles y cierre con Escape.
-- Formulario de demostración y chat ilustrativo.
-- Animaciones y contadores que respetan `prefers-reduced-motion`.
-- Video del collar reproducido únicamente cuando su sección está visible en modo noche.
+- Light and dark themes persisted in `localStorage`.
+- Spanish and English through the dictionary in `assets/scripts/i18n.js`.
+- Responsive navigation, accessible submenus, and dismissal with Escape.
+- Demonstration request form and simulated chat.
+- Animations and counters that respect `prefers-reduced-motion`.
+- Collar video playback only when its section is visible in night mode.
 
-## Publicación
+## Deployment
 
-Publica el contenido de esta carpeta como raíz del sitio estático. El directorio publicado debe contener `index.html`, `assets/` y `partials/` al mismo nivel.
+Publish this folder as the root of the static website. The published directory must contain `index.html`, `assets/`, and `partials/` at the same level.
