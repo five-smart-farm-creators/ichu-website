@@ -5,20 +5,18 @@
 window.ICHU_I18N_READY = (async () => {
   'use strict';
 
-  const localeBaseURL = new URL('../../locales/', document.currentScript.src);
+  const localeBaseUrl = new URL('../../locales/', document.currentScript.src);
   if (window.ICHU_PARTIALS_READY && !(await window.ICHU_PARTIALS_READY)) return false;
 
-  const LANGUAGE_KEY = 'ichu-lang';
-  const DEFAULT_LANGUAGE = 'en';
-  const SUPPORTED_LANGUAGES = new Set(['en', 'es']);
-  const PLURAL_CATEGORIES = new Set(['zero', 'one', 'two', 'few', 'many', 'other']);
+  const languageKey = 'ichu-lang';
+  const defaultLanguage = 'en';
+  const supportedLanguages = new Set(['en', 'es']);
+  const pluralCategories = new Set(['zero', 'one', 'two', 'few', 'many', 'other']);
   const locales = new Map();
   const localeRequests = new Map();
   const originalText = new WeakMap();
-  const originalAttributes = new WeakMap();
-  const dynamicMessages = new WeakMap();
-  const dynamicElements = new Set();
-  let language = DEFAULT_LANGUAGE;
+  const dynamicMessages = new Map();
+  let language = defaultLanguage;
   let changeRequest = 0;
 
   function isRecord(value) {
@@ -28,8 +26,8 @@ window.ICHU_I18N_READY = (async () => {
   function isPluralEntry(value) {
     return isRecord(value)
       && Object.keys(value).length > 0
-      && Object.keys(value).every(category => PLURAL_CATEGORIES.has(category))
-      && Object.hasOwn(value, 'other');
+      && Object.keys(value).every(category => pluralCategories.has(category))
+      && Object.prototype.hasOwnProperty.call(value, 'other');
   }
 
   function collectMessages(value, prefix = '', output = new Map()) {
@@ -40,26 +38,16 @@ window.ICHU_I18N_READY = (async () => {
     if (!isRecord(value)) throw new Error(`Invalid translation entry at ${prefix || 'messages'}`);
 
     const keys = Object.keys(value);
-    const isPlural = keys.length > 0 && keys.every(category => PLURAL_CATEGORIES.has(category));
-    if (isPlural) {
-      if (!isPluralEntry(value)) throw new Error(`Invalid plural entry at ${prefix}`);
-      Object.entries(value).forEach(([category, message]) => {
-        if (typeof message !== 'string') throw new Error(`Invalid plural form at ${prefix}.${category}`);
-        output.set(`${prefix}.${category}`, message);
-      });
-      return output;
-    }
     if (keys.length === 0) throw new Error(`Empty translation namespace at ${prefix || 'messages'}`);
+    const isPlural = keys.every(category => pluralCategories.has(category));
+    if (isPlural && !isPluralEntry(value)) throw new Error(`Invalid plural entry at ${prefix}`);
 
     Object.entries(value).forEach(([key, child]) => {
       if (!/^[a-z][A-Za-z0-9]*$/.test(key)) throw new Error(`Invalid semantic translation key: ${key}`);
+      if (isPlural && typeof child !== 'string') throw new Error(`Invalid plural form at ${prefix}.${key}`);
       collectMessages(child, prefix ? `${prefix}.${key}` : key, output);
     });
     return output;
-  }
-
-  function getShape(messages) {
-    return [...collectMessages(messages).keys()].sort().join('\n');
   }
 
   function getPlaceholders(message) {
@@ -78,12 +66,11 @@ window.ICHU_I18N_READY = (async () => {
         && keywords.every(keyword => typeof keyword === 'string'))) {
       throw new Error(`Invalid ${target} translation resource`);
     }
-    collectMessages(locale.messages);
+    const targetMessages = collectMessages(locale.messages);
 
-    if (target !== DEFAULT_LANGUAGE && locales.has(DEFAULT_LANGUAGE)) {
-      const sourceMessages = collectMessages(locales.get(DEFAULT_LANGUAGE).messages);
-      const targetMessages = collectMessages(locale.messages);
-      if (getShape(locale.messages) !== getShape(locales.get(DEFAULT_LANGUAGE).messages)) {
+    if (target !== defaultLanguage && locales.has(defaultLanguage)) {
+      const sourceMessages = collectMessages(locales.get(defaultLanguage).messages);
+      if (targetMessages.size !== sourceMessages.size || [...sourceMessages.keys()].some(key => !targetMessages.has(key))) {
         throw new Error(`${target} translations do not match the English key structure`);
       }
       sourceMessages.forEach((source, key) => {
@@ -92,7 +79,7 @@ window.ICHU_I18N_READY = (async () => {
         }
       });
       if (JSON.stringify(Object.keys(locale.chatKeywords).sort())
-        !== JSON.stringify(Object.keys(locales.get(DEFAULT_LANGUAGE).chatKeywords).sort())) {
+        !== JSON.stringify(Object.keys(locales.get(defaultLanguage).chatKeywords).sort())) {
         throw new Error(`${target} chat topics do not match the English resource`);
       }
     }
@@ -115,9 +102,9 @@ window.ICHU_I18N_READY = (async () => {
 
   function translate(key, values = {}) {
     const activeEntry = findEntry(locales.get(language), key);
-    const sourceEntry = findEntry(locales.get(DEFAULT_LANGUAGE), key);
+    const sourceEntry = findEntry(locales.get(defaultLanguage), key);
     const entry = activeEntry ?? sourceEntry;
-    const entryLanguage = activeEntry === undefined ? DEFAULT_LANGUAGE : language;
+    const entryLanguage = activeEntry === undefined ? defaultLanguage : language;
     if (entry === undefined) {
       console.error(`Missing translation key: ${key}`);
       return key;
@@ -125,7 +112,7 @@ window.ICHU_I18N_READY = (async () => {
 
     let message = entry;
     if (isPluralEntry(entry)) {
-      if (!Object.hasOwn(values, 'count') || !Number.isFinite(Number(values.count))) {
+      if (!Object.prototype.hasOwnProperty.call(values, 'count') || !Number.isFinite(Number(values.count))) {
         throw new TypeError(`Plural translation requires a numeric count: ${key}`);
       }
       const category = new Intl.PluralRules(localeTag(entryLanguage)).select(Number(values.count));
@@ -138,24 +125,16 @@ window.ICHU_I18N_READY = (async () => {
     const source = originalText.get(element);
     if (!source) return;
     const key = element.dataset.i18n;
-    const entry = findEntry(locales.get(language), key) ?? findEntry(locales.get(DEFAULT_LANGUAGE), key);
-    if (entry !== undefined) {
-      element.textContent = translate(key);
-    } else {
-      element.textContent = source;
-    }
+    const entry = findEntry(locales.get(language), key) ?? findEntry(locales.get(defaultLanguage), key);
+    element.textContent = entry === undefined ? source : translate(key);
   }
 
   function formatTime(value) {
-    let date;
-    if (value instanceof Date) {
-      date = value;
-    } else if (typeof value === 'string' && /^\d{2}:\d{2}$/.test(value)) {
+    if (typeof value === 'string' && /^\d{2}:\d{2}$/.test(value)) {
       const [hours, minutes] = value.split(':').map(Number);
-      date = new Date(2000, 0, 1, hours, minutes);
-    } else {
-      date = new Date(value);
+      value = new Date(2000, 0, 1, hours, minutes);
     }
+    const date = value instanceof Date ? value : new Date(value);
     return new Intl.DateTimeFormat(localeTag(language), { hour: 'numeric', minute: '2-digit' }).format(date);
   }
 
@@ -199,23 +178,13 @@ window.ICHU_I18N_READY = (async () => {
     ];
     attributeBindings.forEach(([attribute, marker]) => {
       document.querySelectorAll(`[${marker}]`).forEach((element) => {
-        let sourceAttributes = originalAttributes.get(element);
-        if (!sourceAttributes) {
-          sourceAttributes = new Map();
-          originalAttributes.set(element, sourceAttributes);
-        }
-        if (!sourceAttributes.has(attribute)) sourceAttributes.set(attribute, element.getAttribute(attribute));
         element.setAttribute(attribute, translate(element.getAttribute(marker)));
       });
     });
 
-    dynamicElements.forEach((element) => {
-      if (!element.isConnected) {
-        dynamicElements.delete(element);
-        return;
-      }
-      const { key, values } = dynamicMessages.get(element);
-      element.textContent = translate(key, values);
+    dynamicMessages.forEach(({ key, values }, element) => {
+      if (element.isConnected) element.textContent = translate(key, values);
+      else dynamicMessages.delete(element);
     });
 
     applyLocaleFormatting();
@@ -224,11 +193,11 @@ window.ICHU_I18N_READY = (async () => {
   }
 
   async function loadLocale(target) {
-    if (!SUPPORTED_LANGUAGES.has(target)) throw new Error('Unsupported language');
+    if (!supportedLanguages.has(target)) throw new Error('Unsupported language');
     if (locales.has(target)) return locales.get(target);
 
     if (!localeRequests.has(target)) {
-      const request = fetch(new URL(`${target}.json`, localeBaseURL))
+      const request = fetch(new URL(`${target}.json`, localeBaseUrl))
         .then(async (response) => {
           if (!response.ok) throw new Error(`Failed to load ${target} translations: ${response.status}`);
           const locale = await response.json();
@@ -257,9 +226,9 @@ window.ICHU_I18N_READY = (async () => {
   }
 
   async function applyLanguage(target) {
-    if (!SUPPORTED_LANGUAGES.has(target)) return false;
+    if (!supportedLanguages.has(target)) return false;
     const request = ++changeRequest;
-    if (target !== DEFAULT_LANGUAGE) {
+    if (target !== defaultLanguage) {
       try {
         await loadLocale(target);
       } catch (error) {
@@ -271,7 +240,7 @@ window.ICHU_I18N_READY = (async () => {
     translatePage();
     updateLanguageButton();
     try {
-      localStorage.setItem(LANGUAGE_KEY, language);
+      localStorage.setItem(languageKey, language);
     } catch (error) {
       // Keep the selected language active when storage is unavailable
     }
@@ -279,29 +248,30 @@ window.ICHU_I18N_READY = (async () => {
     return true;
   }
 
+  function normalizeText(value) {
+    return value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  }
+
   window.ICHU_I18N = {
     get lang() { return language; },
     t: translate,
     setText(element, key, values = {}) {
       dynamicMessages.set(element, { key, values });
-      dynamicElements.add(element);
       element.textContent = translate(key, values);
     },
     clearText(element) {
       dynamicMessages.delete(element);
-      dynamicElements.delete(element);
       element.textContent = '';
     },
     formatTime,
     formatNumber,
     matchesTopic(text, topic) {
       const keywords = [
-        ...(locales.get(DEFAULT_LANGUAGE)?.chatKeywords[topic] || []),
-        ...(language === DEFAULT_LANGUAGE ? [] : locales.get(language)?.chatKeywords[topic] || []),
+        ...(locales.get(defaultLanguage)?.chatKeywords[topic] || []),
+        ...(language === defaultLanguage ? [] : locales.get(language)?.chatKeywords[topic] || []),
       ];
-      const normalize = value => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-      const message = normalize(text);
-      return keywords.some(keyword => message.includes(normalize(keyword)));
+      const message = normalizeText(text);
+      return keywords.some(keyword => message.includes(normalizeText(keyword)));
     },
   };
 
@@ -309,15 +279,15 @@ window.ICHU_I18N_READY = (async () => {
     void applyLanguage(language === 'en' ? 'es' : 'en');
   });
 
-  let savedLanguage = DEFAULT_LANGUAGE;
+  let savedLanguage = defaultLanguage;
   try {
-    if (localStorage.getItem(LANGUAGE_KEY) === 'es') savedLanguage = 'es';
+    if (localStorage.getItem(languageKey) === 'es') savedLanguage = 'es';
   } catch (error) {
     // Keep English as the default when the saved preference cannot be read
   }
 
   try {
-    await loadLocale(DEFAULT_LANGUAGE);
+    await loadLocale(defaultLanguage);
   } catch (error) {
     // Keep the source language available when its resource cannot be loaded
   }
