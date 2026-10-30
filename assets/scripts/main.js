@@ -35,7 +35,7 @@
   function initializeNavigation() {
     // Keep section links local on the home page and point other pages back to it
     const pageName = document.body.dataset.page || 'home';
-    const siteTop = select('#siteTop');
+    const siteTop = select('#site-top');
     if (siteTop) siteTop.classList.toggle('solid', pageName !== 'home');
     selectAll('[data-home-anchor]').forEach((link) => {
       if (pageName === 'home') link.setAttribute('href', link.dataset.homeAnchor);
@@ -54,10 +54,10 @@
       siteTop?.classList.toggle('scrolled', window.scrollY > 40);
     }, { passive: true });
 
-    const menuToggle = select('#menuToggle');
-    const drawer = select('#mobileDrawer');
-    const drawerOverlay = select('#drawerOverlay');
-    const closeDrawerButton = select('#closeDrawer');
+    const menuToggle = select('#menu-toggle');
+    const drawer = select('#mobile-drawer');
+    const drawerOverlay = select('#drawer-overlay');
+    const closeDrawerButton = select('#close-drawer');
     let lastFocused = null;
 
     function setDrawerOpen(open) {
@@ -104,7 +104,7 @@
 
   function initializeThemeAndVideo() {
     // Keep video playback aligned with theme visibility and motion preferences
-    const whoVideo = select('#whoVideo');
+    const whoVideo = select('#who-video');
     let whoVideoVisible = !('IntersectionObserver' in window);
     function syncWhoVideo(theme) {
       if (!whoVideo) return;
@@ -116,7 +116,7 @@
       if (playRequest && typeof playRequest.catch === 'function') playRequest.catch(() => {});
     }
 
-    const themeToggle = select('#themeToggle');
+    const themeToggle = select('#theme-toggle');
     if (themeToggle) {
       const applyTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -147,7 +147,7 @@
     }
 
     // Respect reduced motion even when autoplay is declared in the markup
-    const heroVideo = select('#heroVideo');
+    const heroVideo = select('#hero-video');
     if (heroVideo && prefersReducedMotion) {
       heroVideo.removeAttribute('autoplay');
       heroVideo.pause();
@@ -192,10 +192,10 @@
   }
 
   function initializeChat() {
-    const phoneChat = select('#phoneChat');
+    const phoneChat = select('#phone-chat');
     if (!phoneChat) return null;
-    const phoneInput = select('#phoneInput');
-    const phoneSend = select('#phoneSend');
+    const phoneInput = select('#phone-input');
+    const phoneSend = select('#phone-send');
     const chips = selectAll('.chip');
     const chatTopics = ['devices', 'veterinarian', 'farmer'];
 
@@ -282,14 +282,14 @@
     */
     const whatsappNumber = '51900000000';
 
-    const form = select('#demoForm');
+    const form = select('#demo-form');
     if (!form) return;
-    const modal = select('#demoModal');
-    const closeModalButton = select('#closeModal');
+    const modal = select('#demo-modal');
+    const closeModalButton = select('#close-modal');
 
-    function setError(id, message) {
-      const input = select(`#${id}`);
-      const errorElement = select(`#err-${id}`);
+    function setError(fieldName, message) {
+      const input = form.elements.namedItem(fieldName);
+      const errorElement = document.getElementById(`err-${input.id}`);
       input.classList.toggle('is-invalid', Boolean(message));
       input.setAttribute('aria-invalid', message ? 'true' : 'false');
       if (errorElement) {
@@ -313,9 +313,9 @@
         phoneNumber: isValidPhoneNumber(data.phoneNumber) ? '' : 'home.contact.form.validation.phoneInvalid',
         userType: data.userType ? '' : 'home.contact.form.validation.profileRequired',
       };
-      Object.entries(rules).forEach(([field, message]) => {
-        setError(field, message);
-        if (message && !firstInvalid) firstInvalid = select(`#${field}`);
+      Object.entries(rules).forEach(([fieldName, message]) => {
+        setError(fieldName, message);
+        if (message && !firstInvalid) firstInvalid = form.elements.namedItem(fieldName);
       });
       return firstInvalid;
     }
@@ -351,9 +351,9 @@
       chat?.reply('home.contact.chat.responses.formAcknowledgement', { name: data.firstName });
     });
 
-    ['firstName', 'lastName', 'email', 'phoneNumber', 'userType'].forEach((id) => {
-      const input = select(`#${id}`);
-      input.addEventListener('input', () => setError(id, ''));
+    ['firstName', 'lastName', 'email', 'phoneNumber', 'userType'].forEach((fieldName) => {
+      const input = form.elements.namedItem(fieldName);
+      input.addEventListener('input', () => setError(fieldName, ''));
     });
 
     const closeModal = () => setOverlayOpen(modal, false);

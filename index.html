@@ -62,7 +62,7 @@
 
     <!-- Hero video with a green overlay -->
     <section id="home" class="hero">
-      <video class="hero-bg hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/images/andes-cattle-hero-960.webp" aria-hidden="true" tabindex="-1">
+      <video class="hero-bg hero-video" id="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/andes-cattle-hero-960.webp" aria-hidden="true" tabindex="-1">
         <source src="assets/videos/running-cattle.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
@@ -132,7 +132,7 @@
       <div class="container who-grid">
         <figure class="who-photo reveal">
           <img src="assets/images/smart-collar.webp" width="1200" height="896" alt="ICHU smart collar for livestock monitoring" loading="lazy" decoding="async" data-i18n-alt="home.about.alternativeText">
-          <video class="who-photo-video" id="whoVideo" muted loop playsinline preload="none" poster="assets/images/smart-collar.webp" aria-hidden="true" tabindex="-1">
+          <video class="who-photo-video" id="who-video" muted loop playsinline preload="none" poster="assets/images/smart-collar.webp" aria-hidden="true" tabindex="-1">
             <source src="assets/videos/cow-collar.mp4" type="video/mp4">
           </video>
           <figcaption class="photo-chip" data-i18n="home.about.imageCaption">ICHU smart collar</figcaption>
@@ -555,17 +555,17 @@
         <div class="contact-grid">
 
           <div class="contact-card reveal">
-            <form id="demoForm" novalidate>
+            <form id="demo-form" novalidate>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="firstName" data-i18n="home.contact.form.fields.firstName.fieldLabel">First name *</label>
-                  <input type="text" id="firstName" name="firstName" placeholder="E.g. Carlos" required autocomplete="given-name" data-i18n-placeholder="home.contact.form.fields.firstName.placeholder">
-                  <span class="field-error" id="err-firstName"></span>
+                  <label for="first-name" data-i18n="home.contact.form.fields.firstName.fieldLabel">First name *</label>
+                  <input type="text" id="first-name" name="firstName" placeholder="E.g. Carlos" required autocomplete="given-name" data-i18n-placeholder="home.contact.form.fields.firstName.placeholder">
+                  <span class="field-error" id="err-first-name"></span>
                 </div>
                 <div class="form-group">
-                  <label for="lastName" data-i18n="home.contact.form.fields.lastName.fieldLabel">Last name *</label>
-                  <input type="text" id="lastName" name="lastName" placeholder="E.g. Quispe" required autocomplete="family-name" data-i18n-placeholder="home.contact.form.fields.lastName.placeholder">
-                  <span class="field-error" id="err-lastName"></span>
+                  <label for="last-name" data-i18n="home.contact.form.fields.lastName.fieldLabel">Last name *</label>
+                  <input type="text" id="last-name" name="lastName" placeholder="E.g. Quispe" required autocomplete="family-name" data-i18n-placeholder="home.contact.form.fields.lastName.placeholder">
+                  <span class="field-error" id="err-last-name"></span>
                 </div>
               </div>
               <div class="form-row">
@@ -575,21 +575,21 @@
                   <span class="field-error" id="err-email"></span>
                 </div>
                 <div class="form-group">
-                  <label for="phoneNumber" data-i18n="home.contact.form.fields.phone.fieldLabel">Phone / WhatsApp *</label>
-                  <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+51 987 654 321" required autocomplete="tel">
-                  <span class="field-error" id="err-phoneNumber"></span>
+                  <label for="phone-number" data-i18n="home.contact.form.fields.phone.fieldLabel">Phone / WhatsApp *</label>
+                  <input type="tel" id="phone-number" name="phoneNumber" placeholder="+51 987 654 321" required autocomplete="tel">
+                  <span class="field-error" id="err-phone-number"></span>
                 </div>
               </div>
               <div class="form-group">
-                <label for="userType" data-i18n="home.contact.form.fields.profile.fieldLabel">User type *</label>
-                <select id="userType" name="userType" required>
+                <label for="user-type" data-i18n="home.contact.form.fields.profile.fieldLabel">User type *</label>
+                <select id="user-type" name="userType" required>
                   <option value="" disabled selected data-i18n="home.contact.form.optionLabel">Select your main profile</option>
                   <option value="farmer" data-i18n="home.contact.form.profile.options.farmer">Rancher / Livestock producer</option>
                   <option value="veterinarian" data-i18n="home.contact.form.profile.options.veterinarian">Veterinarian / Animal scientist</option>
                   <option value="association" data-i18n="home.contact.form.profile.options.association">Association / Agrarian cooperative</option>
                   <option value="other" data-i18n="home.contact.form.profile.options.other">Other interested party</option>
                 </select>
-                <span class="field-error" id="err-userType"></span>
+                <span class="field-error" id="err-user-type"></span>
               </div>
               <div class="form-group">
                 <label for="message" data-i18n="home.contact.form.fields.message.fieldLabel">Message or inquiry (optional)</label>
@@ -613,7 +613,7 @@
                     <span class="phone-status" data-i18n="home.contact.text02">Online for demonstrations</span>
                   </div>
                 </div>
-                <div class="phone-chat" id="phoneChat">
+                <div class="phone-chat" id="phone-chat">
                   <div class="bubble in">
                     <p data-i18n="home.contact.description">Hello! Welcome to ICHU. Would you like to schedule a demonstration for your livestock or learn about the clinical history?</p>
                     <span class="bubble-time" data-locale-time="09:15">09:15 am</span>
@@ -633,8 +633,8 @@
                   <button type="button" class="chip" data-msg-key="home.contact.chat.suggestions.devices.message" data-topic="devices" data-i18n="home.contact.suggestionLabel03">IoT Sensors</button>
                 </div>
                 <div class="phone-inputbar">
-                  <input type="text" id="phoneInput" placeholder="Simulation — use the form for real contact" aria-label="Test message" data-i18n-aria-label="home.contact.accessibility.chatInput" data-i18n-placeholder="home.contact.placeholder">
-                  <button type="button" id="phoneSend" aria-label="Send test message" data-i18n-aria-label="home.contact.accessibility.sendChatMessage"><i data-lucide="send"></i></button>
+                  <input type="text" id="phone-input" placeholder="Simulation — use the form for real contact" aria-label="Test message" data-i18n-aria-label="home.contact.accessibility.chatInput" data-i18n-placeholder="home.contact.placeholder">
+                  <button type="button" id="phone-send" aria-label="Send test message" data-i18n-aria-label="home.contact.accessibility.sendChatMessage"><i data-lucide="send"></i></button>
                 </div>
               </div>
             </div>
@@ -668,12 +668,12 @@
   <div data-include="partials/_footer.html"></div>
 
   <!-- Confirmation dialog -->
-  <div class="modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle" aria-hidden="true">
+  <div class="modal-overlay" id="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-hidden="true">
     <div class="modal-card">
       <span class="modal-icon"><i data-lucide="circle-check"></i></span>
-      <h3 id="demoModalTitle" data-i18n="home.contact.submission.title">Your request is ready to send!</h3>
+      <h3 id="demo-modal-title" data-i18n="home.contact.submission.title">Your request is ready to send!</h3>
       <p data-i18n="home.contact.submission.description">Thank you for your interest in ICHU. WhatsApp opened with your request; if it did not open automatically, write to us directly from the top bar.</p>
-      <button class="btn btn-gold" id="closeModal"><span data-i18n="home.contact.submission.actionLabel">Got it, thank you</span></button>
+      <button class="btn btn-gold" id="close-modal"><span data-i18n="home.contact.submission.actionLabel">Got it, thank you</span></button>
     </div>
   </div>
 

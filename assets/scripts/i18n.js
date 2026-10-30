@@ -216,7 +216,7 @@ window.ICHU_I18N_READY = (async () => {
   }
 
   function updateLanguageButton() {
-    const button = document.getElementById('langToggle');
+    const button = document.getElementById('lang-toggle');
     if (!button) return;
     button.querySelector('.lang-code').textContent = language.toUpperCase();
     button.setAttribute('aria-label', translate(language === 'en'
@@ -275,7 +275,7 @@ window.ICHU_I18N_READY = (async () => {
     },
   };
 
-  document.getElementById('langToggle')?.addEventListener('click', () => {
+  document.getElementById('lang-toggle')?.addEventListener('click', () => {
     void applyLanguage(language === 'en' ? 'es' : 'en');
   });
 

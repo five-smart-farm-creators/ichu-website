@@ -1406,7 +1406,7 @@ p { color: var(--ink-500); }
 }
 .field-error { min-height: 1em; font-size: 0.75rem; font-weight: 600; color: #b3322f; }
 
-#demoForm .btn-block { margin-top: 0.5rem; }
+#demo-form .btn-block { margin-top: 0.5rem; }
 .form-hint {
   margin-top: 0.9rem;
   font-size: 0.78rem;
