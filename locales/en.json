@@ -505,11 +505,6 @@
     "notFound": {
       "pageTitle": "Page not found — ICHU",
       "skipLink": "Skip to content",
-      "siteNavigation": {
-        "supportingText": "Technology for smart livestock farming",
-        "accessibleName": "ICHU - Home",
-        "alternativeText": "ICHU logo"
-      },
       "content": {
         "eyebrow": "Page not found",
         "heading": "We couldn't find this page.",
@@ -517,12 +512,6 @@
         "actionLabel": "Back to home",
         "linkLabel": "Contact the team",
         "alternativeText": "Cattle in an Andean pasture"
-      },
-      "pageFooter": {
-        "description": "Technology for smart livestock farming · Peru",
-        "linkLabel": "How it works",
-        "linkLabel02": "Web & Media",
-        "accessibleName": "Useful links"
       },
       "metadata": {
         "description": "The page you requested could not be found. Return to ICHU or explore how our livestock platform works."

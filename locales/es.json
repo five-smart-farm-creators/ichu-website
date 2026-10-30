@@ -505,11 +505,6 @@
     "notFound": {
       "pageTitle": "Página no encontrada — ICHU",
       "skipLink": "Saltar al contenido",
-      "siteNavigation": {
-        "supportingText": "Tecnología para la ganadería inteligente",
-        "accessibleName": "ICHU - Inicio",
-        "alternativeText": "Logotipo ICHU"
-      },
       "content": {
         "eyebrow": "Página no encontrada",
         "heading": "No encontramos esta página.",
@@ -517,12 +512,6 @@
         "actionLabel": "Volver al inicio",
         "linkLabel": "Contactar al equipo",
         "alternativeText": "Ganado en un pastizal andino"
-      },
-      "pageFooter": {
-        "description": "Tecnología para la ganadería inteligente · Perú",
-        "linkLabel": "Cómo funciona",
-        "linkLabel02": "Web y Media",
-        "accessibleName": "Enlaces útiles"
       },
       "metadata": {
         "description": "No encontramos la página que solicitaste. Vuelve a ICHU o descubre cómo funciona nuestra plataforma ganadera."
