@@ -25,6 +25,7 @@ ichu-website/
 ├── assets/
 │   ├── scripts/
 │   ├── styles/
+│   │   └── style.css
 │   ├── images/
 │   └── videos/
 ├── partials/
@@ -67,10 +68,12 @@ Before publishing, fetch and merge the latest base branch. Resolve conflicts whi
 Keep changes clean, readable, and consistent with existing project patterns.
 
 - Look for existing JavaScript helpers, components, CSS classes, and design tokens before adding new ones. Extend or reuse them when they fit.
+- Keep all CSS in `assets/styles/style.css`. Reuse the shared header and footer from `partials/` on every page, including the 404 page.
+- Use descriptive camelCase names for local JavaScript variables, configuration values, parameters, and functions. Keep each feature in a focused initializer and preserve established public script contracts.
 - Avoid duplicate logic, markup, or styles; unused code; unnecessary dependencies; and layers of CSS overrides.
 - Keep functions focused and CSS rules organized. Optimize when there is a clear need, while keeping the solution straightforward to maintain.
 - Keep translations in `locales/en.json` and `locales/es.json` with nested semantic camelCase keys and matching key trees and placeholders. Preserve English as the default, Spanish support, and the saved language preference; format dates and numbers with `Intl`.
-- Write source code and comments in English; Spanish text belongs in `locales/es.json`. Use `//` and `/* ... */` for JavaScript comments, add HTML comments only when useful, and do not add CSS comments.
+- Write source code and comments in English; Spanish text belongs in `locales/es.json`. Use `//` for single line JavaScript comments and `/* ... */` for comments spanning multiple lines. Explain nonobvious decisions, add HTML comments only when useful, and do not add CSS comments.
 - Preserve the existing visual system, responsive behavior, themes, and language selector. Use semantic accessible markup, safe text APIs for user input, and validate form data.
 
 ## Commits and pull requests

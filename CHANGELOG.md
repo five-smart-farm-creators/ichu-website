@@ -14,6 +14,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 
 ### Changed
 
+- The 404 page reuses the shared navigation, footer, controls, and stylesheet.
+- Page interactions use feature initializers and shared animation, overlay, and chat helpers.
+- Shared fragment links resolve from the site root on nested recovery routes.
 - English is the default language, with Spanish available through the language selector.
 - Translation resources use nested semantic keys in the root `locales/` directory.
 - Displayed times and numbers follow the selected locale.

@@ -31,7 +31,7 @@ Built with HTML, CSS, and vanilla JavaScript. No package installation or build s
 | Path | Content |
 | --- | --- |
 | `*.html` | Home, walkthrough, media, and 404 pages |
-| `assets/` | Styles, scripts, images, and videos |
+| `assets/` | Shared `styles/style.css`, scripts, images, and videos |
 | `partials/` | Shared header and footer |
 | `locales/` | English and Spanish translations |
 
