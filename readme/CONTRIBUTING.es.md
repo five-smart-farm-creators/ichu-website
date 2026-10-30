@@ -79,7 +79,7 @@ Por ejemplo, `fix(navigation): close the mobile menu`. Agrupa los archivos de un
 
 ## Antes de solicitar revisión
 
-- Respeta la estructura del proyecto, el estilo del código y las convenciones de comentarios existentes.
+- Sigue las reglas de estructura, idioma y comentarios de [AGENTS.md](../AGENTS.md).
 - Visualiza las páginas afectadas mediante HTTP. Revisa los enlaces, imágenes, errores del navegador, vistas móviles y de escritorio, ambos temas e idiomas y el uso del teclado que correspondan al cambio.
 - Ejecuta `git diff --check` e inspecciona los cambios preparados. Indica en el PR las verificaciones y sus limitaciones; actualmente no hay una suite de pruebas automatizadas configurada.
 - Actualiza ambos idiomas cuando cambies estas guías. Da comentarios respetuosos y concretos.

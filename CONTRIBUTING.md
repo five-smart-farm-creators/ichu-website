@@ -79,7 +79,7 @@ For example, `fix(navigation): close the mobile menu`. Group files for one logic
 
 ## Before requesting review
 
-- Match the existing project structure, code style, and comment conventions.
+- Follow the structure, language, and comment rules in [AGENTS.md](AGENTS.md).
 - Preview affected pages through HTTP. Check relevant links, images, browser errors, mobile and desktop layouts, both themes and languages, and keyboard navigation.
 - Run `git diff --check` and inspect the staged diff. Document checks and limitations in the PR; no automated test suite is currently configured.
 - Update both documentation languages when changing these guides. Give respectful, specific feedback.

@@ -2,7 +2,7 @@
 
 [English](../README.md) · **Español**
 
-[Contribuir](CONTRIBUTING.es.md)
+[Contribuir](CONTRIBUTING.es.md) · [Guía para agentes](../AGENTS.md)
 
 Sitio web público de ICHU, una plataforma peruana de tecnología ganadera. Presenta el producto a ganaderos y veterinarios y permite preparar una solicitud de demostración por WhatsApp.
 

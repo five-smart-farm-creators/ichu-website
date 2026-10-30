@@ -2,7 +2,7 @@
 
 **English** · [Español](readme/README.es.md)
 
-[Contributing](CONTRIBUTING.md)
+[Contributing](CONTRIBUTING.md) · [Agent guidelines](AGENTS.md)
 
 The public website for ICHU, a Peruvian livestock technology platform. It introduces the product to farmers and veterinarians and lets visitors prepare a demonstration request through WhatsApp.
 
