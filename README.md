@@ -9,6 +9,7 @@ Static website for ICHU, a Peruvian livestock technology platform. Built with se
 ├── index.html                 # Home page
 ├── media.html                 # Media page
 ├── how-it-works.html          # Product walkthrough
+├── 404.html                   # Page not found
 ├── assets/
 │   ├── images/                # Images and brand assets
 │   ├── scripts/               # Shared fragments language and interactions
@@ -34,6 +35,7 @@ Static website for ICHU, a Peruvian livestock technology platform. Built with se
 | `index.html` | ICHU home page and product sections |
 | `media.html` | Platform walkthroughs and field stories |
 | `how-it-works.html` | Record, monitor, and decide |
+| `404.html` | Error recovery with links to working pages |
 
 Pages remain at the site root so static hosting can serve `index.html` directly. The shared header and footer are stored in `partials/` and loaded with `fetch` by `assets/scripts/partials.js`.
 
@@ -49,6 +51,8 @@ Pages remain at the site root so static hosting can serve `index.html` directly.
 ## Deployment
 
 Publish this folder as the root of the static website. The published directory must contain `index.html`, `assets/`, `partials/`, and `public/` at the same level. Locale files are loaded from `public/locales/`, resolved from the language controller URL so nested error paths do not change the resource location. This project has no build step that copies the contents of `public/` to the site root.
+
+Configure the hosting service to serve `404.html` for unknown page URLs with an HTTP status of 404. The error page uses paths relative to the origin root, so its images and recovery links remain valid at nested unknown URLs. If the website is hosted under a subdirectory, update those root paths to include its deployment prefix. Directly opening `/404.html` previews the design but does not verify the status returned for a missing page.
 
 ## Internationalization
 
