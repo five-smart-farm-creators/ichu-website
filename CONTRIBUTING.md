@@ -1,92 +1,90 @@
 # Contributing to ICHU Website
 
-We welcome bug fixes, accessibility improvements, and documentation corrections. Keep contributions focused and discuss new features or large changes in an [issue](https://github.com/five-smart-farm-creators/ichu-website/issues) first. Follow the [README](README.md#run-locally) for local preview.
+Thanks for your interest in improving ICHU. We welcome focused fixes, accessibility improvements, and documentation updates. Discuss larger changes in an [issue](https://github.com/five-smart-farm-creators/ichu-website/issues) first.
 
-## Branches
+## Skills
 
-We use Gitflow for planned releases. `main` holds published releases; `develop` integrates the next release. Work on temporary branches and integrate through pull requests (PRs).
+Choose work that fits your experience. Useful skills for this project include:
 
-| Branch | Start from | Merge into |
-| --- | --- | --- |
-| `feature/<description>` — new functionality | `develop` | `develop` |
-| `fix/<description>` — routine fixes | `develop` | `develop` |
-| `docs/<description>` — documentation | `develop` | `develop` |
-| `refactor/<description>` — internal restructuring | `develop` | `develop` |
-| `chore/<description>` — maintenance | `develop` | `develop` |
-| `release/<version>` — release preparation | `develop` | `main` and `develop` |
-| `hotfix/<description>` — urgent production fix | `main` | `main` and `develop` |
+- Semantic HTML and accessible navigation, forms, and page structure.
+- Responsive CSS and extending an existing visual system.
+- Vanilla JavaScript, browser APIs, DOM events, asynchronous requests, and safe form handling.
+- Git and GitHub branches, commits, pull requests, and code review.
+- Basic JSON and localization concepts for work involving translated content.
 
-Use short English names in lowercase with hyphens, such as `fix/mobile-menu`.
+This is a static website. No framework, package installation, or build step is required. Use the [README](README.md#run-locally) to preview it locally.
 
-## Commit format
-
-Use English [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):
+## Project structure
 
 ```text
-type(scope): description
+ichu-website/
+├── index.html
+├── how-it-works.html
+├── media.html
+├── 404.html
+├── assets/
+│   ├── scripts/
+│   ├── styles/
+│   ├── images/
+│   └── videos/
+├── partials/
+│   ├── _header.html
+│   └── _footer.html
+├── locales/
+│   ├── en.json
+│   └── es.json
+├── README.md
+├── CONTRIBUTING.md
+├── CHANGELOG.md
+└── LICENSE.md
 ```
 
-For example, `fix(navigation): close the mobile menu`. Group files for one logical change in each commit. Separate unrelated changes.
+Keep HTML pages at the repository root. Put scripts in `assets/scripts/`, styles in `assets/styles/`, images in `assets/images/`, videos in `assets/videos/`, shared fragments in `partials/`, and translations in `locales/en.json` and `locales/es.json`. Do not create directories unless the user explicitly asks for them.
 
-## Everyday workflow
+## Gitflow workflow
 
-1. Save existing work, update `develop`, and create a branch:
+`main` contains published releases, while `develop` integrates planned work. Start routine changes from an updated `develop` branch and use a short, lowercase English branch name with hyphens. Do not commit directly to `main` or `develop`, or force-push shared branches.
 
-   ```sh
-   git status
-   git fetch origin --prune
-   git switch develop
-   git pull --ff-only origin develop
-   git switch -c feature/improve-navigation
-   ```
+| Branch | Start from | Pull request target |
+| --- | --- | --- |
+| `feature/`, `fix/`, `docs/`, `refactor/`, `chore/` | `develop` | `develop` |
+| `release/<version>` | `develop` | `main` and `develop` |
+| `hotfix/<description>` | `main` | `main` and `develop` |
 
-2. Make and check a logical change, then stage its files and commit:
+For example, create a feature branch with:
 
-   ```sh
-   git diff
-   git add assets/scripts/main.js partials/_header.html
-   git diff --cached
-   git diff --cached --check
-   git commit -m "feat(navigation): add a help link"
-   ```
+```sh
+git fetch origin --prune
+git switch develop
+git pull --ff-only origin develop
+git switch -c feature/improve-navigation
+```
 
-   Adapt the paths and message to your change.
+Before publishing, fetch and merge the latest base branch. Resolve conflicts while preserving both sides' intended changes.
 
-3. With your work committed, incorporate teammates' changes, check the result, and publish:
+## Code quality and reuse
 
-   ```sh
-   git fetch origin
-   git merge origin/develop
-   git push -u origin feature/improve-navigation
-   ```
+Keep changes clean, readable, and consistent with existing project patterns.
 
-   For conflicts, preserve the intended changes from both sides, stage the resolved files, and run `git commit`. Coordinate with the author when unsure. Use `git merge --abort` to cancel an unfinished merge. If any command fails, resolve the problem before continuing; do not force push shared history.
+- Look for existing JavaScript helpers, components, CSS classes, and design tokens before adding new ones. Extend or reuse them when they fit.
+- Avoid duplicate logic, markup, or styles; unused code; unnecessary dependencies; and layers of CSS overrides.
+- Keep functions focused and CSS rules organized. Optimize when there is a clear need, while keeping the solution straightforward to maintain.
+- Keep translations in `locales/en.json` and `locales/es.json` with nested semantic camelCase keys and matching key trees and placeholders. Preserve English as the default, Spanish support, and the saved language preference; format dates and numbers with `Intl`.
+- Write source code and comments in English; Spanish text belongs in `locales/es.json`. Use `//` and `/* ... */` for JavaScript comments, add HTML comments only when useful, and do not add CSS comments.
+- Preserve the existing visual system, responsive behavior, themes, and language selector. Use semantic accessible markup, safe text APIs for user input, and validate form data.
 
-4. Open a PR with **base: `develop`** and **compare: your branch**. Explain the change, link the issue if applicable, list actual checks, and attach screenshots for visual changes. Get a teammate's review, resolve feedback, and use **Create a merge commit** to preserve individual commits.
+## Commits and pull requests
 
-5. After merging, delete the completed branch on GitHub, then clean up locally:
+Use English [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and keep each commit focused on one logical change.
 
-   ```sh
-   git switch develop
-   git pull --ff-only origin develop
-   git branch -d feature/improve-navigation
-   git fetch origin --prune
-   ```
+```text
+type(scope): short description
+```
 
-   Keep `main`, `develop`, and branches still in use.
+For example: `fix(navigation): close the mobile menu`.
 
-## Before requesting review
+Before opening a pull request, review the staged diff and run `git diff --check`. Preview affected pages over HTTP and check relevant screen sizes, themes, languages, keyboard use, and browser errors. For visual changes, include screenshots. Open the PR against the target shown above, describe the change and checks performed, and request a teammate's review. Merge with a merge commit and delete the completed branch after integration.
 
-- Follow the structure, language, and comment rules in [AGENTS.md](AGENTS.md).
-- Record notable changes under `Unreleased` in [CHANGELOG.md](CHANGELOG.md). When publishing a release, assign its version and release date in `YYYY-MM-DD` format.
-- Preview affected pages through HTTP. Check relevant links, images, browser errors, mobile and desktop layouts, both themes and languages, and keyboard navigation.
-- Run `git diff --check` and inspect the staged diff. Document checks and limitations in the PR; no automated test suite is currently configured.
-- Keep these guides consistent with the project structure and workflow. Give respectful, specific feedback.
+For release branches, merge the reviewed release into `main` and back into `develop`, then tag the released commit. Merge hotfixes into both `main` and `develop`, and include them in any active release branch.
 
-## Releases and hotfixes
-
-A maintainer creates `release/<version>` from updated `develop` and limits changes to stabilization. After validation and review, merge PRs into `main` and back into `develop`, tag the released commit on `main`, and delete the release branch after both integrations.
-
-For an urgent published defect, create `hotfix/<description>` from updated `main`. Review and merge it into both `main` and `develop`, include it in any active release branch, and tag the corrected release. Delete the branch after integration.
-
-Further reading: [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/) and [GitHub contribution guidance](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
+Update [CHANGELOG.md](CHANGELOG.md) under `Unreleased` when a change is notable. Follow [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/) and [GitHub's contributor guidance](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
