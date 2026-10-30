@@ -1,6 +1,4 @@
-/* ICHU visual styles with forest green gold and cream colors */
 
-/* Design tokens */
 :root {
   --forest-950: #081712;
   --forest-900: #0c231a;
@@ -47,7 +45,6 @@
   --transition: all 0.28s ease;
 }
 
-/* Reset and base styles */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -91,7 +88,6 @@ button { font-family: inherit; }
 }
 .skip-link:focus { top: 0; }
 
-/* Typography */
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
   color: var(--ink-900);
@@ -115,7 +111,6 @@ p { color: var(--ink-500); }
   padding: 0 1.5rem;
 }
 
-/* Section heading and accent rule */
 .section-head {
   display: flex;
   flex-direction: column;
@@ -154,7 +149,6 @@ p { color: var(--ink-500); }
   max-width: 720px;
 }
 
-/* Decorative Andean leaf */
 .frond {
   position: absolute;
   width: clamp(180px, 22vw, 320px);
@@ -168,7 +162,6 @@ p { color: var(--ink-500); }
 .frond-bl { bottom: -2.5rem; left: -3.5rem; transform: rotate(102deg); }
 .frond-br { bottom: -2.5rem; right: -3.5rem; transform: rotate(-102deg) scaleX(-1); }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -209,7 +202,6 @@ p { color: var(--ink-500); }
 .btn-lg { padding: 1.05rem 2.2rem; font-size: 1rem; }
 .btn-block { width: 100%; }
 
-/* Utility bar and header */
 .utility-bar {
   background: var(--forest-950);
   color: var(--cream-faint);
@@ -242,7 +234,6 @@ p { color: var(--ink-500); }
 }
 .site-top.scrolled { transform: translateY(-40px); }
 
-/* Solid header on secondary pages */
 .site-top.solid .site-header {
   background: var(--forest-800);
   border-bottom-color: var(--line-light);
@@ -305,7 +296,6 @@ p { color: var(--ink-500); }
 .nav-item:hover .nav-sub,
 .nav-item.is-active .nav-sub { color: rgba(228, 184, 66, 0.8); }
 
-/* Header submenus */
 .nav-dropdown { position: relative; }
 .nav-drop-toggle {
   display: flex;
@@ -377,7 +367,6 @@ p { color: var(--ink-500); }
 .nav-drop-menu a:hover small,
 .nav-drop-menu a:focus-visible small { color: rgba(228, 184, 66, 0.8); }
 
-/* Language selector */
 .lang-toggle {
   display: inline-flex;
   align-items: center;
@@ -403,7 +392,6 @@ p { color: var(--ink-500); }
 .lang-toggle svg { width: 14px; height: 14px; color: var(--gold-500); }
 .lang-toggle:focus-visible { outline: 2px solid var(--gold-500); outline-offset: 2px; }
 
-/* Theme toggle */
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -448,7 +436,6 @@ p { color: var(--ink-500); }
   border-radius: 2px;
 }
 
-/* Mobile navigation drawer */
 .drawer-overlay {
   position: fixed;
   inset: 0;
@@ -515,7 +502,6 @@ p { color: var(--ink-500); }
 }
 .drawer-link:hover { color: var(--gold-500); padding-left: 0.4rem; }
 
-/* Hero section */
 .hero {
   position: relative;
   isolation: isolate;
@@ -610,7 +596,6 @@ p { color: var(--ink-500); }
   50% { transform: translate(-50%, 8px); }
 }
 
-/* Statistics band */
 .stats-band {
   position: relative;
   isolation: isolate;
@@ -658,7 +643,6 @@ p { color: var(--ink-500); }
   line-height: 1.55;
 }
 
-/* Company introduction */
 .who-section {
   position: relative;
   background: var(--paper);
@@ -704,7 +688,6 @@ p { color: var(--ink-500); }
   width: 100%;
   height: auto;
 }
-/* Show the collar video in night mode */
 .who-photo-video {
   display: none;
   width: 100%;
@@ -754,7 +737,6 @@ p { color: var(--ink-500); }
   color: var(--forest-950);
 }
 
-/* Media section */
 .media-section {
   position: relative;
   background: var(--cream-50);
@@ -819,7 +801,6 @@ p { color: var(--ink-500); }
 
 
 
-/* Field challenges */
 .problem-section {
   position: relative;
   background: var(--cream-100);
@@ -885,7 +866,6 @@ p { color: var(--ink-500); }
 .problem-card h3 { max-width: 300px; font-size: 1.22rem; margin-bottom: 0.6rem; }
 .problem-card p { font-size: 0.9rem; line-height: 1.6; }
 
-/* Product value flow */
 .flow-section { background: var(--paper); padding: 6.5rem 0; }
 
 .flow-steps {
@@ -933,7 +913,6 @@ p { color: var(--ink-500); }
 }
 .quote-sub { margin-top: 0.8rem; font-size: 0.94rem; font-style: italic; font-weight: 300; color: var(--ink-500); }
 
-/* Farmer and veterinarian sections */
 .dual-section { background: var(--cream-100); padding: 1rem 0; }
 
 .split-row {
@@ -1057,7 +1036,6 @@ p { color: var(--ink-500); }
 .tablet-log:last-child { border-bottom: 0; padding-bottom: 0; }
 .tablet-log span:last-child { color: var(--ink-500); white-space: nowrap; }
 
-/* Veterinary tablet preview */
 .tablet-vet .tablet-screen { background: #12291e; }
 .tablet-vet .tablet-head h3 { color: var(--cream-text); }
 .tablet-vet .tablet-sub { color: var(--cream-faint); }
@@ -1088,7 +1066,6 @@ p { color: var(--ink-500); }
 .tablet-chart svg { width: 100%; height: 40px; }
 .tablet-chart circle { fill: var(--gold-500); }
 
-/* Animal lifecycle timeline */
 .story-section { background: var(--paper); padding: 6.5rem 0; }
 
 .story-intro {
@@ -1149,7 +1126,6 @@ p { color: var(--ink-500); }
 .timeline-step h3 { font-size: 1.02rem; margin-bottom: 0.4rem; }
 .timeline-step p { font-size: 0.8rem; line-height: 1.5; }
 
-/* Technology section */
 .tech-section {
   position: relative;
   background: var(--forest-700);
@@ -1175,7 +1151,6 @@ p { color: var(--ink-500); }
 .tech-card h3 { color: var(--cream-text); font-size: 1.45rem; margin-bottom: 0.8rem; }
 .tech-card p { color: rgba(244, 241, 228, 0.72); font-size: 0.93rem; line-height: 1.65; }
 
-/* Product walkthrough steps */
 .how-block {
   position: relative;
   z-index: 1;
@@ -1259,7 +1234,6 @@ p { color: var(--ink-500); }
 .demo-text { color: var(--cream-dim); font-size: 0.93rem; line-height: 1.65; max-width: 460px; }
 .demo-pending .btn { margin-top: 0.4rem; }
 
-/* Product walkthrough page */
 .how-page {
   position: relative;
   background: var(--forest-700);
@@ -1286,7 +1260,6 @@ p { color: var(--ink-500); }
 .back-link svg { width: 15px; height: 15px; }
 
 
-/* Alerts */
 .alerts-section { background: var(--cream-200); padding: 6.5rem 0; }
 
 .alerts-grid {
@@ -1316,7 +1289,6 @@ p { color: var(--ink-500); }
 .disclaimer p { font-size: 0.9rem; line-height: 1.6; color: var(--ink-500); }
 .disclaimer strong { color: var(--forest-700); }
 
-/* Farm map */
 .map-section { background: var(--paper); padding: 6.5rem 0; }
 
 .map-card {
@@ -1348,7 +1320,6 @@ p { color: var(--ink-500); }
 .map-feature strong { display: block; color: var(--cream-text); font-size: 0.92rem; }
 .map-feature p { margin-top: 0.15rem; color: var(--cream-faint); font-size: 0.78rem; }
 
-/* Institutional references */
 .trust-section { background: var(--cream-100); padding: 6.5rem 0; }
 
 .trust-grid {
@@ -1381,7 +1352,6 @@ p { color: var(--ink-500); }
 .trust-link svg { width: 14px; height: 14px; }
 .trust-link:hover { color: var(--gold-700); }
 
-/* Contact section */
 .contact-section {
   position: relative;
   background: var(--forest-800);
@@ -1483,7 +1453,6 @@ p { color: var(--ink-500); }
   color: var(--ink-500);
 }
 
-/* Simulated phone */
 .phone-col { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
 .phone {
   width: min(100%, 340px);
@@ -1622,7 +1591,6 @@ p { color: var(--ink-500); }
   color: var(--cream-faint);
 }
 
-/* Final call to action */
 .final-cta {
   position: relative;
   padding: 7rem 0;
@@ -1635,7 +1603,6 @@ p { color: var(--ink-500); }
 .final-cta .frond { color: var(--cream-text); opacity: 0.07; }
 .final-cta .container { position: relative; z-index: 2; }
 
-/* Hero video and final background image */
 .hero-video {
   width: 100%;
   height: 100%;
@@ -1664,7 +1631,6 @@ p { color: var(--ink-500); }
   color: var(--cream-dim);
 }
 
-/* Footer */
 .site-footer {
   background: var(--forest-950);
   color: var(--cream-dim);
@@ -1704,7 +1670,6 @@ p { color: var(--ink-500); }
   color: rgba(244, 241, 228, 0.4);
 }
 
-/* Footer social links */
 .footer-social { display: flex; gap: 0.6rem; }
 .social-btn {
   display: inline-flex;
@@ -1729,7 +1694,6 @@ p { color: var(--ink-500); }
 .brand-logo { width: 16px; height: 16px; }
 .x-logo { width: 15px; height: 15px; }
 
-/* Confirmation dialog */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1768,11 +1732,9 @@ p { color: var(--ink-500); }
 .modal-card h3 { font-size: 1.4rem; margin-bottom: 0.7rem; }
 .modal-card p { margin-bottom: 1.8rem; font-size: 0.95rem; line-height: 1.6; color: var(--ink-500); }
 
-/* Reveal animation */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
-/* Night theme token overrides */
 html[data-theme='night'] {
   --forest-950: #050806;
   --forest-900: #0a0f0b;
@@ -1792,13 +1754,11 @@ html[data-theme='night'] {
 
 html[data-theme='night'] { color-scheme: dark; }
 
-/* Night theme icon and video states */
 html[data-theme='night'] .theme-ic-sun { display: inline-flex; }
 html[data-theme='night'] .theme-ic-moon { display: none; }
 html[data-theme='night'] .who-photo img { display: none; }
 html[data-theme='night'] .who-photo-video { display: block; }
 
-/* Theme transitions */
 body,
 .who-section,
 .problem-section,
@@ -1819,7 +1779,6 @@ body,
   transition: background-color 0.35s ease, color 0.35s ease;
 }
 
-/* Dark backgrounds for form controls */
 html[data-theme='night'] .form-group input,
 html[data-theme='night'] .form-group select,
 html[data-theme='night'] .form-group textarea {
@@ -1827,7 +1786,6 @@ html[data-theme='night'] .form-group textarea {
   border-color: rgba(244, 241, 228, 0.2);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
-/* Labels and headings on dark backgrounds */
 html[data-theme='night'] .form-group label,
 html[data-theme='night'] .tablet-head h3,
 html[data-theme='night'] .tablet-stats strong,
@@ -1835,7 +1793,6 @@ html[data-theme='night'] .trust-name { color: var(--ink-900); }
 html[data-theme='night'] .disclaimer strong { color: var(--gold-500); }
 html[data-theme='night'] .ok { color: #46d68d !important; }
 
-/* Value flow icons */
 html[data-theme='night'] .flow-icon {
   background: rgba(244, 241, 228, 0.07);
   border-color: rgba(244, 241, 228, 0.18);
@@ -1877,7 +1834,6 @@ html[data-theme='night'] .phone-inputbar input {
   color: var(--ink-900);
 }
 
-/* Light borders on dark backgrounds */
 html[data-theme='night'] .timeline,
 html[data-theme='night'] .alerts-grid { border-color: rgba(244, 241, 228, 0.16); }
 html[data-theme='night'] .timeline-step,
@@ -1887,7 +1843,6 @@ html[data-theme='night'] .trust-card {
   border-color: rgba(244, 241, 228, 0.14);
 }
 
-/* Links in dark sections */
 html[data-theme='night'] .media-link {
   border-color: rgba(228, 184, 66, 0.55);
   color: var(--gold-500);
@@ -1897,7 +1852,6 @@ html[data-theme='night'] .media-link:hover {
   color: var(--gold-500);
 }
 
-/* Responsive layouts */
 @media (max-width: 1200px) {
   .main-nav { display: none; }
   .menu-toggle { display: flex; }
@@ -2011,7 +1965,6 @@ html[data-theme='night'] .media-link:hover {
   .lang-toggle { padding: 0.4rem 0.7rem; }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
