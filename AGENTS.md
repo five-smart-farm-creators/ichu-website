@@ -49,6 +49,7 @@ ichu-website/
 ## Interface and safety
 
 - Preserve the existing forest green, cream, and mustard design, responsive layout, themes, and language preferences.
+- Reuse existing design tokens and visual patterns for colors, typography, buttons, tables, forms, spacing, borders, and interaction states. Build new components from the existing system; do not introduce new palettes, fonts, or styles when an established pattern fits.
 - Use semantic headings, associated form labels, descriptive image alternatives, visible keyboard focus, and reduced motion support.
 - Render user input with `textContent` or equivalent safe text APIs. Validate inputs and handle failed resource loads without inventing successful outcomes.
 - Keep secrets out of browser code. Preserve asset references and check file size when adding media.
