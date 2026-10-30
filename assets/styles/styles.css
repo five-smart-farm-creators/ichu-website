@@ -97,7 +97,7 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 
-h2 { font-size: clamp(2.2rem, 4.2vw, 3.9rem); }
+h2, .section-head h1 { font-size: clamp(2.2rem, 4.2vw, 3.9rem); }
 
 p { color: var(--ink-500); }
 
@@ -119,7 +119,7 @@ p { color: var(--ink-500); }
   margin-bottom: 3.5rem;
 }
 .section-head.center { align-items: center; text-align: center; }
-.section-head h2 { max-width: 860px; }
+.section-head h1, .section-head h2 { max-width: 860px; }
 .section-head .rule { margin: 0.2rem 0 0.3rem; }
 
 .rule {
@@ -1165,7 +1165,7 @@ p { color: var(--ink-500); }
   gap: 0.8rem;
   margin-bottom: 2rem;
 }
-.how-head h3 {
+.how-head h1 {
   color: var(--cream-text);
   font-size: clamp(1.5rem, 2.4vw, 2rem);
 }
@@ -1243,7 +1243,7 @@ p { color: var(--ink-500); }
 }
 .how-page .frond { color: var(--cream-text); opacity: 0.06; }
 .how-page .how-head { margin-bottom: 2.6rem; }
-.how-page .how-head h3 { font-size: clamp(2rem, 4vw, 2.9rem); }
+.how-page .how-head h1 { font-size: clamp(2rem, 4vw, 2.9rem); }
 .how-page .how-steps { margin-bottom: 3rem; }
 .back-link {
   display: inline-flex;
