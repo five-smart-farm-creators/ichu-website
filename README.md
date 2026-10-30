@@ -2,6 +2,8 @@
 
 **English** · [Español](readme/README.es.md)
 
+[Contributing](CONTRIBUTING.md)
+
 The public website for ICHU, a Peruvian livestock technology platform. It introduces the product to farmers and veterinarians and lets visitors prepare a demonstration request through WhatsApp.
 
 ![ICHU website home page](readme/website-preview.png)
@@ -42,6 +44,6 @@ The contact form prepares a WhatsApp message; it does not store requests. Config
 
 ## Contributing
 
-Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
+Follow [CONTRIBUTING.md](CONTRIBUTING.md) for Gitflow and contribution steps. Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
 
 Maintained by [Five Smart Farm Creators](https://github.com/five-smart-farm-creators). A project license has not yet been specified.

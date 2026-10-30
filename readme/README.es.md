@@ -2,6 +2,8 @@
 
 [English](../README.md) · **Español**
 
+[Contribuir](CONTRIBUTING.es.md)
+
 Sitio web público de ICHU, una plataforma peruana de tecnología ganadera. Presenta el producto a ganaderos y veterinarios y permite preparar una solicitud de demostración por WhatsApp.
 
 ![Página de inicio del sitio web de ICHU](website-preview.png)
@@ -42,6 +44,6 @@ El formulario prepara un mensaje de WhatsApp; no almacena solicitudes. Configura
 
 ## Contribuir
 
-Reporta problemas o conversa sobre cambios grandes en [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
+Consulta [CONTRIBUTING.es.md](CONTRIBUTING.es.md) para seguir Gitflow y los pasos de contribución. Reporta problemas o conversa sobre cambios grandes en [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
 
 Mantenido por [Five Smart Farm Creators](https://github.com/five-smart-farm-creators). Aún no se ha especificado una licencia para el proyecto.
