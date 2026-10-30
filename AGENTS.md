@@ -21,6 +21,8 @@ ichu-website/
 ├── locales/
 ├── README.md
 ├── CONTRIBUTING.md
+├── CHANGELOG.md
+├── LICENSE.md
 └── AGENTS.md
 ```
 

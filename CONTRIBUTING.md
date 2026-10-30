@@ -78,6 +78,7 @@ For example, `fix(navigation): close the mobile menu`. Group files for one logic
 ## Before requesting review
 
 - Follow the structure, language, and comment rules in [AGENTS.md](AGENTS.md).
+- Record notable changes under `Unreleased` in [CHANGELOG.md](CHANGELOG.md). When publishing a release, assign its version and release date in `YYYY-MM-DD` format.
 - Preview affected pages through HTTP. Check relevant links, images, browser errors, mobile and desktop layouts, both themes and languages, and keyboard navigation.
 - Run `git diff --check` and inspect the staged diff. Document checks and limitations in the PR; no automated test suite is currently configured.
 - Keep these guides consistent with the project structure and workflow. Give respectful, specific feedback.

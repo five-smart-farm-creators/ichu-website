@@ -41,4 +41,6 @@ Publish the repository root to static hosting, preserving its folders. Configure
 
 Follow [CONTRIBUTING.md](CONTRIBUTING.md) for Gitflow and contribution steps. Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
 
-Maintained by [Five Smart Farm Creators](https://github.com/five-smart-farm-creators). A project license has not yet been specified.
+Maintained by [Five Smart Farm Creators](https://github.com/five-smart-farm-creators).
+
+Proprietary software. See [LICENSE.md](LICENSE.md) for terms.
