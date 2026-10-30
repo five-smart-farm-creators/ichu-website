@@ -4,338 +4,324 @@
   if (!(await window.ICHU_PARTIALS_READY)) return;
   if (!(await window.ICHU_I18N_READY)) return;
 
-  /*
-    Use an international WhatsApp number with digits only
-    Replace the placeholder before enabling real contact requests
-  */
-  const WHATSAPP_NUMBER = '51900000000';
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const select = (selector, context = document) => context.querySelector(selector);
+  const selectAll = (selector, context = document) => [...context.querySelectorAll(selector)];
+  const translations = window.ICHU_I18N;
 
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $ = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
-  const I18N = window.ICHU_I18N;
-  const t = (key, values) => I18N.t(key, values);
-
-  // Keep section links local on the home page and point other pages back to it
-  const pageName = document.body.dataset.page || 'home';
-  const siteTop = $('#siteTop');
-  if (siteTop) siteTop.classList.toggle('solid', pageName !== 'home');
-  $$('[data-home-anchor]').forEach((link) => {
-    if (pageName === 'home') link.setAttribute('href', link.dataset.homeAnchor);
-  });
-  $$('[data-page-link]').forEach((link) => {
-    if (link.dataset.pageLink !== pageName) return;
-    link.classList.add('is-active');
-    link.setAttribute('aria-current', 'page');
-  });
-  $$('[data-page-group]').forEach((group) => {
-    if (group.dataset.pageGroup === pageName) group.classList.add('is-active');
-  });
-
-  // Collapse the utility bar once the page has scrolled
-  window.addEventListener('scroll', () => {
-    siteTop.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
-
-  // Keep the drawer state consistent with its accessibility attributes
-  const menuToggle = $('#menuToggle');
-  const drawer = $('#mobileDrawer');
-  const drawerOverlay = $('#drawerOverlay');
-  const closeDrawerBtn = $('#closeDrawer');
-  let lastFocused = null;
-
-  function openDrawer() {
-    lastFocused = document.activeElement;
-    drawer.classList.add('open');
-    drawerOverlay.classList.add('open');
-    drawer.setAttribute('aria-hidden', 'false');
-    menuToggle.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    const first = $('.drawer-link', drawer);
-    if (first) first.focus();
+  function setOverlayOpen(overlay, open) {
+    if (!overlay) return;
+    overlay.classList.toggle('open', open);
+    overlay.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = select('.mobile-drawer.open, .modal-overlay.open') ? 'hidden' : '';
   }
 
-  function closeDrawer() {
-    drawer.classList.remove('open');
-    drawerOverlay.classList.remove('open');
-    drawer.setAttribute('aria-hidden', 'true');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    if (lastFocused) lastFocused.focus();
-  }
-
-  menuToggle.addEventListener('click', openDrawer);
-  closeDrawerBtn.addEventListener('click', closeDrawer);
-  drawerOverlay.addEventListener('click', closeDrawer);
-  $$('a[href]', drawer).forEach((link) => link.addEventListener('click', closeDrawer));
-
-  // Close open submenus when interaction moves outside the navigation
-  const navDrops = $$('.nav-dropdown');
-  navDrops.forEach((drop) => {
-    const toggle = $('.nav-drop-toggle', drop);
-    if (!toggle) return;
-    const setOpen = (open) => {
-      drop.classList.toggle('is-open', open);
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    toggle.addEventListener('click', () => setOpen(!drop.classList.contains('is-open')));
-    $$('.nav-drop-menu a', drop).forEach((a) => a.addEventListener('click', () => setOpen(false)));
-  });
-  if (navDrops.length) {
-    const closeAllDrops = () => {
-      navDrops.forEach((drop) => {
-        drop.classList.remove('is-open');
-        const toggle = $('.nav-drop-toggle', drop);
-        if (toggle) toggle.setAttribute('aria-expanded', 'false');
-      });
-    };
-    document.addEventListener('click', (e) => {
-      if (!navDrops.some((drop) => drop.contains(e.target))) closeAllDrops();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAllDrops();
-    });
-  }
-
-  // Keep video playback aligned with theme visibility and motion preferences
-  const whoVideo = $('#whoVideo');
-  let whoVideoVisible = !('IntersectionObserver' in window);
-  function syncWhoVideo(theme) {
-    if (!whoVideo) return;
-    if (theme !== 'night' || prefersReduced || !whoVideoVisible) {
-      whoVideo.pause();
+  function observeOnce(elements, onVisible, options) {
+    if (!elements.length) return;
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      elements.forEach(onVisible);
       return;
     }
-    const playRequest = whoVideo.play();
-    if (playRequest && typeof playRequest.catch === 'function') playRequest.catch(() => {});
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        onVisible(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, options);
+    elements.forEach(element => observer.observe(element));
   }
 
-  const themeToggle = $('#themeToggle');
-  if (themeToggle) {
-    const applyTheme = (theme) => {
-      document.documentElement.setAttribute('data-theme', theme);
-      themeToggle.setAttribute('aria-pressed', theme === 'night' ? 'true' : 'false');
-      themeToggle.setAttribute('aria-label', theme === 'night'
-        ? t('common.theme.switchToDay')
-        : t('common.theme.switchToNight'));
-      syncWhoVideo(theme);
-    };
-    let theme = 'day';
-    try {
-      theme = document.documentElement.getAttribute('data-theme') === 'night' ? 'night' : 'day';
-    } catch (e) {
-      // Keep the default theme if the current theme cannot be read
+  function initializeNavigation() {
+    // Keep section links local on the home page and point other pages back to it
+    const pageName = document.body.dataset.page || 'home';
+    const siteTop = select('#siteTop');
+    if (siteTop) siteTop.classList.toggle('solid', pageName !== 'home');
+    selectAll('[data-home-anchor]').forEach((link) => {
+      if (pageName === 'home') link.setAttribute('href', link.dataset.homeAnchor);
+    });
+    selectAll('[data-page-link]').forEach((link) => {
+      if (link.dataset.pageLink !== pageName) return;
+      link.classList.add('is-active');
+      link.setAttribute('aria-current', 'page');
+    });
+    selectAll('[data-page-group]').forEach((group) => {
+      if (group.dataset.pageGroup === pageName) group.classList.add('is-active');
+    });
+
+    // Collapse the utility bar once the page has scrolled
+    window.addEventListener('scroll', () => {
+      siteTop?.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    const menuToggle = select('#menuToggle');
+    const drawer = select('#mobileDrawer');
+    const drawerOverlay = select('#drawerOverlay');
+    const closeDrawerButton = select('#closeDrawer');
+    let lastFocused = null;
+
+    function setDrawerOpen(open) {
+      if (open) lastFocused = document.activeElement;
+      setOverlayOpen(drawer, open);
+      drawerOverlay.classList.toggle('open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      if (open) select('.drawer-link', drawer)?.focus();
+      else lastFocused?.focus();
     }
-    applyTheme(theme);
-    document.addEventListener('ichu:languagechange', () => applyTheme(theme));
-    themeToggle.addEventListener('click', () => {
-      theme = theme === 'night' ? 'day' : 'night';
+
+    const closeDrawer = () => setDrawerOpen(false);
+    menuToggle.addEventListener('click', () => setDrawerOpen(true));
+    closeDrawerButton.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+    selectAll('a[href]', drawer).forEach((link) => link.addEventListener('click', closeDrawer));
+
+    // Close open submenus when interaction moves outside the navigation
+    const dropdowns = selectAll('.nav-dropdown');
+    function setDropdownOpen(dropdown, open) {
+      dropdown.classList.toggle('is-open', open);
+      select('.nav-drop-toggle', dropdown)?.setAttribute('aria-expanded', String(open));
+    }
+    function closeDropdowns() {
+      dropdowns.forEach(dropdown => setDropdownOpen(dropdown, false));
+    }
+    dropdowns.forEach((dropdown) => {
+      select('.nav-drop-toggle', dropdown)?.addEventListener('click', () => {
+        setDropdownOpen(dropdown, !dropdown.classList.contains('is-open'));
+      });
+      selectAll('.nav-drop-menu a', dropdown).forEach((link) => {
+        link.addEventListener('click', () => setDropdownOpen(dropdown, false));
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (!dropdowns.some(dropdown => dropdown.contains(event.target))) closeDropdowns();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      closeDropdowns();
+      if (!select('.modal-overlay.open') && drawer.classList.contains('open')) closeDrawer();
+    });
+  }
+
+  function initializeThemeAndVideo() {
+    // Keep video playback aligned with theme visibility and motion preferences
+    const whoVideo = select('#whoVideo');
+    let whoVideoVisible = !('IntersectionObserver' in window);
+    function syncWhoVideo(theme) {
+      if (!whoVideo) return;
+      if (theme !== 'night' || prefersReducedMotion || !whoVideoVisible) {
+        whoVideo.pause();
+        return;
+      }
+      const playRequest = whoVideo.play();
+      if (playRequest && typeof playRequest.catch === 'function') playRequest.catch(() => {});
+    }
+
+    const themeToggle = select('#themeToggle');
+    if (themeToggle) {
+      const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        themeToggle.setAttribute('aria-pressed', theme === 'night' ? 'true' : 'false');
+        themeToggle.setAttribute('aria-label', theme === 'night'
+          ? translations.t('common.theme.switchToDay')
+          : translations.t('common.theme.switchToNight'));
+        syncWhoVideo(theme);
+      };
+      let theme = document.documentElement.getAttribute('data-theme') === 'night' ? 'night' : 'day';
       applyTheme(theme);
-      try { localStorage.setItem('ichu-theme', theme); } catch (e) {
-        // Keep the selected theme active when storage is unavailable
-      }
-    });
-  }
-  if (whoVideo && 'IntersectionObserver' in window) {
-    const videoSection = whoVideo.closest('.who-photo') || whoVideo;
-    const whoVideoObserver = new IntersectionObserver((entries) => {
-      whoVideoVisible = entries.some((entry) => entry.isIntersecting);
-      syncWhoVideo(document.documentElement.getAttribute('data-theme'));
-    }, { threshold: 0.15 });
-    whoVideoObserver.observe(videoSection);
-  }
-
-  // Respect reduced motion even when autoplay is declared in the markup
-  const heroVideo = $('#heroVideo');
-  if (heroVideo && prefersReduced) {
-    heroVideo.removeAttribute('autoplay');
-    heroVideo.pause();
-  }
-
-  // Keep content visible when animations are disabled or observation is unavailable
-  const revealEls = $$('.reveal');
-  if (prefersReduced || !('IntersectionObserver' in window)) {
-    revealEls.forEach((el) => el.classList.add('in'));
-  } else {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
+      document.addEventListener('ichu:languagechange', () => applyTheme(theme));
+      themeToggle.addEventListener('click', () => {
+        theme = theme === 'night' ? 'day' : 'night';
+        applyTheme(theme);
+        try { localStorage.setItem('ichu-theme', theme); } catch (error) {
+          // Keep the selected theme active when storage is unavailable
+        }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
-    revealEls.forEach((el) => revealObserver.observe(el));
+    }
+    if (whoVideo && 'IntersectionObserver' in window) {
+      const videoSection = whoVideo.closest('.who-photo') || whoVideo;
+      const whoVideoObserver = new IntersectionObserver((entries) => {
+        whoVideoVisible = entries.some((entry) => entry.isIntersecting);
+        syncWhoVideo(document.documentElement.getAttribute('data-theme'));
+      }, { threshold: 0.15 });
+      whoVideoObserver.observe(videoSection);
+    }
+
+    // Respect reduced motion even when autoplay is declared in the markup
+    const heroVideo = select('#heroVideo');
+    if (heroVideo && prefersReducedMotion) {
+      heroVideo.removeAttribute('autoplay');
+      heroVideo.pause();
+    }
   }
 
-  // Observe each counter only until its first animation
-  const counters = $$('.stat-value[data-count]');
+  function initializeAnimations() {
+    const revealElements = selectAll('.reveal');
+    observeOnce(revealElements, element => element.classList.add('in'), {
+      threshold: 0.12, rootMargin: '0px 0px -30px 0px',
+    });
 
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.count, 10);
-    const suffix = el.dataset.suffix || '';
-    const renderCount = value => {
-      el.dataset.currentCount = String(value);
-      el.textContent = `${I18N.formatNumber(value)}${suffix}`;
-    };
-    if (prefersReduced) {
-      renderCount(target);
-      return;
+    const counters = selectAll('.stat-value[data-count]');
+
+    function renderCounter(counter, value = Number(counter.dataset.currentCount)) {
+      counter.dataset.currentCount = String(value);
+      counter.textContent = `${translations.formatNumber(value)}${counter.dataset.suffix || ''}`;
     }
-    const duration = 1400;
-    const start = performance.now();
-    function tick(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      renderCount(Math.round(target * eased));
-      if (progress < 1) requestAnimationFrame(tick);
+
+    function animateCounter(counter) {
+      const target = Number(counter.dataset.count);
+      if (prefersReducedMotion) {
+        renderCounter(counter, target);
+        return;
+      }
+      const duration = 1400;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        renderCounter(counter, Math.round(target * eased));
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
     }
-    requestAnimationFrame(tick);
+
+    observeOnce(counters, animateCounter, { threshold: 0.5 });
+    document.addEventListener('ichu:languagechange', () => {
+      counters.filter(counter => counter.dataset.currentCount !== undefined)
+        .forEach(counter => renderCounter(counter));
+    });
   }
 
-  if ('IntersectionObserver' in window) {
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
+  function initializeChat() {
+    const phoneChat = select('#phoneChat');
+    if (!phoneChat) return null;
+    const phoneInput = select('#phoneInput');
+    const phoneSend = select('#phoneSend');
+    const chips = selectAll('.chip');
+    const chatTopics = ['devices', 'veterinarian', 'farmer'];
+
+    function appendMessage(element) {
+      phoneChat.appendChild(element);
+      phoneChat.scrollTop = phoneChat.scrollHeight;
+    }
+
+    function addBubble(text, type, values = {}) {
+      const bubble = document.createElement('div');
+      bubble.className = `bubble ${type}`;
+      const paragraph = document.createElement('p');
+      // Preserve user input when the interface language changes
+      if (type === 'out' && !Object.keys(values).length) {
+        paragraph.setAttribute('data-i18n-skip', '');
+        paragraph.textContent = text;
+      } else {
+        translations.setText(paragraph, text, values);
+      }
+      const now = new Date();
+      const time = document.createElement('time');
+      time.className = 'bubble-time';
+      time.dateTime = now.toISOString();
+      time.dataset.localeTime = time.dateTime;
+      time.textContent = translations.formatTime(now);
+      bubble.append(paragraph, time);
+      appendMessage(bubble);
+    }
+
+    function reply(text, values = {}) {
+      if (prefersReducedMotion) {
+        addBubble(text, 'in', values);
+        return;
+      }
+      const typing = document.createElement('div');
+      typing.className = 'bubble in typing';
+      translations.setText(typing, 'home.contact.chat.typingIndicator');
+      appendMessage(typing);
+      // Translate delayed replies when they appear using the current language
+      setTimeout(() => {
+        typing.remove();
+        addBubble(text, 'in', values);
+      }, 1100);
+    }
+
+    function respond(text, selectedTopic) {
+      const topic = chatTopics.includes(selectedTopic)
+        ? selectedTopic
+        : chatTopics.find(candidate => translations.matchesTopic(text, candidate));
+      addBubble(text, 'out');
+      reply(`home.contact.chat.responses.${topic || 'fallback'}`);
+    }
+
+    function handleUserMessage() {
+      const message = phoneInput.value.trim();
+      if (!message) return;
+      phoneInput.value = '';
+      respond(message);
+    }
+
+    if (phoneSend && phoneInput) {
+      phoneSend.addEventListener('click', handleUserMessage);
+      phoneInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          handleUserMessage();
+        }
       });
-    }, { threshold: 0.5 });
-    counters.forEach((el) => counterObserver.observe(el));
-  } else {
-    counters.forEach(animateCounter);
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        respond(translations.t(chip.dataset.msgKey), chip.dataset.topic);
+      });
+    });
+
+    return { addBubble, reply };
   }
-  document.addEventListener('ichu:languagechange', () => {
-    counters.forEach((counter) => {
-      if (counter.dataset.currentCount !== undefined) {
-        const suffix = counter.dataset.suffix || '';
-        counter.textContent = `${I18N.formatNumber(Number(counter.dataset.currentCount))}${suffix}`;
+
+  function initializeContactForm(chat) {
+    /*
+      Replace the placeholder with the team number before enabling real contact requests
+      Opening WhatsApp does not confirm delivery of the prepared message
+    */
+    const whatsappNumber = '51900000000';
+
+    const form = select('#demoForm');
+    if (!form) return;
+    const modal = select('#demoModal');
+    const closeModalButton = select('#closeModal');
+
+    function setError(id, message) {
+      const input = select(`#${id}`);
+      const errorElement = select(`#err-${id}`);
+      input.classList.toggle('is-invalid', Boolean(message));
+      input.setAttribute('aria-invalid', message ? 'true' : 'false');
+      if (errorElement) {
+        if (message) translations.setText(errorElement, message);
+        else translations.clearText(errorElement);
       }
-    });
-  });
-
-  // Keep the chat illustrative and render messages as plain text
-  const phoneChat = $('#phoneChat');
-  const phoneInput = $('#phoneInput');
-  const phoneSend = $('#phoneSend');
-  const chips = $$('.chip');
-  const chatTopics = ['devices', 'veterinarian', 'farmer'];
-
-  function addBubble(text, type, values = {}) {
-    const bubble = document.createElement('div');
-    bubble.className = `bubble ${type}`;
-    const p = document.createElement('p');
-    // Preserve user input when the interface language changes
-    if (type === 'out' && !Object.keys(values).length) {
-      p.setAttribute('data-i18n-skip', '');
-      p.textContent = text;
-    } else {
-      I18N.setText(p, text, values);
     }
-    const now = new Date();
-    const time = document.createElement('time');
-    time.className = 'bubble-time';
-    time.dateTime = now.toISOString();
-    time.dataset.localeTime = now.toISOString();
-    time.textContent = I18N.formatTime(now);
-    bubble.append(p, time);
-    phoneChat.appendChild(bubble);
-    phoneChat.scrollTop = phoneChat.scrollHeight;
-  }
 
-  function reply(text, values = {}) {
-    if (prefersReduced) {
-      addBubble(text, 'in', values);
-      return;
+    function isValidPhoneNumber(value) {
+      const phoneNumber = value.trim();
+      const digits = phoneNumber.replace(/\D/g, '');
+      return /^\+?[\d\s()-]+$/.test(phoneNumber) && /^\d{6,15}$/.test(digits);
     }
-    const typing = document.createElement('div');
-    typing.className = 'bubble in typing';
-    I18N.setText(typing, 'home.contact.chat.typingIndicator');
-    phoneChat.appendChild(typing);
-    phoneChat.scrollTop = phoneChat.scrollHeight;
-    // Translate delayed replies when they appear using the current language
-    setTimeout(() => {
-      typing.remove();
-      addBubble(text, 'in', values);
-    }, 1100);
-  }
 
-  function botResponse(text, selectedTopic) {
-    const topic = chatTopics.includes(selectedTopic)
-      ? selectedTopic
-      : chatTopics.find(candidate => I18N.matchesTopic(text, candidate));
-    return `home.contact.chat.responses.${topic || 'fallback'}`;
-  }
-
-  function handleUserMessage() {
-    const message = phoneInput.value.trim();
-    if (!message) return;
-    addBubble(message, 'out');
-    phoneInput.value = '';
-    reply(botResponse(message));
-  }
-
-  if (phoneSend && phoneInput) {
-    phoneSend.addEventListener('click', handleUserMessage);
-    phoneInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        handleUserMessage();
-      }
-    });
-  }
-
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const message = t(chip.dataset.msgKey);
-      addBubble(message, 'out');
-      reply(botResponse(message, chip.dataset.topic));
-    });
-  });
-
-  /*
-    Validate the request before preparing the WhatsApp message
-    Opening WhatsApp does not confirm that a message was sent
-  */
-  const form = $('#demoForm');
-  const modal = $('#demoModal');
-  const closeModalBtn = $('#closeModal');
-
-  function setError(id, message) {
-    const input = $(`#${id}`);
-    const errorEl = $(`#err-${id}`);
-    input.classList.toggle('is-invalid', Boolean(message));
-    input.setAttribute('aria-invalid', message ? 'true' : 'false');
-    if (errorEl) {
-      if (message) I18N.setText(errorEl, message);
-      else I18N.clearText(errorEl);
+    function validateForm(data) {
+      let firstInvalid = null;
+      const rules = {
+        firstName: data.firstName.trim() ? '' : 'home.contact.form.validation.firstNameRequired',
+        lastName: data.lastName.trim() ? '' : 'home.contact.form.validation.lastNameRequired',
+        email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim()) ? '' : 'home.contact.form.validation.emailInvalid',
+        phoneNumber: isValidPhoneNumber(data.phoneNumber) ? '' : 'home.contact.form.validation.phoneInvalid',
+        userType: data.userType ? '' : 'home.contact.form.validation.profileRequired',
+      };
+      Object.entries(rules).forEach(([field, message]) => {
+        setError(field, message);
+        if (message && !firstInvalid) firstInvalid = select(`#${field}`);
+      });
+      return firstInvalid;
     }
-  }
 
-  function isValidPhoneNumber(value) {
-    const phoneNumber = value.trim();
-    const digits = phoneNumber.replace(/\D/g, '');
-    return /^\+?[\d\s()-]+$/.test(phoneNumber) && /^\d{6,15}$/.test(digits);
-  }
-
-  function validateForm(data) {
-    let firstInvalid = null;
-    const rules = {
-      firstName: data.firstName.trim() ? '' : 'home.contact.form.validation.firstNameRequired',
-      lastName: data.lastName.trim() ? '' : 'home.contact.form.validation.lastNameRequired',
-      email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim()) ? '' : 'home.contact.form.validation.emailInvalid',
-      phoneNumber: isValidPhoneNumber(data.phoneNumber) ? '' : 'home.contact.form.validation.phoneInvalid',
-      userType: data.userType ? '' : 'home.contact.form.validation.profileRequired',
-    };
-    Object.entries(rules).forEach(([field, message]) => {
-      setError(field, message);
-      if (message && !firstInvalid) firstInvalid = $(`#${field}`);
-    });
-    return firstInvalid;
-  }
-
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
       const data = Object.fromEntries(new FormData(form).entries());
       const firstInvalid = validateForm(data);
       if (firstInvalid) {
@@ -344,60 +330,47 @@
       }
 
       const lines = [
-        t('home.contact.whatsapp.introduction'),
-        `${t('home.contact.whatsapp.fields.name')}: ${data.firstName} ${data.lastName}`,
-        `${t('home.contact.whatsapp.fields.email')}: ${data.email}`,
-        `${t('home.contact.whatsapp.fields.phone')}: ${data.phoneNumber}`,
-        `${t('home.contact.whatsapp.fields.profile')}: ${t(`home.contact.form.profile.options.${data.userType}`)}`,
+        translations.t('home.contact.whatsapp.introduction'),
+        `${translations.t('home.contact.whatsapp.fields.name')}: ${data.firstName} ${data.lastName}`,
+        `${translations.t('home.contact.whatsapp.fields.email')}: ${data.email}`,
+        `${translations.t('home.contact.whatsapp.fields.phone')}: ${data.phoneNumber}`,
+        `${translations.t('home.contact.whatsapp.fields.profile')}: ${translations.t(`home.contact.form.profile.options.${data.userType}`)}`,
       ];
       if (data.message && data.message.trim()) {
-        lines.push(`${t('home.contact.whatsapp.fields.message')}: ${data.message.trim()}`);
+        lines.push(`${translations.t('home.contact.whatsapp.fields.message')}: ${data.message.trim()}`);
       }
 
       // Encode the complete message to keep user input within the query value
-      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
-      window.open(waUrl, '_blank', 'noopener');
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(whatsappUrl, '_blank', 'noopener');
 
-      if (modal) {
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        closeModalBtn.focus();
-      }
+      setOverlayOpen(modal, true);
+      closeModalButton?.focus();
       form.reset();
-      addBubble('home.contact.chat.responses.formRequest', 'out', { name: data.firstName });
-      reply('home.contact.chat.responses.formAcknowledgement', { name: data.firstName });
+      chat?.addBubble('home.contact.chat.responses.formRequest', 'out', { name: data.firstName });
+      chat?.reply('home.contact.chat.responses.formAcknowledgement', { name: data.firstName });
     });
 
     ['firstName', 'lastName', 'email', 'phoneNumber', 'userType'].forEach((id) => {
-      const input = $(`#${id}`);
+      const input = select(`#${id}`);
       input.addEventListener('input', () => setError(id, ''));
+    });
+
+    const closeModal = () => setOverlayOpen(modal, false);
+    if (closeModalButton) closeModalButton.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(); });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal?.classList.contains('open')) closeModal();
     });
   }
 
-  function closeModal() {
-    if (!modal) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-  if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-  if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  initializeNavigation();
+  initializeThemeAndVideo();
+  initializeAnimations();
+  initializeContactForm(initializeChat());
 
-  // Close the dialog before the drawer when handling Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    if (modal && modal.classList.contains('open')) {
-      closeModal();
-    } else if (drawer.classList.contains('open')) {
-      closeDrawer();
-    }
-  });
-
-  // Initialize icons and the year after the shared footer has loaded
-  if (window.lucide && typeof lucide.createIcons === 'function') {
-    lucide.createIcons();
-  }
-  const yearEl = $('#year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  window.lucide?.createIcons();
+  const yearElement = select('#year');
+  if (yearElement) yearElement.textContent = new Date().getFullYear();
 })();
