@@ -311,13 +311,19 @@
     }
   }
 
+  function isValidPhoneNumber(value) {
+    const phoneNumber = value.trim();
+    const digits = phoneNumber.replace(/\D/g, '');
+    return /^\+?[\d\s()-]+$/.test(phoneNumber) && /^\d{6,15}$/.test(digits);
+  }
+
   function validateForm(data) {
     let firstInvalid = null;
     const rules = {
       firstName: data.firstName.trim() ? '' : 'home.contact.form.validation.firstNameRequired',
       lastName: data.lastName.trim() ? '' : 'home.contact.form.validation.lastNameRequired',
       email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email.trim()) ? '' : 'home.contact.form.validation.emailInvalid',
-      phoneNumber: /^[+()\d\s-]{6,20}$/.test(data.phoneNumber.trim()) ? '' : 'home.contact.form.validation.phoneInvalid',
+      phoneNumber: isValidPhoneNumber(data.phoneNumber) ? '' : 'home.contact.form.validation.phoneInvalid',
       userType: data.userType ? '' : 'home.contact.form.validation.profileRequired',
     };
     Object.entries(rules).forEach(([field, message]) => {
