@@ -28,6 +28,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 
 ### Fixed
 
+- Page content remains visible when shared fragments, translations, or scripts fail to initialize.
 - The mobile contact action closes the menu and restores page scrolling.
 - Chat suggestions receive replies for their selected topic, including IoT sensors.
 - Phone validation rejects values without enough digits while accepting common separators.
