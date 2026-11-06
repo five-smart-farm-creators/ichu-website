@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const siteBaseUrl = new URL('../../', document.currentScript.src);
+  const siteBaseUrl = new URL('./', document.baseURI);
 
   async function loadPartial(placeholder) {
     const partialUrl = new URL(placeholder.dataset.include, siteBaseUrl);
