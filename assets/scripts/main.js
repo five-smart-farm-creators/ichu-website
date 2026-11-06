@@ -373,4 +373,5 @@
   window.lucide?.createIcons();
   const yearElement = select('#year');
   if (yearElement) yearElement.textContent = new Date().getFullYear();
+  document.documentElement.classList.add('reveal-ready');
 })();
