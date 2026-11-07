@@ -11,6 +11,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 - English and Spanish translations with a saved language preference.
 - A localized 404 page with recovery navigation and theme controls.
 - Contributor guidance and a proprietary license.
+- Commit message hook and Git Flow pull request checks to enforce branch and Conventional Commits conventions.
+- Git mailmap to unify contributor identities.
 
 ### Changed
 
@@ -20,6 +22,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 - English is the default language, with Spanish available through the language selector.
 - Translation resources use nested semantic keys in the root `locales/` directory.
 - Displayed times and numbers follow the selected locale.
+- Contribution guide aligned with the team's Git Flow, Conventional Commits and Semantic Versioning conventions.
 
 ### Removed
 
@@ -36,3 +39,4 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 - Narrow screens no longer show horizontal overflow in the audience sections.
 - The walkthrough and media pages have main headings with their existing appearance.
 - Translations load correctly on standalone pages and nested recovery URLs.
+- Every page includes a keywords meta tag for search engines.
