@@ -46,11 +46,14 @@ Keep HTML pages at the repository root. Put scripts in `assets/scripts/`, styles
 
 `main` contains published releases, while `develop` integrates planned work. Start routine changes from an updated `develop` branch and use a short, lowercase English branch name with hyphens. Do not commit directly to `main` or `develop`, or force-push shared branches.
 
-| Branch | Start from | Pull request target |
+| Branch | Branch from | Merge into |
 | --- | --- | --- |
-| `feature/`, `fix/`, `docs/`, `refactor/`, `chore/` | `develop` | `develop` |
-| `release/<version>` | `develop` | `main` and `develop` |
-| `hotfix/<description>` | `main` | `main` and `develop` |
+| `feature/<short-description>` | `develop` | `develop` (pull request) |
+| `bugfix/<short-description>` | `develop` | `develop` (pull request) |
+| `release/vX.Y.Z` | `develop` | `main` and back into `develop`; tag `vX.Y.Z` on `main` |
+| `hotfix/vX.Y.Z` | `main` | `main` and back into `develop`; tag `vX.Y.Z` on `main` |
+
+Never open a pull request from `develop` to `main`; releases always go through `release/vX.Y.Z`. Do not use other branch prefixes such as `fix/`, `docs/`, `refactor/`, `chore/`, or `audit/`.
 
 For example, create a feature branch with:
 
@@ -84,10 +87,33 @@ Use English [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0
 type(scope): short description
 ```
 
-For example: `fix(navigation): close the mobile menu`.
+For example: `fix(layout): close the mobile menu`.
+
+Commit messages must also follow these rules:
+
+- Use one of these types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, or `revert`.
+- Use `feat` only for new functionality. Use `docs` for documentation and diagram changes, and `chore` for changelog, version, or maintenance changes.
+- Write the summary in English, in the imperative mood, starting with a lowercase letter, without a trailing period. The header must not exceed 72 characters.
+- Use a scope in lowercase kebab-case that names the affected area. Allowed scopes: `home`, `how-it-works`, `media`, `layout`, `i18n`, `seo`, `assets`.
+- Do not use the default message of the GitHub web editor, such as `Update file.md`.
+
+Invalid examples:
+
+```text
+(Docs): Add user personas
+Update chapter02.md
+feat: add controllers.
+faet: add planning service
+```
 
 Before opening a pull request, review the staged diff and run `git diff --check`. Preview affected pages over HTTP and check relevant screen sizes, themes, languages, keyboard use, and browser errors. For visual changes, include screenshots. Open the PR against the target shown above, describe the change and checks performed, and request a teammate's review. Merge with a merge commit and delete the completed branch after integration.
 
 For release branches, merge the reviewed release into `main` and back into `develop`, then tag the released commit. Merge hotfixes into both `main` and `develop`, and include them in any active release branch.
 
 Update [CHANGELOG.md](CHANGELOG.md) under `Unreleased` when a change is notable. Follow [Gitflow](https://nvie.com/posts/a-successful-git-branching-model/) and [GitHub's contributor guidance](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
+
+## Enforcement
+
+- After cloning, run once: `git config core.hooksPath .githooks`. The `commit-msg` hook rejects invalid messages locally.
+- The `Git Flow checks` GitHub Actions workflow validates the branch name, the pull request target, and every commit message on pull requests to `main` and `develop`.
+- Configure Git with your real name and the email linked to your GitHub account (`git config user.name` and `git config user.email`). `.mailmap` maps previously used alternative identities.
