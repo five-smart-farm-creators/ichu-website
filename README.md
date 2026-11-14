@@ -37,7 +37,11 @@ Built with HTML, CSS, and vanilla JavaScript. No package installation or build s
 
 ## Deployment
 
-Publish the repository root to static hosting, preserving its folders. Configure the host to serve `404.html` with HTTP status `404` for missing pages. The recovery page assumes hosting at the domain root.
+Publish the repository root to static hosting, preserving its folders. Configure the host to serve `404.html` with HTTP status `404` for missing pages. The recovery page supports hosting at the domain root and this repository's GitHub Pages path (`/ichu-website/`), including nested missing URLs.
+
+For GitHub Pages, publish from the repository root and preserve the empty `.nojekyll` file. It disables Jekyll processing so shared fragments such as `partials/_header.html` and `partials/_footer.html` are published. Without those files, the header, footer, logos, translations, and icon initialization fail.
+
+The recovery page sets its base URL in a small inline bootstrap before loading styles and scripts. This is necessary because a missing nested URL cannot locate a relative bootstrap script. Its navigation behavior remains in `assets/scripts/main.js`, including a skip link that targets the requested page rather than the deployment base.
 
 ## Contributing
 
