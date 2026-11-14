@@ -454,21 +454,9 @@
         "heading": "Videos informativos de ICHU.",
         "introduction": "Recorridos por la plataforma y desde el terreno: fichas digitales, pastoreo y acompañamiento veterinario contados en video.",
         "story01": {
-          "imageCaption": "01 · Web",
-          "eyebrow": "Web · Recorrido del producto",
-          "title": "La plataforma, parte por parte.",
-          "description": "Descubre cómo ICHU convierte el registro diario en decisiones oportunas: de la ficha digital de cada ejemplar al mapa de pastoreo del hato completo.",
-          "benefit01": {
-            "listItem": "Ficha clínica y productiva por animal"
-          },
-          "benefit02": {
-            "listItem": "Mapa de lotes, aguadas y pastoreo"
-          },
-          "benefit03": {
-            "listItem": "Alertas tempranas en la app y el tablet"
-          },
-          "actionLabel": "Ver en YouTube",
-          "accessibleTitle": "Recorrido por la plataforma ICHU (video de ejemplo)"
+          "title": "Sobre el equipo",
+          "description": "El equipo de ICHU grabará un video sobre cómo organizamos el trabajo, cómo colaboramos y cómo usamos metodologías como Scrum y Lean. En entrevistas retrospectivas, cada integrante compartirá su experiencia y lo que aprendió durante el proyecto.",
+          "actionLabel": "Ver en YouTube"
         },
         "story02": {
           "imageCaption": "02 · Medios",
