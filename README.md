@@ -39,6 +39,8 @@ Built with HTML, CSS, and vanilla JavaScript. No package installation or build s
 
 Publish the repository root to static hosting, preserving its folders. Configure the host to serve `404.html` with HTTP status `404` for missing pages. The recovery page assumes hosting at the domain root.
 
+For GitHub Pages, publish from the repository root and preserve the empty `.nojekyll` file. It disables Jekyll processing so shared fragments such as `partials/_header.html` and `partials/_footer.html` are published. Without those files, the header, footer, logos, translations, and icon initialization fail.
+
 ## Contributing
 
 Follow [CONTRIBUTING.md](CONTRIBUTING.md) for Gitflow and contribution steps. Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).
