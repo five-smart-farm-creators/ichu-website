@@ -41,6 +41,8 @@ Publish the repository root to static hosting, preserving its folders. Configure
 
 For GitHub Pages, publish from the repository root and preserve the empty `.nojekyll` file. It disables Jekyll processing so shared fragments such as `partials/_header.html` and `partials/_footer.html` are published. Without those files, the header, footer, logos, translations, and icon initialization fail.
 
+The recovery page sets its base URL in a small inline bootstrap before loading styles and scripts. This is necessary because a missing nested URL cannot locate a relative bootstrap script. Its navigation behavior remains in `assets/scripts/main.js`, including a skip link that targets the requested page rather than the deployment base.
+
 ## Contributing
 
 Follow [CONTRIBUTING.md](CONTRIBUTING.md) for Gitflow and contribution steps. Report problems or discuss larger changes in [Issues](https://github.com/five-smart-farm-creators/ichu-website/issues).

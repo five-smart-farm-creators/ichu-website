@@ -10,13 +10,11 @@
   <title data-i18n="notFound.pageTitle">Page not found — ICHU</title>
   <base href="/">
   <script>
-    // Resolve assets before loading them, even on nested GitHub Pages recovery URLs.
-    if (location.hostname.endsWith('.github.io') && location.pathname.startsWith('/ichu-website/')) {
-      document.querySelector('base').href = '/ichu-website/';
+    // Set the base inline before the browser resolves stylesheet and script URLs.
+    const githubProjectPath = '/ichu-website/';
+    if (location.hostname.endsWith('.github.io') && location.pathname.startsWith(githubProjectPath)) {
+      document.querySelector('base').href = githubProjectPath;
     }
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.skip-link').href = new URL('#main', location.href).href;
-    });
   </script>
   <link rel="icon" type="image/png" href="assets/images/brand/ichu-monogram.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
