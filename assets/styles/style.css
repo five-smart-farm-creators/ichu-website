@@ -822,7 +822,8 @@ p { color: var(--ink-500); }
   color: var(--forest-700);
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
-.media-link:hover { background: var(--forest-700); color: var(--cream-text); transform: translateY(-2px); }
+.media-link:not(:disabled):hover { background: var(--forest-700); color: var(--cream-text); transform: translateY(-2px); }
+.media-link:disabled { background: transparent; opacity: 0.65; }
 .media-link svg { width: 16px; height: 16px; }
 
 .problem-section  { background: var(--cream-100); }
