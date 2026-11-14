@@ -1,6 +1,12 @@
 // Initialize page interactions after shared markup and translations are ready
 (async () => {
   'use strict';
+
+  // Keep skip links on the requested page when the recovery page changes its base URL.
+  const skipLink = document.querySelector('.skip-link');
+  const skipTarget = skipLink?.getAttribute('href');
+  if (skipTarget?.startsWith('#')) skipLink.href = new URL(skipTarget, location.href).href;
+
   if (!(await window.ICHU_PARTIALS_READY)) return;
   if (!(await window.ICHU_I18N_READY)) return;
 
