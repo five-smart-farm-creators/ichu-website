@@ -459,21 +459,9 @@
           "actionLabel": "Watch on YouTube"
         },
         "story02": {
-          "imageCaption": "02 · Media",
-          "eyebrow": "Media · Field stories",
-          "title": "The countryside, in image and voice.",
-          "description": "Interviews, veterinary visits and the daily life of those who run their herd on ICHU. Real stories from the pasture.",
-          "benefit01": {
-            "listItem": "Interviews with farmers and veterinarians"
-          },
-          "benefit02": {
-            "listItem": "Real field visits and farm days"
-          },
-          "benefit03": {
-            "listItem": "Health & handling tips"
-          },
-          "actionLabel": "Watch on YouTube",
-          "accessibleTitle": "Field stories with ICHU sample video"
+          "title": "About the Product",
+          "description": "A short video introducing ICHU and showing how its smart collar and platform help farmers monitor their herd.",
+          "actionLabel": "Watch on YouTube"
         }
       },
       "metadata": {
