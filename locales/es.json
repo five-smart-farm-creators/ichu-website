@@ -459,21 +459,9 @@
           "actionLabel": "Ver en YouTube"
         },
         "story02": {
-          "imageCaption": "02 · Medios",
-          "eyebrow": "Media · Historias del campo",
-          "title": "El campo, en imagen y en voz.",
-          "description": "Entrevistas, jornadas veterinarias y el día a día de quienes llevan su hato en ICHU. Historias reales desde el potrero.",
-          "benefit01": {
-            "listItem": "Entrevistas a ganaderos y veterinarios"
-          },
-          "benefit02": {
-            "listItem": "Visitas y jornadas de campo reales"
-          },
-          "benefit03": {
-            "listItem": "Tips sanitarios y de manejo"
-          },
-          "actionLabel": "Ver en YouTube",
-          "accessibleTitle": "Historias del campo con ICHU (video de ejemplo)"
+          "title": "Sobre el producto",
+          "description": "Un video breve que presenta ICHU y muestra cómo su collar inteligente y su plataforma ayudan a los ganaderos a monitorear su hato.",
+          "actionLabel": "Ver en YouTube"
         }
       },
       "metadata": {
