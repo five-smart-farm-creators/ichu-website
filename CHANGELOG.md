@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 
 ## Unreleased
 
+## [0.1.3] - 2026-11-15
+
+### Changed
+
+- The home hero call to action now links directly to the ICHU web app.
+
 ## [0.1.2] - 2026-11-15
 
 ### Added
