@@ -6,6 +6,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Cha
 
 ## Unreleased
 
+## [0.1.2] - 2026-11-15
+
+### Added
+
+- SharePoint playback links for the About the Team and About the Product videos, with English and Spanish labels.
+
 ## [0.1.1] - 2026-11-14
 
 ### Fixed

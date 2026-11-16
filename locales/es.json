@@ -454,38 +454,16 @@
         "heading": "Videos informativos de ICHU.",
         "introduction": "Recorridos por la plataforma y desde el terreno: fichas digitales, pastoreo y acompañamiento veterinario contados en video.",
         "story01": {
-          "imageCaption": "01 · Web",
-          "eyebrow": "Web · Recorrido del producto",
-          "title": "La plataforma, parte por parte.",
-          "description": "Descubre cómo ICHU convierte el registro diario en decisiones oportunas: de la ficha digital de cada ejemplar al mapa de pastoreo del hato completo.",
-          "benefit01": {
-            "listItem": "Ficha clínica y productiva por animal"
-          },
-          "benefit02": {
-            "listItem": "Mapa de lotes, aguadas y pastoreo"
-          },
-          "benefit03": {
-            "listItem": "Alertas tempranas en la app y el tablet"
-          },
-          "actionLabel": "Ver en YouTube",
-          "accessibleTitle": "Recorrido por la plataforma ICHU (video de ejemplo)"
+          "title": "Sobre el equipo",
+          "description": "Conoce al equipo de ICHU y descubre cómo organizamos el trabajo, colaboramos y aplicamos enfoques como Scrum y Lean.",
+          "frameLabel": "Reproducir en SharePoint el video Sobre el equipo",
+          "actionLabel": "Ver video en SharePoint"
         },
         "story02": {
-          "imageCaption": "02 · Medios",
-          "eyebrow": "Media · Historias del campo",
-          "title": "El campo, en imagen y en voz.",
-          "description": "Entrevistas, jornadas veterinarias y el día a día de quienes llevan su hato en ICHU. Historias reales desde el potrero.",
-          "benefit01": {
-            "listItem": "Entrevistas a ganaderos y veterinarios"
-          },
-          "benefit02": {
-            "listItem": "Visitas y jornadas de campo reales"
-          },
-          "benefit03": {
-            "listItem": "Tips sanitarios y de manejo"
-          },
-          "actionLabel": "Ver en YouTube",
-          "accessibleTitle": "Historias del campo con ICHU (video de ejemplo)"
+          "title": "Sobre el producto",
+          "description": "Un video breve que presenta ICHU y muestra cómo su collar inteligente y su plataforma ayudan a los ganaderos a monitorear su hato.",
+          "frameLabel": "Reproducir en SharePoint el video Sobre el producto",
+          "actionLabel": "Ver video en SharePoint"
         }
       },
       "metadata": {
