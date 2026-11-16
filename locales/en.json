@@ -455,13 +455,15 @@
         "introduction": "Walkthroughs of the platform and from the field: digital records, grazing and veterinary support told through video.",
         "story01": {
           "title": "About the Team",
-          "description": "The ICHU team will film a video about how we organized our work, collaborated, and used approaches such as Scrum and Lean. In retrospective interviews, each team member will share what they experienced and learned during the project.",
-          "actionLabel": "Watch on YouTube"
+          "description": "Meet the ICHU team and hear how we organized our work, collaborated, and applied approaches such as Scrum and Lean.",
+          "frameLabel": "Play the About the Team video on SharePoint",
+          "actionLabel": "Watch video on SharePoint"
         },
         "story02": {
           "title": "About the Product",
           "description": "A short video introducing ICHU and showing how its smart collar and platform help farmers monitor their herd.",
-          "actionLabel": "Watch on YouTube"
+          "frameLabel": "Play the About the Product video on SharePoint",
+          "actionLabel": "Watch video on SharePoint"
         }
       },
       "metadata": {
